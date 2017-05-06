@@ -11,6 +11,6 @@ class Client_invoice_item extends Model
 
     public function invoice()
     {
-        return $this->hasOne(Client_invoice::class);
+        return $this->belongsTo(Client_invoice::class);
     }
 }

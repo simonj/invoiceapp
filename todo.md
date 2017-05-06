@@ -7,8 +7,8 @@
     * Email service.
 
 * invoice
-    * Pay page.
-        * Stripe integration.
+    * Pay page - DONE
+        * Stripe integration - in progress.
     * Edit invoice
     * Mark as paid
     * Missing firm logo on preview page.

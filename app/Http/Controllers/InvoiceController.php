@@ -121,7 +121,9 @@ class InvoiceController extends Controller
 
     public function pay($reference_key)
     {
-        dd($reference_key);
+        $invoice = Client_invoice::with('items')->whereReferenceKey($reference_key)->first();
+
+        return view('invoices.pay', compact('invoice'));
     }
 
     /**
@@ -134,6 +136,9 @@ class InvoiceController extends Controller
     public function destroy($id)
     {
         // Find invoice and all it's items.
+
+        // Send mail to client.
+
         return response()->json(['success' => true]);
     }
 }

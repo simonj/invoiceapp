@@ -11,6 +11,8 @@
 |
 */
 
+use App\Client_invoice;
+
 Route::get('/', 'WelcomeController@show');
 
 Route::get('/home', 'HomeController@show');
@@ -28,9 +30,13 @@ Route::get('invoices/{reference_id}/pay', 'InvoiceController@pay');
 Route::get('fetchInvoices', 'InvoiceController@fetchInvoices');
 Route::post('invoices/validateInvoice', 'InvoiceController@validateInvoice');
 
-Route::post('charge', function () {
-    // Set your secret key: remember to change this to your live secret key in production
-    // See your keys here: https://dashboard.stripe.com/account/apikeys
+Route::post('charge', function (Illuminate\Http\Request $request) {
+
+    // Find invoice by reference key.
+    $invoice = Client_invoice::whereReferenceKey($request->reference_key)->first();
+
+//     Set your secret key: remember to change this to your live secret key in production
+//     See your keys here: https://dashboard.stripe.com/account/apikeys
     \Stripe\Stripe::setApiKey("sk_test_BXSPQ4kmTwwBazTOTuPi8NM1");
 
     // Token is created using Stripe.js or Checkout!
@@ -39,9 +45,19 @@ Route::post('charge', function () {
 
     // Charge the user's card:
     $charge = \Stripe\Charge::create([
-        "amount"      => 1000,
-        "currency"    => "dkk",
-        "description" => "Example charge",
+        "amount"      => $invoice->amount,
+        "currency"    => "usd",
+        "description" => 'Invoice #'. $invoice->reference_key .' paid',
         "source"      => $token,
     ]);
+
+    // Update invoice status.
+    $invoice->paid = true;
+    $invoice->status = 'paid';
+    $invoice->save();
+
+    flash('Invice has been paid')->success();
+
+    return back();
+
 });

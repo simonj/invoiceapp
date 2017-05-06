@@ -28,6 +28,7 @@
     </script>
 </head>
 <body class="with-navbar">
+
     <div id="spark-app" v-cloak>
         <!-- Navigation -->
         @if (Auth::check())

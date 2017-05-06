@@ -11,8 +11,6 @@
 |
 */
 
-use App\Http\Controllers\InvoiceController;
-
 Route::get('/', 'WelcomeController@show');
 
 Route::get('/home', 'HomeController@show');
@@ -25,9 +23,7 @@ Route::delete('/clients/{id}', 'ClientController@destroy');
 Route::get('loadClients', 'ClientController@loadClients');
 
 // Invoices
-Route::get('invoices', 'InvoiceController@index');
-Route::get('invoices/{reference_id}/preview', 'InvoiceController@preview');
-Route::post('invoices/send', 'InvoiceController@send');
-Route::get('invoices/create', 'InvoiceController@create');
-Route::post('invoices/validateInvoice', 'InvoiceController@validateInvoice');
+Route::resource('invoices', 'InvoiceController');
+Route::get('invoices/{reference_id}/pay', 'InvoiceController@pay');
 Route::get('fetchInvoices', 'InvoiceController@fetchInvoices');
+Route::post('invoices/validateInvoice', 'InvoiceController@validateInvoice');

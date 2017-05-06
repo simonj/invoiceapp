@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Client_invoice;
 use App\Client_invoice_item;
+use App\Mail\InvoiceSent;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
 {
@@ -75,7 +78,7 @@ class InvoiceController extends Controller
             ]
         );
 
-        return 'works';
+        return response()->json(['success' => true]);
     }
 
     /**
@@ -83,10 +86,11 @@ class InvoiceController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      */
-    public function send(Request $request)
+    public function store(Request $request)
     {
         // Generate reference key.
         $reference_key = str_random(60);
+
 
         // Create invoice.
         $invoice = new Client_invoice;
@@ -101,31 +105,35 @@ class InvoiceController extends Controller
         $invoice->save();
 
         // Create invoice quantities.
-
         $items = $request->input('items');
 
-        $itemsData = [];
-        foreach ($items as $item) {
-            $itemsData[] = [
-                'client_invoice_id' => $invoice->id,
-                'quantity'          => $item['quantity'],
-                'description'       => $item['description'],
-                'price'             => $item['price'],
-                'created_at'        => Carbon::now()->toDateTimeString(),
-                'updated_at'        => Carbon::now()->toDateTimeString()
-            ];
-        }
+        $invoice->items()->createMany($items);
 
-        DB::table('client_invoice_items')->insert($itemsData);
+        $user = Auth::user();
+        $client = $request->client['contact_person'];
+        $items = $invoice->items()->get();
+
+
+        // Send email to client.
+        Mail::to($request->client['email'])->send(new InvoiceSent($user, $client, $invoice, $items));
+
+    }
+
+    public function pay($reference_key)
+    {
+        dd($reference_key);
     }
 
     /**
-     * Preview invoice.
+     * Remove the specified resource from storage.
      *
-     * @param $reference_id
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function preview($reference_id)
+    public function destroy($id)
     {
-        dd($reference_id);
+        // Find invoice and all it's items.
+        return response()->json(['success' => true]);
     }
 }

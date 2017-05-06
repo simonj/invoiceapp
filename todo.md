@@ -4,9 +4,11 @@
     * Add some sweetalert messages.
 * Layout setup.
 * Support setup.
+    * Email service.
 
 * invoice
-    * Send invoice - in progress
+    * Pay page.
+        * Stripe integration.
     * Edit invoice
     * Mark as paid
     * Missing firm logo on preview page.

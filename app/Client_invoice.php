@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Client_invoice extends Model
 {
 
-    protected $fillable = ['client_id', 'user_id', 'due_date', 'status', 'amount'];
+    protected $fillable = ['reference_key', 'client_id', 'user_id', 'due_date', 'status', 'notes', 'amount', 'paid'];
 
     public function user()
     {
@@ -21,6 +21,6 @@ class Client_invoice extends Model
 
     public function items()
     {
-        return $this->hasMany('App\Client_invoice_item', 'client_invoice_id');
+        return $this->hasMany(Client_invoice_item::class, 'client_invoice_id');
     }
 }

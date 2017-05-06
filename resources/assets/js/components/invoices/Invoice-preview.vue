@@ -28,7 +28,7 @@
                             </table>
                         </td>
                     </tr>
-                    <tr class="information">
+                    <tr class="information" v-show="item.client">
                         <td>
                             <table>
                                 <tbody>
@@ -118,11 +118,17 @@
              * Create & send invoice to customer.
              */
             send () {
-                Bus.$emit('invoicePreview', false);
-                Bus.$emit('invoiceCreate', false);
-                axios.post('/invoices/send', this.item).then(response => {
+                axios.post('/invoices', this.item).then(response => {
+                    console.log('response');
+                    console.log(response);
+
+                    Bus.$emit('invoicePreview', false);
+                    Bus.$emit('invoiceCreate', false);
+
                 })
                 .catch(error => {
+                    console.log('erro');
+                    console.log(error);
                 })
             },
 

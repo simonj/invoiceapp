@@ -7,11 +7,13 @@
     * Email service.
 
 * invoice
+    * Stripe integration.
     * Pay page - DONE
-        * Stripe integration - in progress.
+        * Stripe integration - DONE.
     * Edit invoice
-    * Mark as paid
+    * Mark as paid - DONE.
     * Missing firm logo on preview page.
+    * Create firm logo for invoice.
 * Email templates
     * Templates.
     * New password.

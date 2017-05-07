@@ -38,6 +38,12 @@
                                             <i class="fa fa-eye"></i>
                                         </button>
                                     </a>
+
+                                    <a target="_blank" :href.literal="`/invoices/${invoice.reference_key}/pay`">
+                                        <button class="btn btn-info-outline">
+                                            <i class="fa fa-external-link"></i>
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                             </tbody>
@@ -129,9 +135,9 @@
                 // set data for selected invoice.
                 this.form.amount = invoice.amount
                 this.form.client = invoice.clients
-                this.form.date = invoice.due_date
-                this.form.items = invoice.items
-                this.form.notes = invoice.notes
+                this.form.date   = invoice.due_date
+                this.form.items  = invoice.items
+                this.form.notes  = invoice.notes
 
                 // Show preview invoice template.
                 this.invoicePreview = true

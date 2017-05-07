@@ -21203,6 +21203,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -61409,6 +61415,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "btn btn-info-outline"
     }, [_c('i', {
       staticClass: "fa fa-eye"
+    })])]), _vm._v(" "), _c('a', {
+      attrs: {
+        "target": "_blank",
+        "href": ("/invoices/" + (invoice.reference_key) + "/pay")
+      }
+    }, [_c('button', {
+      staticClass: "btn btn-info-outline"
+    }, [_c('i', {
+      staticClass: "fa fa-external-link"
     })])])])])
   }))])])])])])])
 },staticRenderFns: []}

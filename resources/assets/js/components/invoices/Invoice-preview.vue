@@ -79,7 +79,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#"><i class="fa fa-download"></i> Download PDF</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="fa fa-dollar"></i> Invoice is paid</a></li>
+                            <li><a :href="`invoices/${item.reference_key}/markPaid`"><i class="fa fa-dollar"></i> Mark as paid</a></li>
                         </ul>
                     </div>
 

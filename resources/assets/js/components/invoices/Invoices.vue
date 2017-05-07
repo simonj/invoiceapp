@@ -40,8 +40,14 @@
                                     </a>
 
                                     <a target="_blank" :href.literal="`/invoices/${invoice.reference_key}/pay`">
-                                        <button class="btn btn-info-outline">
+                                        <button class="btn btn-success-outline">
                                             <i class="fa fa-external-link"></i>
+                                        </button>
+                                    </a>
+
+                                    <a @click.prevent="remove(invoice)" href="#">
+                                        <button class="btn btn-danger-outline">
+                                            <i class="fa fa-trash"></i>
                                         </button>
                                     </a>
                                 </td>
@@ -73,11 +79,12 @@
                 invoiceCreate : false,
                 invoicePreview: false,
                 form          : {
-                    client: {},
-                    notes : '',
-                    date  : '',
-                    items : [],
-                    amount: null
+                    client       : {},
+                    notes        : '',
+                    date         : '',
+                    items        : [],
+                    amount       : null,
+                    reference_key: ''
                 },
             };
         },
@@ -138,14 +145,45 @@
 
             preview (invoice) {
                 // set data for selected invoice.
-                this.form.amount = invoice.amount
-                this.form.client = invoice.clients
-                this.form.date   = invoice.due_date
-                this.form.items  = invoice.items
-                this.form.notes  = invoice.notes
+                this.form.amount        = invoice.amount
+                this.form.client        = invoice.clients
+                this.form.date          = invoice.due_date
+                this.form.items         = invoice.items
+                this.form.notes         = invoice.notes
+                this.form.reference_key = invoice.reference_key
 
                 // Show preview invoice template.
                 this.invoicePreview = true
+            },
+
+            remove(invoice) {
+
+                let that = this
+
+                swal({
+                    title             : "Are you sure?",
+                    text              : "You will not be able to recover this invoice!",
+                    type              : "warning",
+                    showCancelButton  : true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText : "Yes, delete it!",
+                    closeOnConfirm    : false,
+                    html              : false
+                }, function() {
+
+                    // Remove item from DOM.
+                    that.invoices.splice(invoice, 1);
+
+
+                    // Remove item from database.
+                    axios.delete('invoices/' + invoice.id).then(response => {
+                        swal("Deleted!", "Your invoice has been deleted.", "success");
+                    })
+                        .catch(error => {
+                            console.log('error');
+                            console.log(error);
+                        });
+                });
             }
 
         }

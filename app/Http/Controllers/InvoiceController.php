@@ -98,7 +98,7 @@ class InvoiceController extends Controller
         $invoice->client_id = $request->client['id'];
         $invoice->user_id = Auth::user()->id;
         $invoice->due_date = Carbon::parse($request->date);
-        $invoice->status = self::CREATED;
+        $invoice->status = self::SENT;
         $invoice->amount = $request->amount;
         $invoice->notes = $request->notes;
         $invoice->paid = 0;
@@ -126,6 +126,17 @@ class InvoiceController extends Controller
         return view('invoices.pay', compact('invoice'));
     }
 
+    public function markPaid($reference_key)
+    {
+        $invoice = Client_invoice::with('items')->whereReferenceKey($reference_key)->first();
+
+        $invoice->paid = true;
+        $invoice->status = self::PAID;
+        $invoice->save();
+
+        return back();
+    }
+
     /**
      * Charge clients credit card.
      *
@@ -138,8 +149,8 @@ class InvoiceController extends Controller
         // Find invoice by reference key.
         $invoice = Client_invoice::whereReferenceKey($request->reference_key)->first();
 
-//     Set your secret key: remember to change this to your live secret key in production
-//     See your keys here: https://dashboard.stripe.com/account/apikeys
+        // Set your secret key: remember to change this to your live secret key in production
+        // See your keys here: https://dashboard.stripe.com/account/apikeys
         \Stripe\Stripe::setApiKey("sk_test_BXSPQ4kmTwwBazTOTuPi8NM1");
 
         // Token is created using Stripe.js or Checkout!
@@ -174,7 +185,8 @@ class InvoiceController extends Controller
      */
     public function destroy($id)
     {
-        // Find invoice and all it's items.
+        // Delete invoice from database.
+        Client_invoice::destroy($id);
 
         // Send mail to client.
 

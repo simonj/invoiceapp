@@ -11,9 +11,12 @@
     * Pay page - DONE
         * Stripe integration - DONE.
     * Edit invoice
+        * Send new email.
     * Mark as paid - DONE.
     * Missing firm logo on preview page.
     * Create firm logo for invoice.
+    * Delete invoice.
+        * Change migration to delete all invoice items.
 * Email templates
     * Templates.
     * New password.

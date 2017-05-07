@@ -30,6 +30,7 @@ Route::get('invoices/{reference_id}/pay', 'InvoiceController@pay');
 Route::get('fetchInvoices', 'InvoiceController@fetchInvoices');
 Route::post('invoices/validateInvoice', 'InvoiceController@validateInvoice');
 Route::post('invoices/charge', 'InvoiceController@charge');
+Route::get('invoices/{reference_id}/markPaid', 'InvoiceController@markPaid');
 
 //Route::post('charge', function (Illuminate\Http\Request $request) {
 //

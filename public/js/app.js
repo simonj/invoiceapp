@@ -21209,6 +21209,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -21231,7 +21237,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 notes: '',
                 date: '',
                 items: [],
-                amount: null
+                amount: null,
+                reference_key: ''
             }
         };
     },
@@ -21297,9 +21304,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.form.date = invoice.due_date;
             this.form.items = invoice.items;
             this.form.notes = invoice.notes;
+            this.form.reference_key = invoice.reference_key;
 
             // Show preview invoice template.
             this.invoicePreview = true;
+        },
+        remove: function remove(invoice) {
+
+            var that = this;
+
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this invoice!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false,
+                html: false
+            }, function () {
+
+                // Remove item from DOM.
+                that.invoices.splice(invoice, 1);
+
+                // Remove item from database.
+                __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('invoices/' + invoice.id).then(function (response) {
+                    swal("Deleted!", "Your invoice has been deleted.", "success");
+                }).catch(function (error) {
+                    console.log('error');
+                    console.log(error);
+                });
+            });
         }
     }
 });
@@ -60962,7 +60997,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.send($event)
       }
     }
-  }, [_vm._v("Send invoice")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Send invoice")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('ul', {
+    staticClass: "dropdown-menu"
+  }, [_vm._m(2), _vm._v(" "), _c('li', {
+    staticClass: "divider",
+    attrs: {
+      "role": "separator"
+    }
+  }), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": ("invoices/" + (_vm.item.reference_key) + "/markPaid")
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-dollar"
+  }), _vm._v(" Mark as paid")])])])]), _vm._v(" "), _c('div', {
     staticClass: "clearfix"
   })])])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -60982,26 +61030,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "sr-only"
   }, [_vm._v("Toggle Dropdown")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('ul', {
-    staticClass: "dropdown-menu"
-  }, [_c('li', [_c('a', {
+  return _c('li', [_c('a', {
     attrs: {
       "href": "#"
     }
   }, [_c('i', {
     staticClass: "fa fa-download"
-  }), _vm._v(" Download PDF")])]), _vm._v(" "), _c('li', {
-    staticClass: "divider",
-    attrs: {
-      "role": "separator"
-    }
-  }), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_c('i', {
-    staticClass: "fa fa-dollar"
-  }), _vm._v(" Invoice is paid")])])])
+  }), _vm._v(" Download PDF")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -61425,9 +61460,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "href": ("/invoices/" + (invoice.reference_key) + "/pay")
       }
     }, [_c('button', {
-      staticClass: "btn btn-info-outline"
+      staticClass: "btn btn-success-outline"
     }, [_c('i', {
       staticClass: "fa fa-external-link"
+    })])]), _vm._v(" "), _c('a', {
+      attrs: {
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          $event.preventDefault();
+          _vm.remove(invoice)
+        }
+      }
+    }, [_c('button', {
+      staticClass: "btn btn-danger-outline"
+    }, [_c('i', {
+      staticClass: "fa fa-trash"
     })])])])])
   }))])])])])])])
 },staticRenderFns: []}

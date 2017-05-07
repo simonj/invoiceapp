@@ -29,7 +29,7 @@
                             </thead>
                             <tbody>
                             <tr v-for="invoice in invoices">
-                                <td><span class="label label-default">{{ invoice.status }}</span></td>
+                                <td><span class="label label" :class="invoiceStatus(invoice.status)">{{ invoice.status }}</span></td>
                                 <td class="text-center">{{ invoice.clients.company }}</td>
                                 <td class="text-center">{{ invoice.amount | currency }},-</td>
                                 <td class="text-center">
@@ -110,25 +110,30 @@
              */
             getInvoices() {
                 axios.get('fetchInvoices').then(response => {
-                    // Check status.
-                    // let label = null
 
-                    //
-                    // if(response.data.status === 'created') {
-                    //     label = 'label-info'
-                    // } else if(response.data.status === 'sent') {
-                    //     label = 'label-primary'
-                    // } else if(response.data.status === 'reminder') {
-                    //     label = 'label-warning'
-                    // } else if(response.data.status === 'paid') {
-                    //     label = 'label-success'
-                    // }
                     this.invoices = response.data
                 })
                     .catch(error => {
                         console.log('error');
                         console.log(error);
                     });
+            },
+
+            invoiceStatus(status) {
+                let label = null
+
+
+                if(status === 'created') {
+                    label = 'label-info'
+                } else if(status === 'sent') {
+                    label = 'label-primary'
+                } else if(status === 'reminder') {
+                    label = 'label-warning'
+                } else if(status === 'paid') {
+                    label = 'label-success'
+                }
+
+                return label;
             },
 
             preview (invoice) {

@@ -21268,24 +21268,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('fetchInvoices').then(function (response) {
-                // Check status.
-                // let label = null
 
-                //
-                // if(response.data.status === 'created') {
-                //     label = 'label-info'
-                // } else if(response.data.status === 'sent') {
-                //     label = 'label-primary'
-                // } else if(response.data.status === 'reminder') {
-                //     label = 'label-warning'
-                // } else if(response.data.status === 'paid') {
-                //     label = 'label-success'
-                // }
                 _this2.invoices = response.data;
             }).catch(function (error) {
                 console.log('error');
                 console.log(error);
             });
+        },
+        invoiceStatus: function invoiceStatus(status) {
+            var label = null;
+
+            if (status === 'created') {
+                label = 'label-info';
+            } else if (status === 'sent') {
+                label = 'label-primary';
+            } else if (status === 'reminder') {
+                label = 'label-warning';
+            } else if (status === 'paid') {
+                label = 'label-success';
+            }
+
+            return label;
         },
         preview: function preview(invoice) {
             // set data for selected invoice.
@@ -61394,7 +61397,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "text-center"
   }, [_vm._v("Actions")])])]), _vm._v(" "), _c('tbody', _vm._l((_vm.invoices), function(invoice) {
     return _c('tr', [_c('td', [_c('span', {
-      staticClass: "label label-default"
+      staticClass: "label label",
+      class: _vm.invoiceStatus(invoice.status)
     }, [_vm._v(_vm._s(invoice.status))])]), _vm._v(" "), _c('td', {
       staticClass: "text-center"
     }, [_vm._v(_vm._s(invoice.clients.company))]), _vm._v(" "), _c('td', {

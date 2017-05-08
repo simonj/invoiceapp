@@ -88,13 +88,15 @@
                                         </label>
                                         <div id="card-element">
                                             <!-- a Stripe Element will be inserted here. -->
-                                        </div>
+                                        </div><!-- card-element -->
 
                                         <!-- Used to display form errors -->
                                         <div id="card-errors"></div>
-                                    </div>
+                                    </div><!-- form-row -->
 
-                                    <button>Submit Payment</button>
+                                    <hr>
+
+                                    <button class="btn btn-success pull-right">Pay ${{ $invoice->amount }},-</button>
                                 </form>
 
 

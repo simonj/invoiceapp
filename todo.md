@@ -7,7 +7,7 @@
     * Email service.
 
 * invoice
-    * Stripe integration.
+    * Stripe integration - in progress.
     * Pay page - DONE
         * Stripe integration - DONE.
     * Edit invoice
@@ -16,6 +16,7 @@
     * Missing firm logo on preview page.
     * Create firm logo for invoice.
     * Delete invoice.
+        * Add DELETED_AT
         * Change migration to delete all invoice items.
 * Email templates
     * Templates.
@@ -25,3 +26,7 @@
     * Invoice marked as paid.
     * Invoice cancel.
     * Service information.
+    
+* Terms Of Service
+* Dashboard
+    * Statistics

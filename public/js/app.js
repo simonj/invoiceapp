@@ -21215,12 +21215,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+
     name: 'Invoices',
 
     components: {
@@ -61422,7 +61424,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("Create new invoice")])]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
-  }, [(_vm.invoices == 0) ? _c('span', [_vm._v("There is no invoice created yet!")]) : _c('table', {
+  }, [_c('a', {
+    staticClass: "stripe-connect light-blue",
+    attrs: {
+      "href": "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7ub2G1IqhsJ57jqISLdOrGWiC6gNXhzw&scope=read_only"
+    }
+  }, [_c('span', [_vm._v("Connect with Stripe")])]), _vm._v(" "), (_vm.invoices == 0) ? _c('span', [_vm._v("There is no invoice created yet!")]) : _c('table', {
     staticClass: "table table-hover"
   }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Status")]), _vm._v(" "), _c('th', {
     staticClass: "text-center"

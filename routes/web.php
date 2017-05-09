@@ -12,6 +12,7 @@
 */
 
 use App\Client_invoice;
+use App\User;
 
 Route::get('/', 'WelcomeController@show');
 
@@ -32,34 +33,39 @@ Route::post('invoices/validateInvoice', 'InvoiceController@validateInvoice');
 Route::post('invoices/charge', 'InvoiceController@charge');
 Route::get('invoices/{reference_id}/markPaid', 'InvoiceController@markPaid');
 
-//Route::post('charge', function (Illuminate\Http\Request $request) {
-//
-//    // Find invoice by reference key.
-//    $invoice = Client_invoice::whereReferenceKey($request->reference_key)->first();
-//
-////     Set your secret key: remember to change this to your live secret key in production
-////     See your keys here: https://dashboard.stripe.com/account/apikeys
-//    \Stripe\Stripe::setApiKey("sk_test_BXSPQ4kmTwwBazTOTuPi8NM1");
-//
-//    // Token is created using Stripe.js or Checkout!
-//    // Get the payment token submitted by the form:
-//    $token = $_POST['stripeToken'];
-//
-//    // Charge the user's card:
-//    $charge = \Stripe\Charge::create([
-//        "amount"      => $invoice->amount,
-//        "currency"    => "usd",
-//        "description" => 'Invoice #'. $invoice->reference_key .' paid',
-//        "source"      => $token,
-//    ]);
-//
-//    // Update invoice status.
-//    $invoice->paid = true;
-//    $invoice->status = 'paid';
-//    $invoice->save();
-//
-//    flash('Invice has been paid')->success();
-//
-//    return back();
-//
-//});
+Route::get('stripe/connect', function (Illuminate\Http\Request $request) {
+
+    define('CLIENT_ID', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
+    define('API_KEY', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
+
+    define('TOKEN_URI', 'https://connect.stripe.com/oauth/token');
+    define('AUTHORIZE_URI', 'https://connect.stripe.com/oauth/authorize');
+
+    if (isset($_GET['code'])) { // Redirect w/ code
+        $code = $_GET['code'];
+
+        $token_request_body = array(
+            'client_secret' => API_KEY,
+            'grant_type' => 'authorization_code',
+            'client_id' => CLIENT_ID,
+            'code' => $code,
+        );
+
+        $req = curl_init(TOKEN_URI);
+        curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($req, CURLOPT_POST, true );
+        curl_setopt($req, CURLOPT_POSTFIELDS, http_build_query($token_request_body));
+
+        // TODO: Additional error handling
+        $respCode = curl_getinfo($req, CURLINFO_HTTP_CODE);
+        $resp = json_decode(curl_exec($req), true);
+        curl_close($req);
+
+        // Find logged in user.
+        $user = User::find(Auth::user()->id);
+
+        $user->stripe_id
+
+        return back();
+    }
+});

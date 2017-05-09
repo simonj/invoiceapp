@@ -15,10 +15,11 @@
                         <a class="pull-right" href="#" @click.prevent="invoiceCreate = true">Create new invoice</a>
                     </div><!-- panel-heading -->
                     <div class="panel-body">
+                        <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7ub2G1IqhsJ57jqISLdOrGWiC6gNXhzw&scope=read_only" class="stripe-connect light-blue"><span>Connect with Stripe</span></a>
 
                         <span v-if="invoices == 0">There is no invoice created yet!</span>
 
-                        <table class="table table-hover" v-else="invoices > 0">
+                        <table class="table table-hover" v-else>
                             <thead>
                             <tr>
                                 <th>Status</th>
@@ -67,6 +68,7 @@
     import InvoicePreview from './invoice-preview.vue'
 
     export default {
+
         name: 'Invoices',
 
         components: {

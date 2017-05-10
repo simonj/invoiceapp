@@ -56,15 +56,19 @@ Route::get('stripe/connect', function (Illuminate\Http\Request $request) {
         curl_setopt($req, CURLOPT_POST, true );
         curl_setopt($req, CURLOPT_POSTFIELDS, http_build_query($token_request_body));
 
+
         // TODO: Additional error handling
         $respCode = curl_getinfo($req, CURLINFO_HTTP_CODE);
         $resp = json_decode(curl_exec($req), true);
         curl_close($req);
 
-        // Find logged in user.
-        $user = User::find(Auth::user()->id);
+        echo $resp['access_token'];
 
-        $user->stripe_id
+
+        // Find logged in user and set stripe token.
+        $user = User::find(Auth::user()->id);
+        $user->stripe_connect_token = $resp['access_token'];
+        $user->save();
 
         return back();
     }

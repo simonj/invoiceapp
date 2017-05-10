@@ -12,12 +12,22 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Invoice overview
-                        <a class="pull-right" href="#" @click.prevent="invoiceCreate = true">Create new invoice</a>
+                        <a class="pull-right" v-if="user.stripe_connect_token" href="#" @click.prevent="invoiceCreate = true">Create new invoice</a>
                     </div><!-- panel-heading -->
                     <div class="panel-body">
-                        <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7ub2G1IqhsJ57jqISLdOrGWiC6gNXhzw&scope=read_only" class="stripe-connect light-blue"><span>Connect with Stripe</span></a>
 
-                        <span v-if="invoices == 0">There is no invoice created yet!</span>
+
+                        <div class="text-center" v-if="! user.stripe_connect_token">
+                            <span>
+                                <p>You need to connect to stripe before created invoices</p>
+                                <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7ub2G1IqhsJ57jqISLdOrGWiC6gNXhzw&scope=read_only" class="stripe-connect light-blue"><span>Connect with Stripe</span></a>
+                            </span>
+                        </div><!-- /.text-center -->
+                        <div class="text-center" v-else-if="invoices == 0">
+                            <span>
+                                <p>There is no invoice created yet</p>
+                            </span>
+                        </div><!-- /.text-center -->
 
                         <table class="table table-hover" v-else>
                             <thead>
@@ -77,6 +87,7 @@
 
         data() {
             return {
+                user          : Spark.state.user,
                 invoices      : [],
                 invoiceCreate : false,
                 invoicePreview: false,
@@ -92,6 +103,7 @@
         },
 
         mounted() {
+            console.log(this.user);
             this.getInvoices()
 
             // Listen for created-invoice component.

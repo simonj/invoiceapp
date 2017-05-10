@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('two_factor_reset_code', 100)->nullable();
             $table->integer('current_team_id')->nullable();
             $table->string('stripe_id')->nullable();
+            $table->string('stripe_connect_token')->nullable();
             $table->string('current_billing_plan')->nullable();
             $table->string('card_brand')->nullable();
             $table->string('card_last_four')->nullable();

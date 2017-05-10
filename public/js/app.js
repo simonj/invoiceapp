@@ -21216,6 +21216,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -21231,6 +21241,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
+            user: Spark.state.user,
             invoices: [],
             invoiceCreate: false,
             invoicePreview: false,
@@ -21247,6 +21258,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var _this = this;
 
+        console.log(this.user);
         this.getInvoices();
 
         // Listen for created-invoice component.
@@ -61411,7 +61423,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("\n                    Invoice overview\n                    "), _c('a', {
+  }, [_vm._v("\n                    Invoice overview\n                    "), (_vm.user.stripe_connect_token) ? _c('a', {
     staticClass: "pull-right",
     attrs: {
       "href": "#"
@@ -61422,14 +61434,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.invoiceCreate = true
       }
     }
-  }, [_vm._v("Create new invoice")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Create new invoice")]) : _vm._e()]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
-  }, [_c('a', {
+  }, [(!_vm.user.stripe_connect_token) ? _c('div', {
+    staticClass: "text-center"
+  }, [_c('span', [_c('p', [_vm._v("You need to connect to stripe before created invoices")]), _vm._v(" "), _c('a', {
     staticClass: "stripe-connect light-blue",
     attrs: {
       "href": "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7ub2G1IqhsJ57jqISLdOrGWiC6gNXhzw&scope=read_only"
     }
-  }, [_c('span', [_vm._v("Connect with Stripe")])]), _vm._v(" "), (_vm.invoices == 0) ? _c('span', [_vm._v("There is no invoice created yet!")]) : _c('table', {
+  }, [_c('span', [_vm._v("Connect with Stripe")])])])]) : (_vm.invoices == 0) ? _c('div', {
+    staticClass: "text-center"
+  }, [_c('span', [_c('p', [_vm._v("There is no invoice created yet")])])]) : _c('table', {
     staticClass: "table table-hover"
   }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Status")]), _vm._v(" "), _c('th', {
     staticClass: "text-center"

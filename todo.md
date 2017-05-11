@@ -1,13 +1,17 @@
 # TODO
 
-* Edit clients.
-    * Add some sweetalert messages.
+* Clients
+    * Edit clients.
+    * Add some sweetalert messages for delete.
+    * Better handle create.
+    * Make Vue component.
 * Layout setup.
 * Support setup.
     * Email service.
 
 * invoice
-    * Stripe integration - in progress.
+    * Validation
+    * Stripe integration - DONE.
     * Pay page - DONE
         * Stripe integration - DONE.
     * Edit invoice
@@ -30,3 +34,4 @@
 * Terms Of Service
 * Dashboard
     * Statistics
+* Auth check for clients / invoices

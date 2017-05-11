@@ -1,4 +1,3 @@
-
 /*
  |--------------------------------------------------------------------------
  | Laravel Spark Components
@@ -10,9 +9,9 @@
  */
 
 require('./../spark-components/bootstrap');
-require('./clients/clients');
 require('./home');
 
+Vue.component('clients', require('./clients/clients.vue'));
 Vue.component('client-edit', require('./clients/client-edit.vue'));
 Vue.component('invoice-create', require('./invoices/invoice-create.vue'));
 Vue.component('invoices', require('./invoices/invoices.vue'));

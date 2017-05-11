@@ -21357,7 +21357,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 /*
  |--------------------------------------------------------------------------
  | Laravel Spark Components
@@ -21369,115 +21368,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 
 __webpack_require__(176);
-__webpack_require__(172);
 __webpack_require__(173);
 
+Vue.component('clients', __webpack_require__(418));
 Vue.component('client-edit', __webpack_require__(310));
 Vue.component('invoice-create', __webpack_require__(142));
 Vue.component('invoices', __webpack_require__(311));
 
 /***/ }),
-/* 172 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-
-
-Vue.component('clients', {
-    data: function data() {
-        return {
-            clients: [],
-            showEditClient: false,
-            editFormData: {},
-            form: new SparkForm({
-                company: '',
-                email: '',
-                address1: '',
-                address2: '',
-                city: '',
-                state: '',
-                zipcode: '',
-                country: '',
-                contact_person: ''
-            })
-        };
-    },
-    mounted: function mounted() {
-        this.getClients();
-    },
-
-
-    methods: {
-
-        /**
-         * Fetch clients.
-         */
-        getClients: function getClients() {
-            var that = this;
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('loadClients').then(function (response) {
-                that.clients = response.data;
-            }).catch(function (error) {
-                console.log('error');
-                console.log(error);
-            });
-        },
-
-
-        /**
-         * Create client
-         */
-        create: function create() {
-            Spark.post('/clients/', this.form).then(function (response) {
-                //TODO: show a sweet alert
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-
-
-        /**
-         * Edit client.
-         */
-        edit: function edit(client) {
-            console.log('clicked edit');
-            this.showEditClient = true;
-            this.editFormData = client;
-        },
-
-
-        /**
-         * update client.
-         */
-        update: function update() {
-            Spark.post('/clients/', this.form).then(function (response) {
-                //TODO: show a sweet alert
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-
-
-        /**
-         * Delete the specified client.
-         */
-        deleteClient: function deleteClient(client) {
-            var _this = this;
-
-            //TODO: show sweet alert.
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('/clients/' + client.id).then(function () {
-                _this.getClients();
-            }).catch(function (error) {
-                console.log('error');
-                console.log(error);
-            });
-        }
-    }
-});
-
-/***/ }),
+/* 172 */,
 /* 173 */
 /***/ (function(module, exports) {
 
@@ -70958,6 +70857,360 @@ return Vue$3;
 
 module.exports = __webpack_require__(144);
 
+
+/***/ }),
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(6)(
+  /* script */
+  __webpack_require__(420),
+  /* template */
+  __webpack_require__(419),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/simonjensen/sites/invoiceapp/resources/assets/js/components/clients/clients.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] clients.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-507319ae", Component.options)
+  } else {
+    hotAPI.reload("data-v-507319ae", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 419 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-10 col-md-offset-1"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [(_vm.clients == 0) ? _c('span', [_vm._v("There is no clients created yet!")]) : _c('table', {
+    staticClass: "table table-hover"
+  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Company")]), _vm._v(" "), _c('th', [_vm._v("Email")]), _vm._v(" "), _c('th', [_vm._v("Contact person")]), _vm._v(" "), _c('th'), _vm._v(" "), _c('th')])]), _vm._v(" "), _c('tbody', _vm._l((_vm.clients), function(client) {
+    return _c('tr', [_c('td', [_vm._v(_vm._s(client.company))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(client.email))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(client.contact_person))]), _vm._v(" "), _c('td', [_c('button', {
+      staticClass: "btn btn-primary",
+      on: {
+        "click": function($event) {
+          _vm.edit(client)
+        }
+      }
+    }, [_c('i', {
+      staticClass: "fa fa-pencil"
+    })])]), _vm._v(" "), _c('td', [_c('button', {
+      staticClass: "btn btn-danger-outline",
+      on: {
+        "click": function($event) {
+          _vm.remove(client)
+        }
+      }
+    }, [_c('i', {
+      staticClass: "fa fa-times"
+    })])])])
+  }))])])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("\n                    Clients overview\n                    "), _c('a', {
+    staticClass: "pull-right",
+    attrs: {
+      "href": "clients/create"
+    }
+  }, [_vm._v("Create new client")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-507319ae", module.exports)
+  }
+}
+
+/***/ }),
+/* 420 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            clients: [],
+            showEditClient: false,
+            editFormData: {},
+            form: new SparkForm({
+                company: '',
+                email: '',
+                address1: '',
+                address2: '',
+                city: '',
+                state: '',
+                zipcode: '',
+                country: '',
+                contact_person: ''
+            })
+        };
+    },
+    mounted: function mounted() {
+        this.getClients();
+    },
+
+
+    methods: {
+
+        /**
+         * Fetch clients.
+         */
+        getClients: function getClients() {
+            var that = this;
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('loadClients').then(function (response) {
+                that.clients = response.data;
+            }).catch(function (error) {
+                console.log('error');
+                console.log(error);
+            });
+        },
+
+
+        /**
+         * Create client
+         */
+        create: function create() {
+            Spark.post('/clients/', this.form).then(function (response) {
+                //TODO: show a sweet alert
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+
+
+        /**
+         * Edit client.
+         */
+        edit: function edit(client) {
+            console.log('clicked edit');
+            this.showEditClient = true;
+            this.editFormData = client;
+        },
+
+
+        /**
+         * update client.
+         */
+        update: function update() {
+            Spark.post('/clients/', this.form).then(function (response) {
+                //TODO: show a sweet alert
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+
+
+        /**
+         * remove the specified client.
+         */
+        remove: function remove(client) {
+
+            var that = this;
+
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this client!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false,
+                html: false
+            }, function () {
+                // Remove client from database.
+                __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('/clients/' + client.id).then(function (response) {
+                    swal("Deleted!", "The client has been deleted.", "success");
+                    that.getClients();
+                }).catch(function (error) {
+                    console.log('error');
+                    console.log(error);
+                });
+            });
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

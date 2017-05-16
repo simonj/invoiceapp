@@ -20758,12 +20758,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          * Create client.
          */
         create: function create() {
-            Spark.post('/clients/', this.form).then(function (response) {
-                //TODO: show a sweet alert and return to overview
+            var _this = this;
 
+            Spark.post('/clients/', this.form).then(function (response) {
+                swal('Client is created', 'Now you can start sending invoices to ' + _this.form.company, "success");
+
+                // return back to clients overview.
                 Bus.$emit('clientCreate', false);
             }).catch(function (error) {
-                console.log(error);
+                //                        swal("Oops...", "Something went wrong!", "error");
             });
         },
 

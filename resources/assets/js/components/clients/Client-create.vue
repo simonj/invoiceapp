@@ -140,12 +140,13 @@
             create() {
                 Spark.post('/clients/', this.form)
                     .then(response => {
-                        //TODO: show a sweet alert and return to overview
+                        swal('Client is created', 'Now you can start sending invoices to '+this.form.company, "success")
 
+                        // return back to clients overview.
                         Bus.$emit('clientCreate', false)
                     })
                     .catch(error => {
-                        console.log(error);
+//                        swal("Oops...", "Something went wrong!", "error");
                     })
             },
 

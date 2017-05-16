@@ -2,9 +2,9 @@
 
 * Clients
     * Edit clients.
-    * Add some sweetalert messages for delete.
-    * Better handle create.
-    * Make Vue component.
+    * Add some sweetalert messages for delete - DONE.
+    * Better handle create - DONE.
+    * Make Vue component - DONE.
 * Layout setup.
 * Support setup.
     * Email service.

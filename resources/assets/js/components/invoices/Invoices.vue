@@ -103,14 +103,12 @@
         },
 
         mounted() {
-            console.log(this.user);
             this.getInvoices()
 
             // Listen for created-invoice component.
             Bus.$on('invoiceCreate', (state) => {
                 this.invoiceCreate = state
-                console.log('invoiceCreate trigged')
-                console.log(this)
+
                 // Load all invoices when a new one is created.
                 this.getInvoices()
             })

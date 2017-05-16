@@ -119,15 +119,12 @@
              */
             send () {
                 axios.post('/invoices', this.item).then(response => {
-                    console.log('response');
-                    console.log(response);
-
                     Bus.$emit('invoicePreview', false);
                     Bus.$emit('invoiceCreate', false);
 
                 })
                 .catch(error => {
-                    console.log('erro');
+                    console.log('error');
                     console.log(error);
                 })
             },

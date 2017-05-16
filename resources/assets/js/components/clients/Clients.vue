@@ -1,11 +1,15 @@
 <template>
-    <div class="container">
+
+    <!-- Show create client -->
+    <client-create v-if="clientCreate"></client-create>
+
+    <div class="container" v-else>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Clients overview
-                        <a class="pull-right" href="clients/create">Create new client</a>
+                        <a class="pull-right" href="#" @click.prevent="clientCreate = true">Create new client</a>
                     </div><!-- panel-heading -->
                     <div class="panel-body">
 
@@ -56,30 +60,32 @@
 <script>
 
     import axios from 'axios'
+    import ClientCreate from './Client-create.vue'
 
     export default {
+
+        name: 'Clients',
+
+        components: {
+            ClientCreate
+        },
 
         data () {
             return {
                 clients       : [],
-                showEditClient: false,
-                editFormData  : {},
-                form          : new SparkForm({
-                    company       : '',
-                    email         : '',
-                    address1      : '',
-                    address2      : '',
-                    city          : '',
-                    state         : '',
-                    zipcode       : '',
-                    country       : '',
-                    contact_person: ''
-                }),
+                clientCreate: false
             };
         },
 
         mounted () {
             this.getClients();
+
+            // Listen for created-client component.
+            Bus.$on('clientCreate', (state) => {
+                this.clientCreate = state
+                // Load all invoices when a new one is created.
+                this.getInvoices()
+            })
         },
 
         methods: {
@@ -98,18 +104,7 @@
                     });
             },
 
-            /**
-             * Create client
-             */
-            create() {
-                Spark.post('/clients/', this.form)
-                    .then(response => {
-                        //TODO: show a sweet alert
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    })
-            },
+
 
             /**
              * Edit client.

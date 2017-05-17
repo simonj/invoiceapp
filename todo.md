@@ -1,7 +1,7 @@
 # TODO
 
 * Clients
-    * Edit clients.
+    * Edit clients with modal window.
     * Add some sweetalert messages for delete - DONE.
     * Better handle create - DONE.
     * Make Vue component - DONE.

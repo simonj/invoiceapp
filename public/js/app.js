@@ -20615,6 +20615,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    name: 'Modal'
+
+});
+
+/***/ }),
+/* 168 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 //
@@ -20806,7 +20847,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 168 */,
 /* 169 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20814,10 +20854,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Client_create_vue__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Client_create_vue__ = __webpack_require__(312);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Client_create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Client_create_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Modal_vue__ = __webpack_require__(427);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Modal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Modal_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Client_edit_vue__ = __webpack_require__(424);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Client_edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Client_edit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Modal_vue__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Modal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Modal_vue__);
 //
 //
 //
@@ -20878,101 +20920,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -20985,25 +20933,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         ClientCreate: __WEBPACK_IMPORTED_MODULE_1__Client_create_vue___default.a,
-        Modal: __WEBPACK_IMPORTED_MODULE_2__Modal_vue___default.a
+        ClientEdit: __WEBPACK_IMPORTED_MODULE_2__Client_edit_vue___default.a,
+        Modal: __WEBPACK_IMPORTED_MODULE_3__Modal_vue___default.a
     },
 
     data: function data() {
         return {
             clients: [],
-            clientCreate: false,
-            showModal: false,
-            form: new SparkForm({
-                company: '',
-                email: '',
-                address1: '',
-                address2: '',
-                city: '',
-                state: '',
-                zipcode: '',
-                country: '',
-                contact_person: ''
-            })
+            clientCreate: false
         };
     },
     mounted: function mounted() {
@@ -60993,6 +60930,40 @@ var Component = __webpack_require__(3)(
   /* script */
   __webpack_require__(167),
   /* template */
+  __webpack_require__(320),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/simonjensen/sites/invoiceapp/resources/assets/js/components/Modal.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Modal.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-85782a96", Component.options)
+  } else {
+    hotAPI.reload("data-v-85782a96", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 312 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(3)(
+  /* script */
+  __webpack_require__(168),
+  /* template */
   __webpack_require__(318),
   /* scopeId */
   null,
@@ -61021,7 +60992,6 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 312 */,
 /* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -62142,419 +62112,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Create new client")])]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('button', {
-    attrs: {
-      "id": "show-modal"
-    },
-    on: {
-      "click": function($event) {
-        _vm.showModal = true
-      }
-    }
-  }, [_vm._v("Show Modal")]), _vm._v(" "), (_vm.showModal) ? _c('modal', {
-    on: {
-      "close": function($event) {
-        _vm.showModal = false
-      }
-    }
-  }, [_c('h4', {
-    staticClass: "modal-title",
-    slot: "header"
-  }, [_vm._v("Edit client")]), _vm._v(" "), _c('div', {
-    slot: "body"
-  }, [_c('form', [_c('div', {
-    staticClass: "form-group",
-    class: {
-      'has-error': _vm.form.errors.has('company')
-    }
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "company"
-    }
-  }, [_vm._v("Company\n                                            "), _c('small', {
-    staticClass: "text-info"
-  }, [_vm._v("required")])]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.company),
-      expression: "form.company"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "text",
-      "name": "company",
-      "id": "company",
-      "placeholder": "Insert company name"
-    },
-    domProps: {
-      "value": (_vm.form.company)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.company = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.form.errors.has('company')),
-      expression: "form.errors.has('company')"
-    }],
-    staticClass: "help-block"
-  }, [_vm._v("\n                                    " + _vm._s(_vm.form.errors.get('company')) + "\n                                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group",
-    class: {
-      'has-error': _vm.form.errors.has('contact_person')
-    }
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "contact_person"
-    }
-  }, [_vm._v("Contact person")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.contact_person),
-      expression: "form.contact_person"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "text",
-      "name": "contact_person",
-      "id": "contact_person",
-      "placeholder": "Insert contact person"
-    },
-    domProps: {
-      "value": (_vm.form.contact_person)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.contact_person = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.form.errors.has('contact_person')),
-      expression: "form.errors.has('contact_person')"
-    }],
-    staticClass: "help-block"
-  }, [_vm._v("\n                                    " + _vm._s(_vm.form.errors.get('contact_person')) + "\n                                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group",
-    class: {
-      'has-error': _vm.form.errors.has('email')
-    }
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "email"
-    }
-  }, [_vm._v("Email\n                                            "), _c('small', {
-    staticClass: "text-info"
-  }, [_vm._v("required")])]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.email),
-      expression: "form.email"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "email",
-      "name": "email",
-      "id": "email",
-      "placeholder": "john@doe.com"
-    },
-    domProps: {
-      "value": (_vm.form.email)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.email = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.form.errors.has('email')),
-      expression: "form.errors.has('email')"
-    }],
-    staticClass: "help-block"
-  }, [_vm._v("\n                                    " + _vm._s(_vm.form.errors.get('email')) + "\n                                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group",
-    class: {
-      'has-error': _vm.form.errors.has('address1')
-    }
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "address1"
-    }
-  }, [_vm._v("Address 1")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.address1),
-      expression: "form.address1"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "text",
-      "name": "address1",
-      "id": "address1",
-      "placeholder": "Insert address 1"
-    },
-    domProps: {
-      "value": (_vm.form.address1)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.address1 = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.form.errors.has('address1')),
-      expression: "form.errors.has('address1')"
-    }],
-    staticClass: "help-block"
-  }, [_vm._v("\n                                    " + _vm._s(_vm.form.errors.get('address1')) + "\n                                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group",
-    class: {
-      'has-error': _vm.form.errors.has('address2')
-    }
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "address"
-    }
-  }, [_vm._v("Address 2")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.address2),
-      expression: "form.address2"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "text",
-      "name": "address2",
-      "id": "address2",
-      "placeholder": "Insert address 2"
-    },
-    domProps: {
-      "value": (_vm.form.address2)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.address2 = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.form.errors.has('address2')),
-      expression: "form.errors.has('address2')"
-    }],
-    staticClass: "help-block"
-  }, [_vm._v("\n                                    " + _vm._s(_vm.form.errors.get('address2')) + "\n                                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group",
-    class: {
-      'has-error': _vm.form.errors.has('city')
-    }
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "city"
-    }
-  }, [_vm._v("City")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.city),
-      expression: "form.city"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "text",
-      "name": "city",
-      "id": "city",
-      "placeholder": "Insert city"
-    },
-    domProps: {
-      "value": (_vm.form.city)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.city = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.form.errors.has('city')),
-      expression: "form.errors.has('city')"
-    }],
-    staticClass: "help-block"
-  }, [_vm._v("\n                                    " + _vm._s(_vm.form.errors.get('city')) + "\n                                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group",
-    class: {
-      'has-error': _vm.form.errors.has('state')
-    }
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "state"
-    }
-  }, [_vm._v("State")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.state),
-      expression: "form.state"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "text",
-      "name": "state",
-      "id": "state",
-      "placeholder": "Insert state"
-    },
-    domProps: {
-      "value": (_vm.form.state)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.state = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.form.errors.has('state')),
-      expression: "form.errors.has('state')"
-    }],
-    staticClass: "help-block"
-  }, [_vm._v("\n                                    " + _vm._s(_vm.form.errors.get('state')) + "\n                                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group",
-    class: {
-      'has-error': _vm.form.errors.has('zipcode')
-    }
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "zipcode"
-    }
-  }, [_vm._v("Zip code")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.zipcode),
-      expression: "form.zipcode"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "number",
-      "name": "zipcode",
-      "id": "zipcode",
-      "placeholder": "Insert zip code"
-    },
-    domProps: {
-      "value": (_vm.form.zipcode)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.zipcode = $event.target.value
-      },
-      "blur": function($event) {
-        _vm.$forceUpdate()
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.form.errors.has('zipcode')),
-      expression: "form.errors.has('zipcode')"
-    }],
-    staticClass: "help-block"
-  }, [_vm._v("\n                                    " + _vm._s(_vm.form.errors.get('zipcode')) + "\n                                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group",
-    class: {
-      'has-error': _vm.form.errors.has('country')
-    }
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "country"
-    }
-  }, [_vm._v("Country")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.country),
-      expression: "form.country"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "text",
-      "name": "country",
-      "id": "country",
-      "placeholder": "Insert country"
-    },
-    domProps: {
-      "value": (_vm.form.country)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.country = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.form.errors.has('country')),
-      expression: "form.errors.has('country')"
-    }],
-    staticClass: "help-block"
-  }, [_vm._v("\n                                    " + _vm._s(_vm.form.errors.get('country')) + "\n                                ")])])])]), _vm._v(" "), _c('div', {
-    slot: "footer"
-  }, [_c('button', {
-    staticClass: "btn btn-default",
-    attrs: {
-      "type": "button"
-    },
-    on: {
-      "click": function($event) {
-        _vm.showModal = false
-      }
-    }
-  }, [_vm._v("Close")]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-primary",
     attrs: {
-      "type": "button"
+      "type": "button",
+      "data-toggle": "modal",
+      "data-target": "#modal"
     }
-  }, [_vm._v("Save")])])]) : _vm._e(), _vm._v(" "), (_vm.clients == 0) ? _c('span', [_vm._v("There is no clients created yet!")]) : _c('table', {
+  }, [_vm._v("Modal")]), _vm._v(" "), (_vm.clients == 0) ? _c('span', [_vm._v("There is no clients created yet!")]) : _c('table', {
     staticClass: "table table-hover"
   }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Company")]), _vm._v(" "), _c('th', [_vm._v("Email")]), _vm._v(" "), _c('th', [_vm._v("Contact person")]), _vm._v(" "), _c('th'), _vm._v(" "), _c('th')])]), _vm._v(" "), _c('tbody', _vm._l((_vm.clients), function(client) {
     return _c('tr', [_c('td', [_vm._v(_vm._s(client.company))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(client.email))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(client.contact_person))]), _vm._v(" "), _c('td', [_c('button', {
@@ -62576,7 +62140,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('i', {
       staticClass: "fa fa-times"
     })])])])
-  }))])], 1)])])])])
+  }))])])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -62587,7 +62151,53 @@ if (false) {
 }
 
 /***/ }),
-/* 320 */,
+/* 320 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "modal fade",
+    attrs: {
+      "id": "modal",
+      "tabindex": "-1"
+    }
+  }, [_c('div', {
+    staticClass: "modal-dialog",
+    attrs: {
+      "role": "document"
+    }
+  }, [_c('div', {
+    staticClass: "modal-content"
+  }, [_c('div', {
+    staticClass: "modal-header"
+  }, [_vm._m(0), _vm._v(" "), _vm._t("header", [_vm._v("\n                    default header\n                ")])], 2), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
+  }, [_vm._t("body", [_vm._v("\n                    default body\n                ")])], 2), _vm._v(" "), _c('div', {
+    staticClass: "modal-footer"
+  }, [_vm._t("footer", [_vm._v("\n                    default footer\n                ")])], 2)])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c('span', {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-85782a96", module.exports)
+  }
+}
+
+/***/ }),
 /* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -72236,10 +71846,7 @@ module.exports = __webpack_require__(144);
 /* 420 */,
 /* 421 */,
 /* 422 */,
-/* 423 */,
-/* 424 */,
-/* 425 */,
-/* 426 */
+/* 423 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72276,30 +71883,108 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        console.log('client-edit Component mounted.');
+    },
+    data: function data() {
+        return {
+            form: new SparkForm({
+                company: '',
+                email: '',
+                address1: '',
+                address2: '',
+                city: '',
+                state: '',
+                zipcode: '',
+                country: '',
+                contact_person: ''
+            })
+        };
+    },
 
-    name: 'Modal'
 
+    props: ['editClientData'],
+
+    methods: {}
 });
 
 /***/ }),
-/* 427 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(3)(
   /* script */
-  __webpack_require__(426),
+  __webpack_require__(423),
   /* template */
-  __webpack_require__(428),
+  __webpack_require__(425),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/simonjensen/sites/invoiceapp/resources/assets/js/components/Modal.vue"
+Component.options.__file = "/Users/simonjensen/sites/invoiceapp/resources/assets/js/components/clients/Client-edit.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Modal.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] Client-edit.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -72308,9 +71993,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-85782a96", Component.options)
+    hotAPI.createRecord("data-v-c9d90d66", Component.options)
   } else {
-    hotAPI.reload("data-v-85782a96", Component.options)
+    hotAPI.reload("data-v-c9d90d66", Component.options)
   }
 })()}
 
@@ -72318,40 +72003,411 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 428 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('transition', {
-    attrs: {
-      "name": "modal"
+  return _c('modal', [_c('h4', {
+    staticClass: "modal-title",
+    slot: "header"
+  }, [_vm._v("Edit client")]), _vm._v(" "), _c('div', {
+    slot: "body"
+  }, [_c('form', [_c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.form.errors.has('company')
     }
-  }, [_c('div', {
-    staticClass: "modal-mask"
-  }, [_c('div', {
-    staticClass: "modal-wrapper"
-  }, [_c('div', {
-    staticClass: "modal-container"
-  }, [_c('div', {
-    staticClass: "modal-header"
-  }, [_vm._t("header", [_vm._v("\n                        default header\n                    ")])], 2), _vm._v(" "), _c('div', {
-    staticClass: "modal-body"
-  }, [_vm._t("body", [_vm._v("\n                        default body\n                    ")])], 2), _vm._v(" "), _c('div', {
-    staticClass: "modal-footer"
-  }, [_vm._t("footer", [_vm._v("\n                        default footer\n                        "), _c('button', {
-    staticClass: "btn btn-primary",
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "company"
+    }
+  }, [_vm._v("Company\n                    "), _c('small', {
+    staticClass: "text-info"
+  }, [_vm._v("required")])]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.company),
+      expression: "form.company"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "company",
+      "id": "company",
+      "placeholder": "Insert company name"
+    },
+    domProps: {
+      "value": (_vm.form.company)
+    },
     on: {
-      "click": function($event) {
-        _vm.$emit('close')
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.company = $event.target.value
       }
     }
-  }, [_vm._v("\n                            OK\n                        ")])])], 2)])])])])
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.form.errors.has('company')),
+      expression: "form.errors.has('company')"
+    }],
+    staticClass: "help-block"
+  }, [_vm._v("\n                    " + _vm._s(_vm.form.errors.get('company')) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.form.errors.has('contact_person')
+    }
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "contact_person"
+    }
+  }, [_vm._v("Contact person")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.contact_person),
+      expression: "form.contact_person"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "contact_person",
+      "id": "contact_person",
+      "placeholder": "Insert contact person"
+    },
+    domProps: {
+      "value": (_vm.form.contact_person)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.contact_person = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.form.errors.has('contact_person')),
+      expression: "form.errors.has('contact_person')"
+    }],
+    staticClass: "help-block"
+  }, [_vm._v("\n                    " + _vm._s(_vm.form.errors.get('contact_person')) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.form.errors.has('email')
+    }
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("Email\n                    "), _c('small', {
+    staticClass: "text-info"
+  }, [_vm._v("required")])]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.email),
+      expression: "form.email"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "email",
+      "name": "email",
+      "id": "email",
+      "placeholder": "john@doe.com"
+    },
+    domProps: {
+      "value": (_vm.form.email)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.email = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.form.errors.has('email')),
+      expression: "form.errors.has('email')"
+    }],
+    staticClass: "help-block"
+  }, [_vm._v("\n                    " + _vm._s(_vm.form.errors.get('email')) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.form.errors.has('address1')
+    }
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "address1"
+    }
+  }, [_vm._v("Address 1")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.address1),
+      expression: "form.address1"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "address1",
+      "id": "address1",
+      "placeholder": "Insert address 1"
+    },
+    domProps: {
+      "value": (_vm.form.address1)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.address1 = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.form.errors.has('address1')),
+      expression: "form.errors.has('address1')"
+    }],
+    staticClass: "help-block"
+  }, [_vm._v("\n                    " + _vm._s(_vm.form.errors.get('address1')) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.form.errors.has('address2')
+    }
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "address2"
+    }
+  }, [_vm._v("Address 2")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.address2),
+      expression: "form.address2"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "address2",
+      "id": "address2",
+      "placeholder": "Insert address 2"
+    },
+    domProps: {
+      "value": (_vm.form.address2)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.address2 = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.form.errors.has('address2')),
+      expression: "form.errors.has('address2')"
+    }],
+    staticClass: "help-block"
+  }, [_vm._v("\n                    " + _vm._s(_vm.form.errors.get('address2')) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.form.errors.has('city')
+    }
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "city"
+    }
+  }, [_vm._v("City")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.city),
+      expression: "form.city"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "city",
+      "id": "city",
+      "placeholder": "Insert city"
+    },
+    domProps: {
+      "value": (_vm.form.city)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.city = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.form.errors.has('city')),
+      expression: "form.errors.has('city')"
+    }],
+    staticClass: "help-block"
+  }, [_vm._v("\n                    " + _vm._s(_vm.form.errors.get('city')) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.form.errors.has('state')
+    }
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "state"
+    }
+  }, [_vm._v("State")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.state),
+      expression: "form.state"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "state",
+      "id": "state",
+      "placeholder": "Insert state"
+    },
+    domProps: {
+      "value": (_vm.form.state)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.state = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.form.errors.has('state')),
+      expression: "form.errors.has('state')"
+    }],
+    staticClass: "help-block"
+  }, [_vm._v("\n                    " + _vm._s(_vm.form.errors.get('state')) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.form.errors.has('zipcode')
+    }
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "zipcode"
+    }
+  }, [_vm._v("Zip code")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.zipcode),
+      expression: "form.zipcode"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "number",
+      "name": "zipcode",
+      "id": "zipcode",
+      "placeholder": "Insert zip code"
+    },
+    domProps: {
+      "value": (_vm.form.zipcode)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.zipcode = $event.target.value
+      },
+      "blur": function($event) {
+        _vm.$forceUpdate()
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.form.errors.has('zipcode')),
+      expression: "form.errors.has('zipcode')"
+    }],
+    staticClass: "help-block"
+  }, [_vm._v("\n                    " + _vm._s(_vm.form.errors.get('zipcode')) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.form.errors.has('country')
+    }
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "country"
+    }
+  }, [_vm._v("Country")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.country),
+      expression: "form.country"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "country",
+      "id": "country",
+      "placeholder": "Insert country"
+    },
+    domProps: {
+      "value": (_vm.form.country)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.country = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.form.errors.has('country')),
+      expression: "form.errors.has('country')"
+    }],
+    staticClass: "help-block"
+  }, [_vm._v("\n                    " + _vm._s(_vm.form.errors.get('country')) + "\n                ")])])])]), _vm._v(" "), _c('div', {
+    slot: "footer"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "button"
+    }
+  }, [_vm._v("Save")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-85782a96", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-c9d90d66", module.exports)
   }
 }
 

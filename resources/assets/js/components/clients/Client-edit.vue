@@ -133,13 +133,16 @@
                 let event = Bus
                 Spark.put('clients/' +this.form.id, this.form)
                     .then(response => {
-                        console.log(response);
+                        // Show popup success message.
                         swal('Client has been updated', "success")
 
+                        // Hide modal popup.
+                        $('#modal').modal('hide');
+
+                        // Load the updated clients.
                         event.$emit('getClients')
                     })
                     .catch(error => {
-                        console.log('error');
                         console.log(error)
 //                        swal("Oops...", "Something went wrong!", "error");
                     })

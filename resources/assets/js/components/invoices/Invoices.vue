@@ -97,7 +97,8 @@
                     date         : '',
                     items        : [],
                     amount       : null,
-                    reference_key: ''
+                    reference_key: '',
+                    status       : ''
                 },
             };
         },
@@ -163,6 +164,7 @@
                 this.form.items         = invoice.items
                 this.form.notes         = invoice.notes
                 this.form.reference_key = invoice.reference_key
+                this.form.status        = invoice.status
 
                 // Show preview invoice template.
                 this.invoicePreview = true

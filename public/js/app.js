@@ -21022,12 +21022,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         update: function update() {
             var event = Bus;
             Spark.put('clients/' + this.form.id, this.form).then(function (response) {
-                console.log(response);
+                // Show popup success message.
                 swal('Client has been updated', "success");
 
+                // Hide modal popup.
+                $('#modal').modal('hide');
+
+                // Load the updated clients.
                 event.$emit('getClients');
             }).catch(function (error) {
-                console.log('error');
                 console.log(error);
                 //                        swal("Oops...", "Something went wrong!", "error");
             });
@@ -21669,6 +21672,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -21828,7 +21832,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 date: '',
                 items: [],
                 amount: null,
-                reference_key: ''
+                reference_key: '',
+                status: ''
             }
         };
     },
@@ -21894,6 +21899,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.form.items = invoice.items;
             this.form.notes = invoice.notes;
             this.form.reference_key = invoice.reference_key;
+            this.form.status = invoice.status;
 
             // Show preview invoice template.
             this.invoicePreview = true;
@@ -23145,7 +23151,6 @@ module.exports = {
      * Helper method for making PUT HTTP requests.
      */
     put: function put(uri, form) {
-
         return Spark.sendForm('put', uri, form);
     },
 
@@ -61493,10 +61498,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "col-md-10 col-md-offset-1"
   }, [_c('div', {
-    staticClass: "panel panel-default"
+    staticClass: "panel",
+    class: {
+      'panel-success': _vm.item.status == 'paid', 'panel-default': _vm.item.status == 'created'
+    }
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("\n                Preview invoice\n                "), _c('a', {
+  }, [(_vm.item.status == 'paid') ? _c('span', [_vm._v("Invoice paid")]) : _c('span', [_vm._v("Pay invoice")]), _vm._v(" "), _c('a', {
     staticClass: "pull-right",
     attrs: {
       "href": "#"

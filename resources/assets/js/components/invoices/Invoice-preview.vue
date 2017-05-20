@@ -3,9 +3,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
 
-        <div class="panel panel-default">
+        <div class="panel" :class="{ 'panel-success': item.status == 'paid', 'panel-default': item.status == 'created' }">
             <div class="panel-heading">
-                Preview invoice
+                <span v-if="item.status == 'paid'">Invoice paid</span>
+                <span v-else>Pay invoice</span>
                 <a class="pull-right" href="#" @click.prevent="back">Back to your invoice</a>
             </div><!-- panel-heading -->
             <div class="panel-body invoice-box">

@@ -36,7 +36,7 @@ class ClientController extends Controller
      */
     public function loadClients()
     {
-        return response()->json(Client::where('user_id', Auth::user()->id)->get());
+        return response()->json(Client::where('user_id', Auth::user()->id)->orderBy('company')->get());
     }
 
 
@@ -105,7 +105,6 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $this->validate($request, [
             'company' => 'required',
             'email'   => 'required',

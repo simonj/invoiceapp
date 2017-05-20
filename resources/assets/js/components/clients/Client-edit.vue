@@ -3,6 +3,8 @@
         <h4 class="modal-title" slot="header">Edit client</h4>
         <div slot="body">
             <form>
+                <input name="_method" type="hidden" value="PUT">
+
                 <div class="form-group" :class="{'has-error': form.errors.has('company')}">
                     <label class="control-label" for="company">Company
                         <small class="text-info">required</small>
@@ -83,20 +85,31 @@
 
         <div slot="footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save</button>
+            <button @click.prevent="update" type="button" class="btn btn-primary">Save</button>
         </div><!-- footer -->
     </modal>
 </template>
 
 <script>
+    import Modal from './../Modal.vue'
+
+    // Start of the default export
     export default {
-        mounted() {
-            console.log('client-edit Component mounted.')
+        name: 'clientEdit',
+
+        props: ['clientData'],
+
+        components: {
+            Modal
         },
+
+
+        // Any imported mixins
+        mixins: [],
 
         data () {
             return {
-                form : new SparkForm({
+                form: new SparkForm({
                     company       : '',
                     email         : '',
                     address1      : '',
@@ -106,15 +119,69 @@
                     zipcode       : '',
                     country       : '',
                     contact_person: ''
-                }),
-            };
+                })
+            }
         },
 
-        props: ['editClientData'],
-
+        // Methods that should be accessible to both instance and template
         methods: {
 
+            /**
+             * Update selected client.
+             */
+            update() {
+                let event = Bus
+                Spark.put('clients/' +this.form.id, this.form)
+                    .then(response => {
+                        console.log(response);
+                        swal('Client has been updated', "success")
 
+                        event.$emit('getClients')
+                    })
+                    .catch(error => {
+                        console.log('error');
+                        console.log(error)
+//                        swal("Oops...", "Something went wrong!", "error");
+                    })
+            }
+        },
+
+        // Computed properties that returns a formatted value of some kind
+        computed: {
+            // Use computed properties to access data in the Vuex store
+        },
+
+        // Custom watchers
+        watch: {
+            'clientData' (data) {
+                this.form = new SparkForm(data)
+            }
+        },
+
+        // Custom filters for displaying data
+        filter: {},
+
+        // Custom directives that can changes behaviour of HTML elements
+        directives: {},
+
+        // Vue instance lifecycle hooks
+        // https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram
+        beforeCreate () {
+        },
+        created () {
+        },
+        beforeMount () {
+        },
+        mounted () {
+        },
+        beforeUpdate () {
+        },
+        updated () {
+        },
+        beforeDestroy () {
+        },
+        destroyed () {
         }
     }
+
 </script>

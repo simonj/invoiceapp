@@ -17,12 +17,9 @@ use App\User;
 Route::get('/', 'WelcomeController@show');
 
 Route::get('/home', 'HomeController@show');
-// CLients
-Route::get('/clients', 'ClientController@index');
-Route::get('/clients/create', 'ClientController@create');
-Route::post('/clients', 'ClientController@store');
-Route::get('clients/{id}/edit', 'ClientController@edit');
-Route::delete('/clients/{id}', 'ClientController@destroy');
+
+// Clients
+Route::resource('clients', 'ClientController');
 Route::get('loadClients', 'ClientController@loadClients');
 
 // Invoices

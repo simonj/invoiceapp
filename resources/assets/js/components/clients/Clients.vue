@@ -1,20 +1,20 @@
 <template>
-
-
     <!-- Show create client -->
     <client-create v-if="clientCreate"></client-create>
 
     <div class="container" v-else>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+
+                <!-- show edit client -->
+                <client-edit v-show="editClientData" :clientData="editClientData"></client-edit>
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Clients overview
                         <a class="pull-right" href="#" @click.prevent="clientCreate = true">Create new client</a>
                     </div><!-- panel-heading -->
                     <div class="panel-body">
-
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Modal</button>
 
                         <span v-if="clients == 0">There is no clients created yet!</span>
 
@@ -37,7 +37,7 @@
 
                                 <!-- Edit Button -->
                                 <td>
-                                    <button class="btn btn-primary" @click="edit(client)">
+                                    <button data-toggle="modal" data-target="#modal" class="btn btn-primary" @click="edit(client)">
                                         <i class="fa fa-pencil"></i>
                                     </button>
                                 </td>
@@ -79,17 +79,23 @@
             return {
                 clients     : [],
                 clientCreate: false,
+                editClientData: []
             };
         },
 
         mounted () {
             this.getClients();
 
+            Bus.$on('getClients', (state) => {
+                // Load all clients.
+                this.getClients()
+            })
+
             // Listen for created-client component.
             Bus.$on('clientCreate', (state) => {
                 this.clientCreate = state
-                // Load all invoices when a new one is created.
-                this.getInvoices()
+                // Load all clients when a new one is created.
+                this.getClients()
             })
         },
 
@@ -114,9 +120,7 @@
              * Edit client.
              */
             edit(client) {
-                console.log('clicked edit')
-                this.showEditClient = true
-                this.editFormData   = client
+                this.editClientData = client
             },
 
             /**

@@ -61532,7 +61532,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title"
   }), _vm._v(" "), _c('td', {
     staticClass: "text-right"
-  }, [_vm._v("\n                                        Created: " + _vm._s(_vm.today)), _c('br'), _vm._v("\n                                        Due: " + _vm._s(_vm.item.date) + "\n                                    ")])])])])])]), _vm._v(" "), _c('tr', {
+  }, [_vm._v("\n                                            Created: " + _vm._s(_vm.today)), _c('br'), _vm._v("\n                                            Due: " + _vm._s(_vm.item.date) + "\n                                        ")])])])])])]), _vm._v(" "), _c('tr', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -61540,13 +61540,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "item.client"
     }],
     staticClass: "information"
-  }, [_c('td', [_c('table', [_c('tbody', [_c('tr', [_c('td', [_vm._v("\n                                        " + _vm._s(_vm.item.client.company)), _c('br'), _vm._v("\n                                        " + _vm._s(_vm.item.client.adress1)), _c('br'), _vm._v("\n                                        " + _vm._s(_vm.item.client.state) + " " + _vm._s(_vm.item.client.city) + " " + _vm._s(_vm.item.client.zipcode) + " "), _c('br')]), _vm._v(" "), _c('td', [_vm._v("\n                                        " + _vm._s(_vm.item.client.contact_person)), _c('br'), _vm._v("\n                                        " + _vm._s(_vm.item.client.email)), _c('br'), _vm._v("\n                                        " + _vm._s(_vm.item.notes) + "\n                                    ")])])])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.item.items), function(item) {
+  }, [_c('td', [_c('table', [_c('tbody', [_c('tr', [_c('td', [_vm._v("\n                                            " + _vm._s(_vm.item.client.company)), _c('br'), _vm._v("\n                                            " + _vm._s(_vm.item.client.adress1)), _c('br'), _vm._v("\n                                            " + _vm._s(_vm.item.client.state) + " " + _vm._s(_vm.item.client.city) + " " + _vm._s(_vm.item.client.zipcode) + " "), _c('br')]), _vm._v(" "), _c('td', [_vm._v("\n                                            " + _vm._s(_vm.item.client.contact_person)), _c('br'), _vm._v("\n                                            " + _vm._s(_vm.item.client.email)), _c('br'), _vm._v("\n                                            " + _vm._s(_vm.item.notes) + "\n                                        ")])])])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.item.items), function(item) {
     return _c('tr', {
       staticClass: "item"
     }, [_c('td', [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(item.description))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(item.price))])])
   }), _vm._v(" "), _c('tr', {
     staticClass: "total"
-  }, [_c('td'), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_vm._v("\n                            Total: " + _vm._s(_vm._f("currency")(_vm.item.amount)) + "\n                        ")])])], 2)]), _vm._v(" "), _c('div', {
+  }, [_c('td'), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_vm._v("\n                                Total: " + _vm._s(_vm._f("currency")(_vm.item.amount)) + "\n                            ")])])], 2)]), _vm._v(" "), _c('div', {
     staticClass: "panel-footer"
   }, [_c('div', {
     staticClass: "btn-group pull-right"

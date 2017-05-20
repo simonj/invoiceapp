@@ -35,3 +35,6 @@
 * Dashboard
     * Statistics
 * Auth check for clients / invoices
+
+* Stripe
+    * Change logos

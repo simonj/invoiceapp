@@ -21388,6 +21388,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -29564,7 +29573,7 @@ exports.push([module.i, "\n.invoice-box {\n}\n.invoice-box table {\n    width: 1
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/**\n* Overwrite the date-picker component.\n */\n.cov-vue-date {\n    display: block !important;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/**\n* Overwrite the date-picker component.\n */\n.cov-vue-date {\n    display: block !important;\n}\n", ""]);
 
 /***/ }),
 /* 299 */
@@ -61499,9 +61508,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-10 col-md-offset-1"
   }, [_c('div', {
     staticClass: "panel",
-    class: {
-      'panel-success': _vm.item.status == 'paid', 'panel-default': _vm.item.status == 'created'
-    }
+    class: [_vm.item.status == 'paid' ? 'panel-success' : 'panel-default']
   }, [_c('div', {
     staticClass: "panel-heading"
   }, [(_vm.item.status == 'paid') ? _c('span', [_vm._v("Invoice paid")]) : _c('span', [_vm._v("Pay invoice")]), _vm._v(" "), _c('a', {
@@ -61532,7 +61539,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title"
   }), _vm._v(" "), _c('td', {
     staticClass: "text-right"
-  }, [_vm._v("\n                                            Created: " + _vm._s(_vm.today)), _c('br'), _vm._v("\n                                            Due: " + _vm._s(_vm.item.date) + "\n                                        ")])])])])])]), _vm._v(" "), _c('tr', {
+  }, [_vm._v("\n                                        Created: " + _vm._s(_vm.today)), _c('br'), _vm._v("\n                                        Due: " + _vm._s(_vm.item.date) + "\n                                    ")])])])])])]), _vm._v(" "), _c('tr', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -61540,13 +61547,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "item.client"
     }],
     staticClass: "information"
-  }, [_c('td', [_c('table', [_c('tbody', [_c('tr', [_c('td', [_vm._v("\n                                            " + _vm._s(_vm.item.client.company)), _c('br'), _vm._v("\n                                            " + _vm._s(_vm.item.client.adress1)), _c('br'), _vm._v("\n                                            " + _vm._s(_vm.item.client.state) + " " + _vm._s(_vm.item.client.city) + " " + _vm._s(_vm.item.client.zipcode) + " "), _c('br')]), _vm._v(" "), _c('td', [_vm._v("\n                                            " + _vm._s(_vm.item.client.contact_person)), _c('br'), _vm._v("\n                                            " + _vm._s(_vm.item.client.email)), _c('br'), _vm._v("\n                                            " + _vm._s(_vm.item.notes) + "\n                                        ")])])])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.item.items), function(item) {
+  }, [_c('td', [_c('table', [_c('tbody', [_c('tr', [_c('td', [_vm._v("\n                                        " + _vm._s(_vm.item.client.company)), _c('br'), _vm._v("\n                                        " + _vm._s(_vm.item.client.adress1)), _c('br'), _vm._v("\n                                        " + _vm._s(_vm.item.client.state) + " " + _vm._s(_vm.item.client.city) + " " + _vm._s(_vm.item.client.zipcode) + " "), _c('br')]), _vm._v(" "), _c('td', [_vm._v("\n                                        " + _vm._s(_vm.item.client.contact_person)), _c('br'), _vm._v("\n                                        " + _vm._s(_vm.item.client.email)), _c('br'), _vm._v("\n                                        " + _vm._s(_vm.item.notes) + "\n                                    ")])])])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.item.items), function(item) {
     return _c('tr', {
       staticClass: "item"
     }, [_c('td', [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(item.description))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(item.price))])])
   }), _vm._v(" "), _c('tr', {
     staticClass: "total"
-  }, [_c('td'), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_vm._v("\n                                Total: " + _vm._s(_vm._f("currency")(_vm.item.amount)) + "\n                            ")])])], 2)]), _vm._v(" "), _c('div', {
+  }, [_c('td'), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_vm._v("\n                            Total: " + _vm._s(_vm._f("currency")(_vm.item.amount)) + "\n                        ")])])], 2)]), _vm._v(" "), _c('div', {
     staticClass: "panel-footer"
   }, [_c('div', {
     staticClass: "btn-group pull-right"
@@ -61660,6 +61667,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-sm-10"
   }, [_c('multiselect', {
     attrs: {
+      "id": "client",
       "options": _vm.clients,
       "placeholder": "Select client",
       "label": "company",
@@ -61696,6 +61704,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "input-group"
   }, [_c('date-picker', {
     attrs: {
+      "id": "date",
       "option": _vm.option
     },
     model: {
@@ -61754,8 +61763,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-12"
   }, [_c('table', {
     staticClass: "table table-hover"
-  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Quantity")]), _vm._v(" "), _c('th', [_vm._v("Description")]), _vm._v(" "), _c('th', [_vm._v("Price")]), _vm._v(" "), (_vm.countInvoiceItems > 1) ? _c('th') : _vm._e()])]), _vm._v(" "), _c('tbody', _vm._l((_vm.form.items), function(item) {
-    return _c('tr', [_c('td', [_c('input', {
+  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Quantity")]), _vm._v(" "), _c('th', [_vm._v("Description")]), _vm._v(" "), _c('th', [_vm._v("Price")]), _vm._v(" "), (_vm.countInvoiceItems > 1) ? _c('th') : _vm._e()])]), _vm._v(" "), _c('tbody', _vm._l((_vm.form.items), function(item, index) {
+    return _c('tr', [_c('td', {
+      class: {
+        'has-error': _vm.form.errors.has('items.' + index + '.quantity')
+      }
+    }, [_c('input', {
       directives: [{
         name: "model",
         rawName: "v-model.number",
@@ -61783,7 +61796,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.$forceUpdate()
         }
       }
-    })]), _vm._v(" "), _c('td', [_c('input', {
+    }), _vm._v(" "), _c('span', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (_vm.form.errors.has('items.' + index + '.quantity')),
+        expression: "form.errors.has('items.' + index + '.quantity')"
+      }],
+      staticClass: "help-block"
+    }, [_vm._v("\n                                            " + _vm._s(_vm.form.errors.get('items.' + index + '.quantity')) + "\n                                        ")])]), _vm._v(" "), _c('td', {
+      class: {
+        'has-error': _vm.form.errors.has('items.' + index + '.description')
+      }
+    }, [_c('input', {
       directives: [{
         name: "model",
         rawName: "v-model",
@@ -61805,7 +61830,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           item.description = $event.target.value
         }
       }
-    })]), _vm._v(" "), _c('td', [_c('input', {
+    }), _vm._v(" "), _c('span', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (_vm.form.errors.has('items.' + index + '.description')),
+        expression: "form.errors.has('items.' + index + '.description')"
+      }],
+      staticClass: "help-block"
+    }, [_vm._v("\n                                            " + _vm._s(_vm.form.errors.get('items.' + index + '.description')) + "\n                                        ")])]), _vm._v(" "), _c('td', {
+      class: {
+        'has-error': _vm.form.errors.has('items.' + index + '.price')
+      }
+    }, [_c('input', {
       directives: [{
         name: "model",
         rawName: "v-model.number",
@@ -61833,7 +61870,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.$forceUpdate()
         }
       }
-    })]), _vm._v(" "), (_vm.countInvoiceItems > 1) ? _c('td', {
+    }), _vm._v(" "), _c('span', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (_vm.form.errors.has('items.' + index + '.price')),
+        expression: "form.errors.has('items.' + index + '.price')"
+      }],
+      staticClass: "help-block"
+    }, [_vm._v("\n                                            " + _vm._s(_vm.form.errors.get('items.' + index + '.price')) + "\n                                        ")])]), _vm._v(" "), (_vm.countInvoiceItems > 1) ? _c('td', {
       staticClass: "text-center"
     }, [_c('button', {
       staticClass: "btn btn-danger-outline",

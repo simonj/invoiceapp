@@ -1,97 +1,97 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
 
-                <div class="panel" :class="{ 'panel-success': item.status == 'paid', 'panel-default': item.status == 'created' }">
-                    <div class="panel-heading">
-                        <span v-if="item.status == 'paid'">Invoice paid</span>
-                        <span v-else>Pay invoice</span>
-                        <a class="pull-right" href="#" @click.prevent="back">Back to your invoice</a>
-                    </div><!-- panel-heading -->
-                    <div class="panel-body invoice-box">
-                        <table cellpadding="0" cellspacing="0">
-                            <tbody>
-                            <tr class="top">
-                                <td colspan="2">
-                                    <table>
-                                        <tbody>
-                                        <tr>
-                                            <td class="title">
-                                                <!--<img src="/images/logo.png" style="width:100%; max-width:300px;">-->
-                                            </td>
-                                            <td class="text-right">
-                                                Created: {{ today }}<br>
-                                                Due: {{ item.date }}
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr class="information" v-show="item.client">
-                                <td>
-                                    <table>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                {{ item.client.company }}<br/>
-                                                {{ item.client.adress1 }}<br/>
-                                                {{ item.client.state }} {{ item.client.city }} {{ item.client.zipcode }} <br/>
-                                            </td>
-                                            <td>
-                                                {{ item.client.contact_person }}<br>
-                                                {{ item.client.email }}<br>
-                                                {{ item.notes }}
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr class="heading">
-                                <td>Quantity</td>
-                                <td>Description</td>
-                                <td>Price</td>
-                            </tr>
-                            <tr class="item" v-for="item in item.items">
-                                <td>{{ item.quantity }}</td>
-                                <td>{{ item.description }}</td>
-                                <td>{{ item.price }}</td>
-                            </tr>
-                            <tr class="total">
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    Total: {{ item.amount | currency }}
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+        <div class="panel" :class="[item.status == 'paid' ? 'panel-success' : 'panel-default']">
+            <div class="panel-heading">
+                <span v-if="item.status == 'paid'">Invoice paid</span>
+                <span v-else>Pay invoice</span>
+                <a class="pull-right" href="#" @click.prevent="back">Back to your invoice</a>
+            </div><!-- panel-heading -->
+            <div class="panel-body invoice-box">
+                <table cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr class="top">
+                        <td colspan="2">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td class="title">
+                                        <!--<img src="/images/logo.png" style="width:100%; max-width:300px;">-->
+                                    </td>
+                                    <td class="text-right">
+                                        Created: {{ today }}<br>
+                                        Due: {{ item.date }}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="information" v-show="item.client">
+                        <td>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        {{ item.client.company }}<br/>
+                                        {{ item.client.adress1 }}<br/>
+                                        {{ item.client.state }} {{ item.client.city }} {{ item.client.zipcode }} <br/>
+                                    </td>
+                                    <td>
+                                        {{ item.client.contact_person }}<br>
+                                        {{ item.client.email }}<br>
+                                        {{ item.notes }}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="heading">
+                        <td>Quantity</td>
+                        <td>Description</td>
+                        <td>Price</td>
+                    </tr>
+                    <tr class="item" v-for="item in item.items">
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.price }}</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td></td>
+                        <td>
+                            Total: {{ item.amount | currency }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                        <div class="panel-footer">
-                            <!-- Split button -->
-                            <div class="btn-group pull-right">
-                                <button @click.prevent="send" type="button" class="btn btn-primary">Send invoice</button>
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-download"></i> Download PDF</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a :href="`invoices/${item.reference_key}/markPaid`"><i class="fa fa-dollar"></i> Mark as paid</a></li>
-                                </ul>
-                            </div>
+                <div class="panel-footer">
+                    <!-- Split button -->
+                    <div class="btn-group pull-right">
+                        <button @click.prevent="send" type="button" class="btn btn-primary">Send invoice</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-download"></i> Download PDF</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a :href="`invoices/${item.reference_key}/markPaid`"><i class="fa fa-dollar"></i> Mark as paid</a></li>
+                        </ul>
+                    </div>
 
-                            <div class="clearfix"></div>
+                    <div class="clearfix"></div>
 
-                        </div><!-- panel-footer -->
-                    </div><!-- panel-body -->
-                </div><!-- panel -->
-            </div>
-        </div>
+                </div><!-- panel-footer -->
+            </div><!-- panel-body -->
+        </div><!-- panel -->
     </div>
+</div>
+</div>
 </template>
 
 <script>
@@ -106,7 +106,8 @@
         components: {},
 
         data () {
-            return {}
+            return {
+            }
         },
 
         mounted() {
@@ -123,10 +124,10 @@
                     Bus.$emit('invoiceCreate', false);
 
                 })
-                    .catch(error => {
-                        console.log('error');
-                        console.log(error);
-                    })
+                .catch(error => {
+                    console.log('error');
+                    console.log(error);
+                })
             },
 
             /**

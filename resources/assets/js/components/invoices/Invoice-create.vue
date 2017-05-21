@@ -18,7 +18,7 @@
                                 <div class="form-group" :class="{'has-error': form.errors.has('client')}">
                                     <label for="client" class="col-sm-2 control-label">Client</label>
                                     <div class="col-sm-10">
-                                        <multiselect v-model="form.client" :options="clients" placeholder="Select client" label="company" track-by="company"></multiselect>
+                                        <multiselect id="client" v-model="form.client" :options="clients" placeholder="Select client" label="company" track-by="company"></multiselect>
                                         <span class="help-block" v-show="form.errors.has('client')">
                                             {{ form.errors.get('client') }}
                                         </span>
@@ -30,7 +30,7 @@
                                     <label for="date" class="col-sm-2 control-label">Date</label>
                                     <div class="col-sm-10">
                                         <div class="input-group">
-                                            <date-picker v-model="form.date" :option="option"></date-picker>
+                                            <date-picker id="date" v-model="form.date" :option="option"></date-picker>
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div><!-- input-group -->
                                         <span class="help-block" v-show="form.errors.has('date')">
@@ -63,15 +63,24 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="item in form.items">
-                                        <td>
+                                    <tr v-for="(item, index) in form.items">
+                                        <td :class="{'has-error': form.errors.has('items.' + index + '.quantity')}">
                                             <input v-model.number="item.quantity" type="number" name="quantity[]" class="form-control" placeholder="1">
+                                            <span class="help-block" v-show="form.errors.has('items.' + index + '.quantity')">
+                                                {{ form.errors.get('items.' + index + '.quantity') }}
+                                            </span>
                                         </td>
-                                        <td>
+                                        <td :class="{'has-error': form.errors.has('items.' + index + '.description')}">
                                             <input v-model="item.description" type="text" name="description[]" class="form-control" placeholder="Description">
+                                            <span class="help-block" v-show="form.errors.has('items.' + index + '.description')">
+                                                {{ form.errors.get('items.' + index + '.description') }}
+                                            </span>
                                         </td>
-                                        <td>
+                                        <td :class="{'has-error': form.errors.has('items.' + index + '.price')}">
                                             <input v-model.number="item.price" type="number" name="price[]" class="form-control" placeholder="Price">
+                                            <span class="help-block" v-show="form.errors.has('items.' + index + '.price')">
+                                                {{ form.errors.get('items.' + index + '.price') }}
+                                            </span>
                                         </td>
                                         <td v-if="countInvoiceItems > 1" class="text-center">
                                             <button type="submit" class="btn btn-danger-outline" @click.prevent="remove(item)">

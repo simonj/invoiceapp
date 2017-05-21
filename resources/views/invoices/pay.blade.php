@@ -68,7 +68,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    Total: {{ $invoice->amount }}
+                                    Total: ${{ $invoice->amount }},-
                                 </td>
                             </tr>
                             </tbody>

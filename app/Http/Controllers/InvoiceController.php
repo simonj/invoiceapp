@@ -65,11 +65,11 @@ class InvoiceController extends Controller
         $this->validate(
             $request,
             [
-//                'client'              => 'required',
-//                'date'                => 'required',
-//                'items.*.quantity'    => 'required',
-//                'items.*.description' => 'required',
-//                'items.*.price'       => 'required'
+                'client'              => 'required',
+                'date'                => 'required',
+                'items.*.quantity'    => 'required',
+                'items.*.description' => 'required',
+                'items.*.price'       => 'required'
             ],
             [
                 'items.*.quantity.required'    => 'Quantity field is required.',

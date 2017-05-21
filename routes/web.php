@@ -11,16 +11,15 @@
 |
 */
 
-use App\Client_invoice;
 use App\User;
 
 Route::get('/', 'WelcomeController@show');
 
-Route::get('/home', 'HomeController@show');
+Route::get('/home', 'HomeController@show')->middleware('subscribed');
 
 // Clients
 Route::resource('clients', 'ClientController');
-Route::get('loadClients', 'ClientController@loadClients');
+Route::get('loadClients', 'ClientController@loadClients')->middleware('subscribed');
 
 // Invoices
 Route::resource('invoices', 'InvoiceController');

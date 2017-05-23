@@ -15,7 +15,7 @@
         
 
 
-* Layout setup.
+* Layout setup - IN PROGRESS.
 * Support setup.
     * Email service.
 

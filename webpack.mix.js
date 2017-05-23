@@ -13,6 +13,7 @@ var path = require('path');
  */
 
 mix.less('resources/assets/less/app.less', 'public/css/spark.css')
+.sass('resources/assets/sass/landingpage.scss', 'public/css')
 .sass('resources/assets/sass/app.scss', 'public/css')
    .copy('node_modules/sweetalert/dist/sweetalert.min.js', 'public/js/sweetalert.min.js')
    .copy('node_modules/sweetalert/dist/sweetalert.css', 'public/css/sweetalert.css')

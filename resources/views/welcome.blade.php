@@ -9,86 +9,58 @@
     <title>@yield('title', config('app.name'))</title>
 
     <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
-    <style>
-        body, html {
-            background: url('/img/spark-bg.png');
-            background-repeat: repeat;
-            background-size: 300px 200px;
-            height: 100%;
-            margin: 0;
-        }
-
-        .full-height {
-            min-height: 100%;
-        }
-
-        .flex-column {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .flex-fill {
-            flex: 1;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-
-        .text-center {
-            text-align: center;
-        }
-
-        .links {
-            padding: 1em;
-            text-align: right;
-        }
-
-        .links a {
-            text-decoration: none;
-        }
-
-        .links button {
-            background-color: #3097D1;
-            border: 0;
-            border-radius: 4px;
-            color: white;
-            cursor: pointer;
-            font-family: 'Open Sans';
-            font-size: 14px;
-            font-weight: 600;
-            padding: 15px;
-            text-transform: uppercase;
-            width: 100px;
-        }
-    </style>
+    <!-- CSS -->
+    <link href="{{ mix('css/spark.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/landingpage.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div class="full-height flex-column">
-        <nav class="links">
-            <a href="/login" style="margin-right: 15px;">
-                <button>
-                    Login
-                </button>
-            </a>
+<body class="border-thick">
 
-            <a href="/register">
-                <button>
-                    Register
-                </button>
-            </a>
-        </nav>
+<div class="container">
+    <ul class="nav nav-pills pull-right">
+        <li><a href="#">Sign up</a></li>
+        <li><a href="#">Log in</a></li>
+    </ul>
 
-        <div class="flex-fill flex-center">
-            <h1 class="text-center">
-                <img src="/img/color-logo.png">
-            </h1>
-        </div>
-    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbo text-center">
+                <img src="/img/logo.svg" alt="Invoiceapp.io">
+                <h1>Invoice & payment for busy freelancers!</h1>
+            </div><!-- /.jumbo -->
+        </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-dark-soft">
+
+            <img style="max-width: 100%;" src="https://kitetail.co/img/kitetail-devices.png" alt="">
+            <hr>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet, aut blanditiis deleniti distinctio doloribus ducimus enim esse facere ipsam iusto, laboriosam, provident quae quaerat similique totam voluptate! Aut, quo!
+            </p>
+            <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+            </ul>
+        </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+
+
+
+</div><!-- /.container -->
+
+
 </body>
 </html>

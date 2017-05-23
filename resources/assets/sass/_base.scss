@@ -38,3 +38,31 @@ h4 {
   font-weight: 700;
   font-size: 1rem
 }
+
+.text-light {
+  color: #fff
+}
+.text-light-soft {
+  color: rgba(255, 255, 255, .9)
+}
+.text-light-muted {
+  color: rgba(255, 255, 255, .6)
+}
+.text-light-faint {
+  color: rgba(255, 255, 255, .35)
+}
+.text-dark {
+  color: #394644
+}
+.text-dark-soft {
+  color: #5c706d
+}
+.text-dark-muted {
+  color: #8fa3a0
+}
+.text-dark-faint {
+  color: #c7d1d0
+}
+.text-danger {
+  color: #e23c36
+}

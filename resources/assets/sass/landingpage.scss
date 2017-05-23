@@ -1,0 +1,36 @@
+.border-thick {
+  border-top: 8px solid #A2A9AF;
+}
+
+.nav {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  li a {
+    color: inherit;
+
+    &:hover {
+      color: white;
+      background: #A2A9AF;
+    }
+  }
+}
+
+.jumbo {
+  margin: 0 auto;
+  width: 600px;
+  padding: 25px;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+ul {
+  font-size: 1.8rem;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 1.25;
+}

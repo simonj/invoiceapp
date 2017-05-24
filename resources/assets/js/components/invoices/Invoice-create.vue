@@ -131,7 +131,6 @@
 
 <script>
     import axios from 'axios'
-    import { reduce } from 'lodash'
     import Multiselect from 'vue-multiselect'
     import myDatepicker from 'vue-datepicker2'
     import InvoicePreview from './invoice-preview.vue'

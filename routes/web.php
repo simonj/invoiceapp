@@ -19,7 +19,7 @@ Route::get('/home', 'HomeController@show')->middleware('subscribed');
 
 // Clients
 Route::resource('clients', 'ClientController');
-Route::get('loadClients', 'ClientController@loadClients')->middleware('subscribed');
+Route::get('loadClients', 'ClientController@loadClients');
 
 // Invoices
 Route::resource('invoices', 'InvoiceController');

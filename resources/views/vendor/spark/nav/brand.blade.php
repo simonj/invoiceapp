@@ -1,3 +1,3 @@
-<a class="navbar-brand" href="/home">
-    <img src="/img/mono-logo.png" style="height: 32px;">
+<a class="navbar-brand" href="/">
+    <img src="/img/logo.svg" >
 </a>

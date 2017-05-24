@@ -20,15 +20,15 @@
 
 <div class="container">
     <ul class="nav nav-pills pull-right">
-        <li><a href="#">Sign up</a></li>
-        <li><a href="#">Log in</a></li>
+        <li><a href="/register">Sign up</a></li>
+        <li><a href="/login">Log in</a></li>
     </ul>
 
     <div class="row">
         <div class="col-md-12">
             <div class="jumbo text-center">
                 <img src="/img/logo.svg" alt="Invoiceapp.io">
-                <h1>Invoice & payment for busy freelancers!</h1>
+                <h1>Invoice & payment for busy <br/> freelancers!</h1>
             </div><!-- /.jumbo -->
         </div><!-- /.col-md-12 -->
     </div><!-- /.row -->
@@ -39,24 +39,18 @@
             <img style="max-width: 100%;" src="https://kitetail.co/img/kitetail-devices.png" alt="">
             <hr>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet, aut blanditiis deleniti distinctio doloribus ducimus enim esse facere ipsam iusto, laboriosam, provident quae quaerat similique totam voluptate! Aut, quo!
+                <b>Invoiceapp.io</b> offers a lot of great features that you can enjoy, here is a list that just gets bigger and bigger:
             </p>
             <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
-                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>No Fees (besides Stripe’s standard fees)</li>
+                <li>Send invoice by email</li>
+                <li>Secure Online Payments</li>
+                <li>Beautiful Emails and invoices</li>
+                <li>Past Due Notices</li>
+                <li>And much more...</li>
             </ul>
         </div><!-- /.col-md-12 -->
     </div><!-- /.row -->
-
 
 
 </div><!-- /.container -->

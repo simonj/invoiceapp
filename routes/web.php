@@ -15,57 +15,63 @@ use App\User;
 
 Route::get('/', 'WelcomeController@show');
 
-Route::get('/home', 'HomeController@show')->middleware('subscribed');
 
-// Clients
-Route::resource('clients', 'ClientController');
-Route::get('loadClients', 'ClientController@loadClients');
+Route::group(['middleware' => 'auth', 'subscribed'], function () {
 
-// Invoices
-Route::resource('invoices', 'InvoiceController');
-Route::get('invoices/{reference_id}/pay', 'InvoiceController@pay');
-Route::get('fetchInvoices', 'InvoiceController@fetchInvoices');
-Route::post('invoices/validateInvoice', 'InvoiceController@validateInvoice');
-Route::post('invoices/charge', 'InvoiceController@charge');
-Route::get('invoices/{reference_id}/markPaid', 'InvoiceController@markPaid');
+    // Dashboard home.
+    Route::get('/home', 'HomeController@show');
 
-Route::get('stripe/connect', function (Illuminate\Http\Request $request) {
+    // Clients.
+    Route::resource('clients', 'ClientController');
+    Route::get('loadClients', 'ClientController@loadClients');
 
-    define('CLIENT_ID', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
-    define('API_KEY', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
+    // Invoices.
+    Route::resource('invoices', 'InvoiceController');
+    Route::get('invoices/{reference_id}/pay', 'InvoiceController@pay');
+    Route::get('fetchInvoices', 'InvoiceController@fetchInvoices');
+    Route::post('invoices/validateInvoice', 'InvoiceController@validateInvoice');
+    Route::post('invoices/charge', 'InvoiceController@charge');
+    Route::get('invoices/{reference_id}/markPaid', 'InvoiceController@markPaid');
 
-    define('TOKEN_URI', 'https://connect.stripe.com/oauth/token');
-    define('AUTHORIZE_URI', 'https://connect.stripe.com/oauth/authorize');
+    Route::get('stripe/connect', function (Illuminate\Http\Request $request) {
 
-    if (isset($_GET['code'])) { // Redirect w/ code
-        $code = $_GET['code'];
+        define('CLIENT_ID', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
+        define('API_KEY', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
 
-        $token_request_body = array(
-            'client_secret' => API_KEY,
-            'grant_type' => 'authorization_code',
-            'client_id' => CLIENT_ID,
-            'code' => $code,
-        );
+        define('TOKEN_URI', 'https://connect.stripe.com/oauth/token');
+        define('AUTHORIZE_URI', 'https://connect.stripe.com/oauth/authorize');
 
-        $req = curl_init(TOKEN_URI);
-        curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($req, CURLOPT_POST, true );
-        curl_setopt($req, CURLOPT_POSTFIELDS, http_build_query($token_request_body));
+        if (isset($_GET['code'])) { // Redirect w/ code
+            $code = $_GET['code'];
 
+            $token_request_body = [
+                'client_secret' => API_KEY,
+                'grant_type'    => 'authorization_code',
+                'client_id'     => CLIENT_ID,
+                'code'          => $code,
+            ];
 
-        // TODO: Additional error handling
-        $respCode = curl_getinfo($req, CURLINFO_HTTP_CODE);
-        $resp = json_decode(curl_exec($req), true);
-        curl_close($req);
-
-        echo $resp['access_token'];
+            $req = curl_init(TOKEN_URI);
+            curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($req, CURLOPT_POST, true);
+            curl_setopt($req, CURLOPT_POSTFIELDS, http_build_query($token_request_body));
 
 
-        // Find logged in user and set stripe token.
-        $user = User::find(Auth::user()->id);
-        $user->stripe_connect_token = $resp['access_token'];
-        $user->save();
+            // TODO: Additional error handling
+            $respCode = curl_getinfo($req, CURLINFO_HTTP_CODE);
+            $resp = json_decode(curl_exec($req), true);
+            curl_close($req);
 
-        return back();
-    }
+            echo $resp['access_token'];
+
+
+            // Find logged in user and set stripe token.
+            $user = User::find(Auth::user()->id);
+            $user->stripe_connect_token = $resp['access_token'];
+            $user->save();
+
+            return back();
+        }
+    });
+
 });

@@ -15,8 +15,10 @@
                         <a class="pull-right" href="#" @click.prevent="clientCreate = true">Create new client</a>
                     </div><!-- panel-heading -->
                     <div class="panel-body">
+                        <div class="text-center" v-if="clients == 0">
+                            <p>There is no clients created yet!</p>
+                        </div><!-- /.text-center -->
 
-                        <span v-if="clients == 0">There is no clients created yet!</span>
 
                         <table v-else class="table table-hover">
                             <thead>
@@ -77,8 +79,8 @@
 
         data () {
             return {
-                clients     : [],
-                clientCreate: false,
+                clients       : [],
+                clientCreate  : false,
                 editClientData: []
             };
         },

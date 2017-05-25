@@ -24,9 +24,7 @@
                             </span>
                         </div><!-- /.text-center -->
                         <div class="text-center" v-else-if="invoices == 0">
-                            <span>
-                                <p>There is no invoice created yet</p>
-                            </span>
+                            <p>There is no invoice created yet</p>
                         </div><!-- /.text-center -->
 
                         <table class="table table-hover" v-else>

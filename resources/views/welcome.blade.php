@@ -38,27 +38,26 @@
     </div><!-- /.row -->
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-dark-soft">
+        <div id="offers" class="col-md-8 col-md-offset-2 text-dark-soft">
 
-            <img style="max-width: 100%;" src="https://kitetail.co/img/kitetail-devices.png" alt="">
+            <img style="max-width: 100%;" src="/img/macbook.png" alt="">
             <hr>
             <p>
-                <b>Invoiceapp.io</b> offers a lot of great features that you can enjoy, here is a list that just gets bigger and bigger:
+                <b>Invoiceapp.io</b> offers All the tools you need to run your freelance business
             </p>
+            <br/>
             <ul>
-                <li>No Fees (besides Stripe’s standard fees)</li>
+                <li>Charts & reports</li>
                 <li>Send invoice by email</li>
                 <li>Secure Online Payments</li>
                 <li>Beautiful Emails and invoices</li>
-                <li>Past Due Notices</li>
-                <li>And much more...</li>
+                <li>No Fees (besides Stripe’s standard fees)</li>
+                <li>Track invoices sent, opened and when they're overdue</li>
+                <li>Check on how your business is performing with reports</li>
+                <li>And thats just some of the features</li>
             </ul>
         </div><!-- /.col-md-12 -->
     </div><!-- /.row -->
-
-
 </div><!-- /.container -->
-
-
 </body>
 </html>

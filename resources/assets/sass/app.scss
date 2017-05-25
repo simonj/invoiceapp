@@ -1,11 +1,19 @@
+// Import font.
 @import url('https://fonts.googleapis.com/css?family=Lato');
-@import "_variables";
-@import "_base";
 
-// Elements.
-@import "stripeConnect";
+// Import Variables.
+@import "variables";
+
+// Utility Helpers
+@import "utilities";
+
+// Import Base.
+@import "base";
+
+// Html Elements.
+@import "elements/stripeConnect";
 @import "elements/panels";
+@import "elements/navbar";
+@import "elements/modal";
 
 // Components.
-@import "modal";
-@import "navbar";

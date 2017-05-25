@@ -10,7 +10,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #394644
+  color: $text-dark;
 }
 
 [role=button],
@@ -45,39 +45,3 @@ h4 {
   font-size: 1rem
 }
 
-.text-light {
-  color: #fff
-}
-
-.text-light-soft {
-
-  color: $text-light-soft;
-}
-
-.text-light-muted {
-  color: $text-light-muted
-}
-
-.text-light-faint {
-  color: $text-light-faint
-}
-
-.text-dark {
-  color: $text-dark;
-}
-
-.text-dark-soft {
-  color: $text-dark-soft;
-}
-
-.text-dark-muted {
-  color: $text-dark-muted;
-}
-
-.text-dark-faint {
-  color: $text-dark-faint;
-}
-
-.text-danger {
-  color: $text-danger;
-}

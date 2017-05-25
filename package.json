@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.15.2",
     "bootstrap": "^3.0.0",
+    "chart.js": "^2.6.0",
     "cross-env": "^3.2.3",
     "jquery": "^2.1.4",
     "js-cookie": "^2.1.0",
@@ -19,6 +20,7 @@
     "underscore": "^1.8.3",
     "urijs": "^1.17.0",
     "vue": "2.*",
+    "vue-chartjs": "^2.6.3",
     "vue-datepicker2": "^2.2.0-dev",
     "vue-multiselect": "next"
   }

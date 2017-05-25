@@ -6,9 +6,9 @@ nav {
 
 .navbar-inverse .navbar-nav {
   li a {
-    color: #8fa3a0;
+    color: $text-light-muted;
     &:hover {
-      color: #697176;
+      color: $text-light-faint;
 
     }
     border-color: #dedede;

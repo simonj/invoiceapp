@@ -48,27 +48,36 @@ h4 {
 .text-light {
   color: #fff
 }
+
 .text-light-soft {
-  color: rgba(255, 255, 255, .9)
+
+  color: $text-light-soft;
 }
+
 .text-light-muted {
-  color: rgba(255, 255, 255, .6)
+  color: $text-light-muted
 }
+
 .text-light-faint {
-  color: rgba(255, 255, 255, .35)
+  color: $text-light-faint
 }
+
 .text-dark {
-  color: #394644
+  color: $text-dark;
 }
+
 .text-dark-soft {
-  color: #5c706d
+  color: $text-dark-soft;
 }
+
 .text-dark-muted {
-  color: #8fa3a0
+  color: $text-dark-muted;
 }
+
 .text-dark-faint {
-  color: #c7d1d0
+  color: $text-dark-faint;
 }
+
 .text-danger {
-  color: #e23c36
+  color: $text-danger;
 }

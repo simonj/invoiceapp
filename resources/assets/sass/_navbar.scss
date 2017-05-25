@@ -4,6 +4,17 @@ nav {
   }
 }
 
-.navbar-inverse .navbar-nav > li > a:hover {
-  color: #697176;
+.navbar-inverse .navbar-nav {
+  li a {
+    color: #8fa3a0;
+    &:hover {
+      color: #697176;
+
+    }
+    border-color: #f2f2f2;
+  }
+}
+
+.navbar-inverse {
+  border-color: #f2f2f2;
 }

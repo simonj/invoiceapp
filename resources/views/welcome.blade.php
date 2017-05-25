@@ -20,8 +20,12 @@
 
 <div class="container">
     <ul class="nav nav-pills pull-right">
-        <li><a href="/register">Sign up</a></li>
-        <li><a href="/login">Log in</a></li>
+        @if(Auth::user())
+            <li><a href="/home">Go to dashboard &rarr;</a></li>
+        @else
+            <li><a href="/register">Sign up</a></li>
+            <li><a href="/login">Log in</a></li>
+        @endif
     </ul>
 
     <div class="row">

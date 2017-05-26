@@ -11,7 +11,6 @@
 |
 */
 
-use App\User;
 
 Route::get('/', 'WelcomeController@show');
 
@@ -62,16 +61,28 @@ Route::group(['middleware' => 'auth', 'subscribed'], function () {
             $resp = json_decode(curl_exec($req), true);
             curl_close($req);
 
-            echo $resp['access_token'];
-
-
             // Find logged in user and set stripe token.
-            $user = User::find(Auth::user()->id);
+            $user = App\User::find(Auth::user()->id);
+            $user->stripe_id = $resp['stripe_user_id'];
             $user->stripe_connect_token = $resp['access_token'];
             $user->save();
 
             return back();
         }
+    });
+
+    // Disconnect stripe.
+    route::get('stripe/disconnect', function () {
+
+        // Find user.
+        $user = App\User::find(auth()->user()->id);
+
+        // Remove stripe id and stripe token from user.
+        $user->stripe_id = null;
+        $user->stripe_connect_token = null;
+        $user->save();
+
+        return back();
     });
 
 });

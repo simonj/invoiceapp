@@ -51,7 +51,7 @@
                 <li>Send invoice by email</li>
                 <li>Secure Online Payments</li>
                 <li>Beautiful Emails and invoices</li>
-                <li>No Fees (besides Stripe’s standard fees)</li>
+                <li>No Fees <small>(besides Stripe’s standard fees)</small></li>
                 <li>Track invoices sent, opened and when they're overdue</li>
                 <li>Check on how your business is performing with reports</li>
                 <li>And thats just some of the features</li>

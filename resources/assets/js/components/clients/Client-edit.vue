@@ -7,7 +7,7 @@
 
                 <div class="form-group" :class="{'has-error': form.errors.has('company')}">
                     <label class="control-label" for="company">Company
-                        <small class="text-info">required</small>
+                        <small class="label label-success">required</small>
                     </label>
                     <input type="text" class="form-control" name="company" id="company" v-model="form.company" placeholder="Insert company name">
                     <span class="help-block" v-show="form.errors.has('company')">
@@ -25,7 +25,7 @@
 
                 <div class="form-group" :class="{'has-error': form.errors.has('email')}">
                     <label class="control-label" for="email">Email
-                        <small class="text-info">required</small>
+                        <small class="label label-success">required</small>
                     </label>
                     <input type="email" class="form-control" name="email" id="email" v-model="form.email" placeholder="john@doe.com">
                     <span class="help-block" v-show="form.errors.has('email')">

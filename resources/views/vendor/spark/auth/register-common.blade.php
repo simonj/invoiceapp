@@ -158,6 +158,7 @@
 
                 <span v-else>
                     Register
+                    <a class="pull-right" href="/" >Go back</a>
                 </span>
             </div>
 

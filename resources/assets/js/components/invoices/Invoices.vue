@@ -19,7 +19,7 @@
 
                         <div class="text-center" v-if="! user.stripe_connect_token">
                             <span>
-                                <p>You need to connect to stripe before created invoices</p>
+                                <p>You need to connect to stripe before creating invoices</p>
                                 <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7ub2G1IqhsJ57jqISLdOrGWiC6gNXhzw&scope=read_only" class="stripe-connect light-blue"><span>Connect with Stripe</span></a>
                             </span>
                         </div><!-- /.text-center -->

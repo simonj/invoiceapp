@@ -86,8 +86,8 @@
                                     </span>
                             </div><!-- form-group -->
 
-                            <button type="submit" class="btn btn-primary" @click.prevent="create" :disabled="form.busy">
-                                Create
+                            <button type="submit" class="btn btn-primary pull-right" @click.prevent="create" :disabled="form.busy">
+                                Create client
                             </button>
                         </form>
                     </div><!-- panel-body -->

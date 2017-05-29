@@ -1,0 +1,36 @@
+// Buttons
+
+.btn-primary {
+  background-color: $color-primary;
+  &:hover {
+    background-color: lighten($color-primary, 5%);
+  }
+}
+
+.btn-success {
+  background-color: $color-success;
+  &:hover {
+    background-color: lighten($color-success, 5%);
+  }
+}
+
+.btn-warning {
+  background-color: $color-warning;
+  &:hover {
+    background-color: lighten($color-warning, 5%);
+  }
+}
+
+.btn-info {
+  background-color: $color-info;
+  &:hover {
+    background-color: lighten($color-info, 5%);
+  }
+}
+
+.btn-danger {
+  background-color: $color-danger;
+  &:hover {
+    background-color: lighten($color-danger, 5%);
+  }
+}

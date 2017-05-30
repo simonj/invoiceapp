@@ -6,14 +6,13 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class InvoiceSent extends Mailable
+class InvoicePaid extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $user;
     public $client;
     public $invoice;
-    public $items;
 
     /**
      * Create a new message instance.
@@ -21,14 +20,12 @@ class InvoiceSent extends Mailable
      * @param $user
      * @param $client
      * @param $invoice
-     * @param $items
      */
-    public function __construct($user, $client, $invoice, $items)
+    public function __construct($user, $client, $invoice)
     {
         $this->user = $user;
         $this->client = $client;
         $this->invoice = $invoice;
-        $this->items = $items;
     }
 
     /**
@@ -38,6 +35,6 @@ class InvoiceSent extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.invoiceSent')->subject('Invoice from ' . $this->user->name);
+        return $this->markdown('emails.invoicePaid')->subject('Invoice from ' . $this->user->name);
     }
 }

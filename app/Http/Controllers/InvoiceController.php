@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Client_invoice;
 use App\Client_invoice_item;
+use App\Mail\InvoicePaid;
 use App\Mail\InvoiceSent;
 use App\User;
 use Carbon\Carbon;
@@ -133,6 +134,9 @@ class InvoiceController extends Controller
         $invoice->paid = true;
         $invoice->status = self::PAID;
         $invoice->save();
+
+        // Send email to client.
+        Mail::to($invoice->clients->email)->send(new InvoicePaid(auth()->user(), $invoice->clients, $invoice));
 
         return back();
     }

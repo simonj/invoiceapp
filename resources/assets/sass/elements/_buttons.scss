@@ -1,4 +1,4 @@
-// Buttons
+// Buttons.
 
 .btn-primary {
   background-color: $color-primary;
@@ -31,6 +31,53 @@
 .btn-danger {
   background-color: $color-danger;
   &:hover {
+    background-color: lighten($color-danger, 5%);
+  }
+}
+
+// Outline.
+
+.btn-primary-outline {
+  border-color: $color-primary;
+  color: $color-primary;
+  &:hover {
+    border-color: lighten($color-primary, 5%);
+    background-color: lighten($color-primary, 5%);
+  }
+}
+
+.btn-success-outline {
+  border-color: $color-success;
+  color: $color-success;
+  &:hover {
+    border-color: lighten($color-success, 5%);
+    background-color: lighten($color-success, 5%);
+  }
+}
+
+.btn-warning-outline {
+  border-color: $color-warning;
+  color: $color-warning;
+  &:hover {
+    border-color: lighten($color-warning, 5%);
+    background-color: lighten($color-warning, 5%);
+  }
+}
+
+.btn-info-outline {
+  border-color: $color-info;
+  color: $color-info;
+  &:hover {
+    border-color: lighten($color-info, 5%);
+    background-color: lighten($color-info, 5%);
+  }
+}
+
+.btn-danger-outline {
+  border-color: $color-danger;
+  color: $color-danger;
+  &:hover {
+    border-color: lighten($color-danger, 5%);
     background-color: lighten($color-danger, 5%);
   }
 }

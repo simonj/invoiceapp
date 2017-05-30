@@ -4,6 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+
+                <img style="margin-bottom: 3rem; width: 200px;" class="img-responsive center-block" src="/img/logo.svg" alt="">
+
                 <div class="panel {{ $invoice->paid == true ? 'panel-success' : 'panel-default' }} ">
                     <div class="panel-heading">
                         @if($invoice->paid == true)

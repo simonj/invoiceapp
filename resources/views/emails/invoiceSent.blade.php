@@ -17,4 +17,7 @@ Pay the invoice online before {{ $invoice->due_date }}
 
 Thanks,<br>
 {{ $user->name }}
+
+<img border="0" width="1" height="1" src="{{ url('invoices/'. $invoice->reference_key .'/hasSeenEmail') }}" alt="">
+    
 @endcomponent

@@ -29,6 +29,8 @@ class CreateClientInvoicesTable extends Migration
             $table->text('notes');
             $table->integer('amount');
             $table->boolean('paid');
+            $table->boolean('has_seen_email')->default(0);
+            $table->boolean('has_seen_invoice')->default(0);
             $table->timestamps();
         });
     }

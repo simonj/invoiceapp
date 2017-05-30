@@ -3,24 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Client_invoice;
-use App\Client_invoice_item;
 use App\Mail\InvoicePaid;
 use App\Mail\InvoiceSent;
-use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
 {
     protected $dates = ['due_date'];
 
-    const CREATED  = 'created'; // label-info
-    const SENT     = 'sent'; // label-primary
+    const CREATED = 'created'; // label-info
+    const SENT = 'sent'; // label-primary
     const REMINDER = 'reminder'; // label-warning
-    const PAID     = 'paid'; // label-success
+    const PAID = 'paid'; // label-success
 
     /**
      * Get invoices.
@@ -124,6 +121,13 @@ class InvoiceController extends Controller
     {
         $invoice = Client_invoice::with('items')->whereReferenceKey($reference_key)->first();
 
+        // I've its not the user viewing invoice, we update "seen invoice"
+        if(auth()->guest())
+        {
+            $invoice->has_seen_invoice = true;
+            $invoice->save();
+        }
+
         return view('invoices.pay', compact('invoice'));
     }
 
@@ -139,6 +143,26 @@ class InvoiceController extends Controller
         Mail::to($invoice->clients->email)->send(new InvoicePaid(auth()->user(), $invoice->clients, $invoice));
 
         return back();
+    }
+
+    public function hasSeenEmail($reference_key)
+    {
+        // Find invoice.
+        $invoice = Client_invoice::whereReferenceKey($reference_key)->first();
+
+        // Update has seen email status.
+        $invoice->has_seen_email = true;
+        $invoice->save();
+    }
+
+    public function hasSeenInvoice($reference_key)
+    {
+        // Find invoice.
+        $invoice = Client_invoice::whereReferenceKey($reference_key)->first();
+
+        // Update has seen email status.
+        $invoice->has_seen_invoice = true;
+        $invoice->save();
     }
 
     /**

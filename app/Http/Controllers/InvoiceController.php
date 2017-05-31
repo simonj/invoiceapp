@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client_invoice;
+use App\Mail\InvoiceCancelled;
 use App\Mail\InvoicePaid;
 use App\Mail\InvoiceSent;
 use Carbon\Carbon;
@@ -89,7 +90,6 @@ class InvoiceController extends Controller
         // Generate reference key.
         $reference_key = str_random(60);
 
-
         // Create invoice.
         $invoice = new Client_invoice;
         $invoice->reference_key = $reference_key;
@@ -111,10 +111,8 @@ class InvoiceController extends Controller
         $client = $request->client['contact_person'];
         $items = $invoice->items()->get();
 
-
         // Send email to client.
         Mail::to($request->client['email'])->send(new InvoiceSent($user, $client, $invoice, $items));
-
     }
 
     public function pay($reference_key)
@@ -122,8 +120,7 @@ class InvoiceController extends Controller
         $invoice = Client_invoice::with('items')->whereReferenceKey($reference_key)->first();
 
         // I've its not the user viewing invoice, we update "seen invoice"
-        if(auth()->guest())
-        {
+        if (auth()->guest()) {
             $invoice->has_seen_invoice = true;
             $invoice->save();
         }
@@ -198,7 +195,7 @@ class InvoiceController extends Controller
         $invoice->status = 'paid';
         $invoice->save();
 
-        flash('Invice has been paid')->success();
+        flash('Invoice has been paid')->success();
 
         return back();
 
@@ -213,10 +210,14 @@ class InvoiceController extends Controller
      */
     public function destroy($id)
     {
+        $invoice = Client_invoice::find($id);
+
+        // Send email to client.
+        Mail::to($invoice->clients->email)->send(new InvoiceCancelled(auth()->user(), $invoice->clients));
+
         // Delete invoice from database.
         Client_invoice::destroy($id);
 
-        // Send mail to client.
 
         return response()->json(['success' => true]);
     }

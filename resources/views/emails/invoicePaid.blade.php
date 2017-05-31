@@ -1,13 +1,13 @@
 @component('mail::message')
 # Hello, {{ $client->contact_person }}
 
-I've marked your invoice as been paid.
+Your invoice as been marked as paid.
 
 @component('mail::button', ['url' => url('invoices/'. $invoice->reference_key .'/pay'), 'color' => 'green'])
     See your invoice
 @endcomponent
 
-Thanks,<br>
+Best regards,<br>
 {{ $user->name }}
 @endcomponent
 

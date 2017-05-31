@@ -16,6 +16,7 @@ Route::get('/', 'WelcomeController@show');
 
 // Invoice related that does not need a auth.
 Route::get('invoices/{reference_id}/pay', 'InvoiceController@pay');
+Route::post('invoices/charge', 'InvoiceController@charge');
 Route::get('invoices/{reference_id}/hasSeenEmail', 'InvoiceController@hasSeenEmail');
 Route::get('invoices/{reference_id}/hasSeenInvoice', 'InvoiceController@hasSeenInvoice');
 
@@ -33,7 +34,6 @@ Route::group(['middleware' => 'auth', 'subscribed'], function () {
 
     Route::get('fetchInvoices', 'InvoiceController@fetchInvoices');
     Route::post('invoices/validateInvoice', 'InvoiceController@validateInvoice');
-    Route::post('invoices/charge', 'InvoiceController@charge');
     Route::get('invoices/{reference_id}/markPaid', 'InvoiceController@markPaid');
 
     Route::get('stripe/connect', function (Illuminate\Http\Request $request) {

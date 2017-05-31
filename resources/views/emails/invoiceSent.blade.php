@@ -15,7 +15,7 @@ I've created an invoice for the work i did for you.
 Pay the invoice online before {{ $invoice->due_date }}
 @endcomponent
 
-Thanks,<br>
+Best regards,<br>
 {{ $user->name }}
 
 <img border="0" width="1" height="1" src="{{ url('invoices/'. $invoice->reference_key .'/hasSeenEmail') }}" alt="">

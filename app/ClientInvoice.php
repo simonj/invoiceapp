@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client_invoice extends Model
+class ClientInvoice extends Model
 {
-
+    protected $table = 'client_invoices';
     protected $fillable = ['reference_key', 'client_id', 'user_id', 'due_date', 'status', 'notes', 'amount', 'paid'];
 
     public function user()
@@ -21,6 +21,6 @@ class Client_invoice extends Model
 
     public function items()
     {
-        return $this->hasMany(Client_invoice_item::class, 'client_invoice_id');
+        return $this->hasMany(Client_invoiceItem::class, 'client_invoice_id');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client_invoice;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -14,18 +15,29 @@ class HomeController extends Controller
      */
     public function show()
     {
-        $invoice = Client_invoice::where([
-            ['user_id', '=', auth()->user()->id],
-            ['paid', '=', true]
-        ])->get()->pluck('amount');
-        dd($invoice);
+
         // Calculate invoice All time.
-        $all_time =
+        $all_time = auth()->user()->clientInvoices()->where('paid', '=', true)->sum('amount');
+
 
         // Calculate invoice This week.
+        // this week results
+
+        $from_date = Carbon::now()->subDay()->startOfWeek()->toDateTimeString();
+        $till_date = Carbon::now()->subDay()->endOfWeek()->toDateTimeString();
+
+        $this_week = auth()->user()->clientInvoices()->where('paid', '=', true)
+            ->whereBetween('updated_at', [$from_date, $till_date])->sum('amount');
+
         // Calculate invoice Today.
+        $today_date = Carbon::now()->today()->toDateTimeString();
+
+        $today = auth()->user()->clientInvoices()->where('paid', '=', true)
+            ->where('updated_at', $today_date)->sum('amount');
+
+        dump($today_date);
 
 
-        return view('home');
+        return view('home', compact('all_time', 'this_week', 'today'));
     }
 }

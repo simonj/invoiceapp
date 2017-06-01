@@ -53,7 +53,7 @@ $factory->define(App\Client_invoice::class, function (Faker\Generator $faker) {
 });
 
 // Add invoices items
-$factory->define(App\Client_invoice_item::class, function (Faker\Generator $faker) {
+$factory->define(App\Client_invoiceItem::class, function (Faker\Generator $faker) {
     return [
         'quantity'    => $faker->randomDigitNotNull,
         'description' => $faker->sentence(10),

@@ -47,4 +47,9 @@ class User extends SparkUser
         'trial_ends_at' => 'datetime',
         'uses_two_factor_auth' => 'boolean',
     ];
+
+    public function clientInvoices()
+    {
+        return $this->hasMany(ClientInvoice::class);
+    }
 }

@@ -19,10 +19,7 @@ class HomeController extends Controller
         // Calculate invoice All time.
         $all_time = auth()->user()->clientInvoices()->where('paid', '=', true)->sum('amount');
 
-
         // Calculate invoice This week.
-        // this week results
-
         $from_date = Carbon::now()->subDay()->startOfWeek()->toDateTimeString();
         $till_date = Carbon::now()->subDay()->endOfWeek()->toDateTimeString();
 
@@ -33,10 +30,7 @@ class HomeController extends Controller
         $today_date = Carbon::now()->today()->toDateTimeString();
 
         $today = auth()->user()->clientInvoices()->where('paid', '=', true)
-            ->where('updated_at', $today_date)->sum('amount');
-
-        dump($today_date);
-
+            ->whereDate('updated_at', $today_date)->sum('amount');
 
         return view('home', compact('all_time', 'this_week', 'today'));
     }

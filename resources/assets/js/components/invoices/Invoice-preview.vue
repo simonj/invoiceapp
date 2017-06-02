@@ -72,8 +72,13 @@
                 <div class="panel-footer">
                     <!-- Split button -->
                     <div class="btn-group pull-right">
-                        <button @click.prevent="send" type="button" class="btn btn-primary">Send invoice</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <button v-if="spinner" style="font-size: 0.4em;" type="button" class="btn btn-primary">
+                            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                        </button>
+                        <button v-else @click.prevent="send" type="button" class="btn btn-primary">
+                            Send invoice
+                        </button>
+                        <button v-if="!spinner" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
@@ -107,6 +112,7 @@
 
         data () {
             return {
+                spinner: false
             }
         },
 
@@ -119,7 +125,11 @@
              * Create & send invoice to customer.
              */
             send () {
+                // Show a spinner.
+                this.spinner = true
+
                 axios.post('/invoices', this.item).then(response => {
+                    this.spinner = false
                     Bus.$emit('invoicePreview', false);
                     Bus.$emit('invoiceCreate', false);
 

@@ -38,18 +38,18 @@
             </div><!-- /.col-md-3 -->
 
         </div><!-- row -->
-        
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Statitics</div><!-- /.panel-heading -->
-                    <div class="panel-body">
-                        Panel body ...
-                    </div>
-                </div>
-                <!-- /.panel panel-default -->
-            </div><!-- /.col-md-12 -->
-        </div><!-- /.row -->
+
+        {{--<div class="row">--}}
+            {{--<div class="col-md-12">--}}
+                {{--<div class="panel panel-default">--}}
+                    {{--<div class="panel-heading text-center">Statitics</div><!-- /.panel-heading -->--}}
+                    {{--<div class="panel-body">--}}
+                        {{--Panel body ...--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<!-- /.panel panel-default -->--}}
+            {{--</div><!-- /.col-md-12 -->--}}
+        {{--</div><!-- /.row -->--}}
         
     </div><!-- container -->
 </home>

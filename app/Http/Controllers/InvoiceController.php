@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Client_invoice;
+use App\ClientInvoice;
 use App\Mail\InvoiceCancelled;
 use App\Mail\InvoicePaid;
 use App\Mail\InvoiceSent;
@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Laravel\Spark\Contracts\Repositories\NotificationRepository;
+
 
 class InvoiceController extends Controller
 {
@@ -33,7 +35,7 @@ class InvoiceController extends Controller
      */
     public function fetchInvoices()
     {
-        $invoices = client_invoice::with('clients')
+        $invoices = CLientInvoice::with('clients')
             ->where('user_id', Auth::user()->id)
             ->orderBy('created_at', 'desc')
             ->with('items')
@@ -91,7 +93,7 @@ class InvoiceController extends Controller
         $reference_key = str_random(60);
 
         // Create invoice.
-        $invoice = new Client_invoice;
+        $invoice = new ClientInvoice();
         $invoice->reference_key = $reference_key;
         $invoice->client_id = $request->client['id'];
         $invoice->user_id = Auth::user()->id;
@@ -115,14 +117,19 @@ class InvoiceController extends Controller
         Mail::to($request->client['email'])->send(new InvoiceSent($user, $client, $invoice, $items));
     }
 
-    public function pay($reference_key)
+    public function pay(NotificationRepository $notifications, $reference_key)
     {
-        $invoice = Client_invoice::with('items')->whereReferenceKey($reference_key)->first();
+        $invoice = ClientInvoice::with('items')->whereReferenceKey($reference_key)->first();
 
         // I've its not the user viewing invoice, we update "seen invoice"
         if (auth()->guest()) {
             $invoice->has_seen_invoice = true;
             $invoice->save();
+
+            $notifications->create($invoice->user, [
+                'icon' => 'fa-envelope-o',
+                'body' => 'Your client ' . $invoice->clients->company . ' have clicked on the link in email',
+            ]);
         }
 
         return view('invoices.pay', compact('invoice'));
@@ -130,7 +137,7 @@ class InvoiceController extends Controller
 
     public function markPaid($reference_key)
     {
-        $invoice = Client_invoice::with('items')->whereReferenceKey($reference_key)->first();
+        $invoice = ClientInvoice::with('items')->whereReferenceKey($reference_key)->first();
 
         $invoice->paid = true;
         $invoice->status = self::PAID;
@@ -142,24 +149,27 @@ class InvoiceController extends Controller
         return back();
     }
 
-    public function hasSeenEmail($reference_key)
+    /**
+     * Client has seen email.
+     *
+     * @param \Laravel\Spark\Contracts\Repositories\NotificationRepository $notifications
+     * @param $reference_key
+     */
+    public function hasSeenEmail(NotificationRepository $notifications, $reference_key)
     {
         // Find invoice.
-        $invoice = Client_invoice::whereReferenceKey($reference_key)->first();
+        $invoice = ClientInvoice::whereReferenceKey($reference_key)->first();
 
         // Update has seen email status.
         $invoice->has_seen_email = true;
         $invoice->save();
-    }
 
-    public function hasSeenInvoice($reference_key)
-    {
-        // Find invoice.
-        $invoice = Client_invoice::whereReferenceKey($reference_key)->first();
+        // Notify user that client has open the email.
+        $notifications->create(auth()->user(), [
+            'icon' => 'fa-envelope-o',
+            'body' => 'Your client ' . $invoice->clients->company . ' have seen your email',
+        ]);
 
-        // Update has seen email status.
-        $invoice->has_seen_invoice = true;
-        $invoice->save();
     }
 
     /**
@@ -172,7 +182,7 @@ class InvoiceController extends Controller
     public function charge(Request $request)
     {
         // Find invoice by reference key.
-        $invoice = Client_invoice::whereReferenceKey($request->reference_key)->first();
+        $invoice = ClientInvoice::whereReferenceKey($request->reference_key)->first();
 
         // Set your secret key: remember to change this to your live secret key in production
         // See your keys here: https://dashboard.stripe.com/account/apikeys
@@ -210,13 +220,13 @@ class InvoiceController extends Controller
      */
     public function destroy($id)
     {
-        $invoice = Client_invoice::find($id);
+        $invoice = ClientInvoice::find($id);
 
         // Send email to client.
         Mail::to($invoice->clients->email)->send(new InvoiceCancelled(auth()->user(), $invoice->clients));
 
         // Delete invoice from database.
-        Client_invoice::destroy($id);
+        ClientInvoice::destroy($id);
 
 
         return response()->json(['success' => true]);

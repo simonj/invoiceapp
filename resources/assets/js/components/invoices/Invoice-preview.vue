@@ -5,7 +5,10 @@
 
         <div class="panel" :class="[item.status == 'paid' ? 'panel-success' : 'panel-default']">
             <div class="panel-heading">
-                <span v-if="item.status == 'paid'">Invoice paid</span>
+                <span v-if="isPreview">
+                    Ref ID: {{ item.reference_key }}
+                </span>
+                <span v-else-if="item.status == 'paid'">Invoice paid</span>
                 <span v-else>Pay invoice</span>
                 <a class="pull-right" href="#" @click.prevent="back">Back to your invoice</a>
             </div><!-- panel-heading -->
@@ -69,7 +72,7 @@
                     </tbody>
                 </table>
 
-                <div class="panel-footer">
+                <div v-if="! isPreview" class="panel-footer">
                     <!-- Split button -->
                     <div class="btn-group pull-right">
                         <button v-if="spinner" style="font-size: 0.4em;" type="button" class="btn btn-primary">
@@ -106,7 +109,7 @@
     export default {
         name: 'InvoicePreview',
 
-        props: ['item'],
+        props: ['item', 'isPreview'],
 
         components: {},
 

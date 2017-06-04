@@ -4,7 +4,7 @@
     <invoice-create v-if="invoiceCreate"></invoice-create>
 
     <!-- Show preview invoice -->
-    <invoice-preview :item="form" v-else-if="invoicePreview"></invoice-preview>
+    <invoice-preview :item="form" :isPreview="isPreview" v-else-if="invoicePreview"></invoice-preview>
 
     <div v-else class="container">
         <div class="row">
@@ -89,6 +89,7 @@
                 invoices      : [],
                 invoiceCreate : false,
                 invoicePreview: false,
+                isPreview       : false,
                 form          : {
                     client       : {},
                     notes        : '',
@@ -155,6 +156,9 @@
             },
 
             preview (invoice) {
+                // Set preview data to true so we can hide the "send invoice button".
+                this.isPreview = true
+
                 // set data for selected invoice.
                 this.form.amount        = invoice.amount
                 this.form.client        = invoice.clients

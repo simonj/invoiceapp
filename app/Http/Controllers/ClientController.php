@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Client;
-use App\Client_invoice;
-use Illuminate\Http\Request;
+use App\ClientInvoice;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Symfony\Component\HttpFoundation\Response;
 
 class ClientController extends Controller
 {
@@ -137,7 +134,7 @@ class ClientController extends Controller
     public function destroy($id)
     {
         // Delete invoice and invoice items.
-        $invoice = Client_invoice::where('client_id', $id)->first();
+        $invoice = auth()->user()->ClientInvoice->find($id);
         if ($invoice) {
             $invoice->items()->delete();
             $invoice->delete();

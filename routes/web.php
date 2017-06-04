@@ -18,6 +18,7 @@ Route::get('/', 'WelcomeController@show');
 Route::get('invoices/{reference_id}/pay', 'InvoiceController@pay');
 Route::post('invoices/charge', 'InvoiceController@charge');
 Route::get('invoices/{reference_id}/hasSeenEmail', 'InvoiceController@hasSeenEmail');
+Route::get('invoices/{reference_id}/downloadPdf', 'InvoiceController@downloadPDf');
 
 Route::group(['middleware' => 'auth', 'subscribed'], function () {
 

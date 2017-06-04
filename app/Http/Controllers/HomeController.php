@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Client_invoice;
 use Carbon\Carbon;
 
 class HomeController extends Controller

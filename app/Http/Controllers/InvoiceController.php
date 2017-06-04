@@ -208,7 +208,21 @@ class InvoiceController extends Controller
         flash('Invoice has been paid')->success();
 
         return back();
+    }
 
+    public function downloadPdf($reference_key)
+    {
+        // Find invoice by reference_key.
+        $invoice = ClientInvoice::whereReferenceKey($reference_key)->get()->toArray();
+
+
+        $pdf = \PDF::loadView('pdf.simple', $invoice);
+
+        return $pdf->download('invoice.pdf');
+
+        // generate PDF.
+
+        // Let user / client download
     }
 
     /**

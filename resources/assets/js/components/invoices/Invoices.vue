@@ -9,6 +9,10 @@
     <div v-else class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+
+                <!-- show edit invoice -->
+                <invoice-edit v-show="editInvoiceData" :invoiceData="editInvoiceData"></invoice-edit>
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Invoice overview
@@ -42,23 +46,27 @@
                                 <td class="text-center">{{ invoice.clients.company }}</td>
                                 <td class="text-center">{{ invoice.amount | currency }},-</td>
                                 <td class="text-center">
-                                    <a @click.prevent="preview(invoice)" href="#">
-                                        <button class="btn btn-info-outline">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
-                                    </a>
+                                    <!-- Preview Button -->
+                                    <button @click.prevent="preview(invoice)" class="btn btn-primary-outline">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
 
+                                    <!-- Edit Button -->
+                                    <button data-toggle="modal" data-target="#modal" class="btn btn-warning-outline" @click="edit(invoice)">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+
+                                    <!-- See invoice page -->
                                     <a target="_blank" :href.literal="`/invoices/${invoice.reference_key}/pay`">
                                         <button class="btn btn-success-outline">
                                             <i class="fa fa-external-link"></i>
                                         </button>
                                     </a>
 
-                                    <a @click.prevent="remove(invoice)" href="#">
-                                        <button class="btn btn-danger-outline">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </a>
+                                    <!-- Delete Button -->
+                                    <button @click.prevent="remove(invoice)" class="btn btn-danger-outline">
+                                        <i class="fa fa-times"></i>
+                                    </button>
                                 </td>
                             </tr>
                             </tbody>
@@ -74,23 +82,28 @@
     import axios from 'axios'
     import InvoiceCreate from './invoice-create.vue'
     import InvoicePreview from './invoice-preview.vue'
+    import InvoiceEdit from './invoice-edit.vue'
+    import Modal from './../Modal.vue'
 
     export default {
 
         name: 'Invoices',
 
         components: {
-            InvoicePreview
+            InvoicePreview,
+            InvoiceEdit,
+            Modal
         },
 
         data() {
             return {
-                user          : Spark.state.user,
-                invoices      : [],
-                invoiceCreate : false,
-                invoicePreview: false,
-                isPreview       : false,
-                form          : {
+                user           : Spark.state.user,
+                invoices       : [],
+                invoiceCreate  : false,
+                invoicePreview : false,
+                isPreview      : false,
+                editInvoiceData: [],
+                form           : {
                     client       : {},
                     notes        : '',
                     date         : '',
@@ -172,6 +185,18 @@
                 this.invoicePreview = true
             },
 
+            /**
+             * Edit invoice.
+             * @param invoice
+             */
+            edit(invoice) {
+                this.editInvoiceData = invoice
+            },
+
+            /**
+             * Remove invoice
+             * @param invoice
+             */
             remove(invoice) {
 
                 let that = this

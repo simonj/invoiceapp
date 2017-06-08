@@ -15,7 +15,8 @@
         "laravel/dusk": "^1.1",
         "laravel/framework": "5.4.*",
         "laravel/spark": "*@dev",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "moneyphp/money": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

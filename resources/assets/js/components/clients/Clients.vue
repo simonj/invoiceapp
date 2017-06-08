@@ -39,13 +39,11 @@
 
                                 <!-- Edit Button -->
                                 <td>
-                                    <button data-toggle="modal" data-target="#modal" class="btn btn-primary" @click="edit(client)">
+                                    <button data-toggle="modal" data-target="#modal" class="btn btn-primary-outline" @click="edit(client)">
                                         <i class="fa fa-pencil"></i>
                                     </button>
-                                </td>
 
-                                <!-- Delete Button -->
-                                <td>
+                                    <!-- Delete Button -->
                                     <button class="btn btn-danger-outline" @click="remove(client)">
                                         <i class="fa fa-times"></i>
                                     </button>

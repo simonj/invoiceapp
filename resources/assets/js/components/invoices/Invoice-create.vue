@@ -273,13 +273,6 @@
             },
 
             /**
-             * Save into database
-             **/
-            save () {
-
-            },
-
-            /**
              * Add item.
              */
             add () {

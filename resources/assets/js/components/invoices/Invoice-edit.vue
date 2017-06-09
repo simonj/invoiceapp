@@ -56,8 +56,8 @@
                                                 {{ form.errors.get('items.' + index + '.price') }}
                                             </span>
                             </td>
-                            <td v-if="countInvoiceItems > 1" class="text-center">
-                                <button type="submit" class="btn btn-danger-outline" @click.prevent="remove(item)">
+                            <td class="text-center">
+                                <button type="submit" class="btn btn-danger-outline" @click.prevent="remove(index)">
                                     <i class="fa fa-trash-o"></i>
                                 </button>
                             </td>
@@ -201,8 +201,8 @@
             /**
              * Remove selected item.
              */
-            remove (item) {
-                this.form.items.splice(item, 1)
+            remove (index) {
+                this.form.items.splice(index, 1)
             },
         },
 

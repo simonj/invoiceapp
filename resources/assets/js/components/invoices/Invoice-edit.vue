@@ -81,9 +81,7 @@
                             </dl>
                         </tr>
                     </table>
-                </div>
-
-
+                </div><!-- col-md-12 -->
             </form>
         </div><!-- body -->
 

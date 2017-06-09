@@ -46,25 +46,28 @@
                                 <td class="text-center">{{ invoice.clients.company }}</td>
                                 <td class="text-center">{{ invoice.amount | currency }},-</td>
                                 <td class="text-center">
+
                                     <!-- Preview Button -->
-                                    <button @click.prevent="preview(invoice)" class="btn btn-primary-outline">
+                                    <button data-toggle="tooltip" data-placement="top" title="Preview invoice" @click.prevent="preview(invoice)" class="btn btn-primary-outline">
                                         <i class="fa fa-eye"></i>
                                     </button>
 
                                     <!-- Edit Button -->
-                                    <button data-toggle="modal" data-target="#modal" class="btn btn-warning-outline" @click="edit(invoice)">
-                                        <i class="fa fa-pencil"></i>
-                                    </button>
+                                    <span data-toggle="modal" data-target="#modal">
+                                        <button data-toggle="tooltip" data-placement="top" title="Edit invoice" class="btn btn-warning-outline" @click="edit(invoice)">
+                                            <i class="fa fa-pencil"></i>
+                                        </button>
+                                    </span>
 
                                     <!-- See invoice page -->
-                                    <a target="_blank" :href.literal="`/invoices/${invoice.reference_key}/pay`">
-                                        <button class="btn btn-success-outline">
-                                            <i class="fa fa-external-link"></i>
-                                        </button>
-                                    </a>
+                                        <a target="_blank" :href.literal="`/invoices/${invoice.reference_key}/pay`">
+                                            <button data-toggle="tooltip" data-placement="top" title="Open invoice in new window" class="btn btn-success-outline">
+                                                <i class="fa fa-external-link"></i>
+                                            </button>
+                                        </a>
 
                                     <!-- Delete Button -->
-                                    <button @click.prevent="remove(invoice)" class="btn btn-danger-outline">
+                                    <button data-toggle="tooltip" data-placement="top" title="Delete invoice" @click.prevent="remove(invoice)" class="btn btn-danger-outline">
                                         <i class="fa fa-times"></i>
                                     </button>
                                 </td>
@@ -142,8 +145,12 @@
              */
             getInvoices() {
                 axios.get('fetchInvoices').then(response => {
-
                     this.invoices = response.data
+
+                    // Add tooltip feature.
+                    this.$nextTick(function() {
+                        $('[data-toggle="tooltip"]').tooltip()
+                    })
                 })
                     .catch(error => {
                         console.log('error');

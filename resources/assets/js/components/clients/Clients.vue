@@ -39,12 +39,14 @@
 
                                 <!-- Edit Button -->
                                 <td>
-                                    <button data-toggle="modal" data-target="#modal" class="btn btn-primary-outline" @click="edit(client)">
-                                        <i class="fa fa-pencil"></i>
-                                    </button>
+                                    <span data-toggle="modal" data-target="#modal">
+                                        <button data-toggle="tooltip" data-placement="top" title="Edit client" class="btn btn-primary-outline" @click="edit(client)">
+                                            <i class="fa fa-pencil"></i>
+                                        </button>
+                                    </span>
 
                                     <!-- Delete Button -->
-                                    <button class="btn btn-danger-outline" @click="remove(client)">
+                                    <button data-toggle="tooltip" data-placement="top" title="Delete client" class="btn btn-danger-outline" @click="remove(client)">
                                         <i class="fa fa-times"></i>
                                     </button>
                                 </td>
@@ -108,6 +110,11 @@
                 var that = this
                 axios.get('loadClients').then(response => {
                     that.clients = response.data
+
+                    // Add tooltip feature.
+                    this.$nextTick(function() {
+                        $('[data-toggle="tooltip"]').tooltip()
+                    })
                 })
                     .catch(error => {
                         console.log('error');

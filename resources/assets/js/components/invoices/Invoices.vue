@@ -170,6 +170,8 @@
                     label = 'label-warning'
                 } else if(status === 'paid') {
                     label = 'label-success'
+                } else if(status === 'updated') {
+                    label = 'label-info'
                 }
 
                 return label;

@@ -17,10 +17,11 @@ class InvoiceController extends Controller
 {
     protected $dates = ['due_date'];
 
-    const CREATED = 'created'; // label-info
-    const SENT = 'sent'; // label-primary
-    const REMINDER = 'reminder'; // label-warning
-    const PAID = 'paid'; // label-success
+    const CREATED   = 'created';  // label-info
+    const SENT      = 'sent';     // label-primary
+    const REMINDER  = 'reminder'; // label-warning
+    const PAID      = 'paid';     // label-success
+    const UPDATED   = 'updated';  // label-info
 
     /**
      * Get invoices.
@@ -36,9 +37,8 @@ class InvoiceController extends Controller
     public function fetchInvoices()
     {
         $invoices = CLientInvoice::with('clients')
-            ->where('user_id', Auth::user()->id)
-            ->orderBy('created_at', 'desc')
             ->with('items')
+            ->orderBy('created_at', 'desc')
             ->where('user_id', Auth::user()->id)
             ->get();
 
@@ -117,6 +117,55 @@ class InvoiceController extends Controller
         Mail::to($request->client['email'])->send(new InvoiceSent($user, $client, $invoice, $items));
     }
 
+    /**
+     * Update invoice
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param $reference_key
+     *
+     * @internal param $id
+     */
+    public function update(Request $request, $reference_key)
+    {
+        // Validate inputs.
+        $this->validate(
+            $request,
+            [
+                'due_date'            => 'required',
+                'items.*.quantity'    => 'required',
+                'items.*.description' => 'required',
+                'items.*.price'       => 'required'
+            ],
+            [
+                'items.*.quantity.required'    => 'Quantity field is required.',
+                'items.*.description.required' => 'Description field is required.',
+                'items.*.price.required'       => 'Price field is required.'
+            ]
+        );
+
+        // Update invoice in database.
+        $invoice = ClientInvoice::find($request->id);
+        $invoice->due_date = Carbon::parse($request->due_date);
+        $invoice->status = self::UPDATED;
+        $invoice->amount = $request->amount;
+        $invoice->notes = $request->notes;
+        $invoice->save();
+
+        // Update invoice items.
+        dump($request->items);
+
+        foreach ($request->items as $item) {
+            $invoice->items()->firstOrCreate($item);
+        }
+
+
+
+        // Send email to client.
+    }
+
+    /**
+     * Show the pay page for the client.
+     */
     public function pay(NotificationRepository $notifications, $reference_key)
     {
         $invoice = ClientInvoice::with('items')->whereReferenceKey($reference_key)->first();

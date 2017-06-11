@@ -178,6 +178,7 @@
                         'border'          : '1px solid #ccd0d2',
                         'border-radius'   : '4px',
                         'box-shadow'      : 'inset 0 1px 1px rgba(0, 0, 0, 0.075)',
+                        'cursor'          : 'pointer'
                     },
                     dismissible: true // as true as default
                 },
@@ -185,13 +186,13 @@
                     type  : 'min',
                     week  : ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
                     month : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    format: 'YYYY-MM-DD HH:mm'
+                    format: 'YYYY-MM-DD'
                 },
                 multiOption: {
                     type  : 'multi-day',
                     week  : ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
                     month : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    format: "YYYY-MM-DD HH:mm"
+                    format: "YYYY-MM-DD"
                 },
             };
         },
@@ -269,7 +270,6 @@
                     .catch(error => {
 
                     })
-
             },
 
             /**

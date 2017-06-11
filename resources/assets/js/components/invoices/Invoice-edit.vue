@@ -6,17 +6,16 @@
                 <input name="_method" type="hidden" value="PUT">
 
                 <!-- Date -->
-                <div class="form-group" :class="{'has-error': form.errors.has('date')}">
-                    <label for="date" class="control-label">Date</label>
+                <div class="form-group" :class="{'has-error': form.errors.has('due_date')}">
+                    <label for="due_date" class="control-label">Date</label>
                     <div class="input-group">
-                        <date-picker id="date" v-model="form.date" :option="option"></date-picker>
+                        <date-picker id="due_date" v-model="form.due_date" :option="option"></date-picker>
                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                     </div><!-- input-group -->
-                    <span class="help-block" v-show="form.errors.has('date')">
-                        {{ form.errors.get('date') }}
+                    <span class="help-block" v-show="form.errors.has('due_date')">
+                        {{ form.errors.get('due_date') }}
                     </span>
                 </div><!-- /.form-group -->
-
 
                 <div class="form-group">
                     <label for="notes" class="col-sm-2 control-label">Notes</label>
@@ -56,7 +55,7 @@
                                                 {{ form.errors.get('items.' + index + '.price') }}
                                             </span>
                             </td>
-                            <td class="text-center">
+                            <td v-if="countInvoiceItems > 1" class="text-center">
                                 <button type="submit" class="btn btn-danger-outline" @click.prevent="remove(index)">
                                     <i class="fa fa-trash-o"></i>
                                 </button>
@@ -87,7 +86,7 @@
 
         <div slot="footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button @click.prevent="update" type="button" class="btn btn-primary">Save</button>
+            <button @click.prevent="update" type="button" class="btn btn-primary">Update</button>
         </div><!-- footer -->
     </modal>
 </template>
@@ -115,7 +114,7 @@
             return {
                 form: new SparkForm({
                     notes : '',
-                    date  : '',
+                    due_date  : '',
                     items : [],
                     amount: null
                 }),
@@ -148,6 +147,7 @@
                         'border'          : '1px solid #ccd0d2',
                         'border-radius'   : '4px',
                         'box-shadow'      : 'inset 0 1px 1px rgba(0, 0, 0, 0.075)',
+                        'cursor'          : 'pointer'
                     },
                     dismissible: true // as true as default
                 },
@@ -155,13 +155,13 @@
                     type  : 'min',
                     week  : ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
                     month : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    format: 'YYYY-MM-DD HH:mm'
+                    format: 'YYYY-MM-DD'
                 },
                 multiOption: {
                     type  : 'multi-day',
                     week  : ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
                     month : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    format: "YYYY-MM-DD HH:mm"
+                    format: "YYYY-MM-DD"
                 },
             }
         },
@@ -174,16 +174,20 @@
              */
             update() {
                 let event = Bus
-                Spark.put('clients/' + this.form.id, this.form)
+
+                // Set the total amount.
+                this.form.amount = this.total
+
+                Spark.put('invoices/' + this.form.id, this.form)
                     .then(response => {
                         // Show popup success message.
-                        swal('Client has been updated', "success")
+                        swal('Invoice has been updated', "success")
 
                         // Hide modal popup.
                         $('#modal').modal('hide');
 
                         // Load the updated clients.
-                        event.$emit('getClients')
+                        event.$emit('getInvoices')
                     })
                     .catch(error => {
                         console.log(error)

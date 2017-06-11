@@ -15,10 +15,8 @@ class CreateClientInvoiceItemsTable extends Migration
     {
         Schema::create('client_invoice_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('client_invoice_id')->unsigned()->nullable();
-            $table->foreign('client_invoice_id')
-                ->references('id')->on('client_invoices')
-                ->onDelete('cascade');
+            $table->integer('client_invoice_id')->unsigned();
+            $table->foreign('client_invoice_id')->references('id')->on('client_invoices')->onDelete('cascade');
             $table->string('quantity');
             $table->string('description');
             $table->string('price');

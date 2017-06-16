@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ClientInvoice;
+use App\ClientInvoiceItem;
 use App\Mail\InvoiceCancelled;
 use App\Mail\InvoicePaid;
 use App\Mail\InvoiceSent;
@@ -151,14 +152,20 @@ class InvoiceController extends Controller
         $invoice->notes = $request->notes;
         $invoice->save();
 
-        // Update invoice items.
-        dump($request->items);
+        // Get all invoice items.
+        $items = $request->items;
 
-        foreach ($request->items as $item) {
-            $invoice->items()->firstOrCreate($item);
-        }
+        // Insert or update all invoice items.
+        collect($items)->each(function ($item) use ($invoice) {
 
-
+            // Get product by product code.
+            ClientInvoiceItem::updateOrCreate(
+                ['id' => $item['id']],
+                ['quantity'          => $item['quantity'],
+                'description'       => $item['description'],
+                'price'             => $item['price']]
+            );
+        });
 
         // Send email to client.
     }

@@ -40,20 +40,20 @@
                             <td :class="{'has-error': form.errors.has('items.' + index + '.quantity')}">
                                 <input v-model.number="item.quantity" type="number" name="quantity[]" class="form-control" placeholder="1">
                                 <span class="help-block" v-show="form.errors.has('items.' + index + '.quantity')">
-                                                {{ form.errors.get('items.' + index + '.quantity') }}
-                                            </span>
+                                    {{ form.errors.get('items.' + index + '.quantity') }}
+                                </span>
                             </td>
                             <td :class="{'has-error': form.errors.has('items.' + index + '.description')}">
                                 <input v-model="item.description" type="text" name="description[]" class="form-control" placeholder="Description">
                                 <span class="help-block" v-show="form.errors.has('items.' + index + '.description')">
-                                                {{ form.errors.get('items.' + index + '.description') }}
-                                            </span>
+                                    {{ form.errors.get('items.' + index + '.description') }}
+                                </span>
                             </td>
                             <td :class="{'has-error': form.errors.has('items.' + index + '.price')}">
                                 <input v-model.number="item.price" type="number" name="price[]" class="form-control" placeholder="Price">
                                 <span class="help-block" v-show="form.errors.has('items.' + index + '.price')">
-                                                {{ form.errors.get('items.' + index + '.price') }}
-                                            </span>
+                                    {{ form.errors.get('items.' + index + '.price') }}
+                                </span>
                             </td>
                             <td v-if="countInvoiceItems > 1" class="text-center">
                                 <button type="submit" class="btn btn-danger-outline" @click.prevent="remove(index)">
@@ -186,7 +186,7 @@
                         // Hide modal popup.
                         $('#modal').modal('hide');
 
-                        // Load the updated clients.
+                        // Load the updated invoices.
                         event.$emit('getInvoices')
                     })
                     .catch(error => {

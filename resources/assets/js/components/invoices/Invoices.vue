@@ -121,6 +121,11 @@
         mounted() {
             this.getInvoices()
 
+            // Listen for updating invoices.
+            Bus.$on('getInvoices', (state) => {
+                this.getInvoices()
+            });
+
             // Listen for created-invoice component.
             Bus.$on('invoiceCreate', (state) => {
                 this.invoiceCreate = state

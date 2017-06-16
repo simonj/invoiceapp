@@ -7,6 +7,7 @@ use App\ClientInvoiceItem;
 use App\Mail\InvoiceCancelled;
 use App\Mail\InvoicePaid;
 use App\Mail\InvoiceSent;
+use App\Mail\InvoiceUpdated;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -156,7 +157,7 @@ class InvoiceController extends Controller
         $items = $request->items;
 
         // Insert or update all invoice items.
-        collect($items)->each(function ($item) use ($invoice) {
+        $invoiceItems = collect($items)->each(function ($item) use ($invoice) {
 
             // Get product by product code.
             ClientInvoiceItem::updateOrCreate(
@@ -167,7 +168,9 @@ class InvoiceController extends Controller
             );
         });
 
+
         // Send email to client.
+        Mail::to($invoice->clients->email)->send(new InvoiceUpdated(auth()->user(), $invoice->clients, $invoice, $invoiceItems));
     }
 
     /**

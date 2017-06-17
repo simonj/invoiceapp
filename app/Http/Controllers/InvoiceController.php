@@ -112,11 +112,10 @@ class InvoiceController extends Controller
         $invoice->items()->createMany($items);
 
         $user = Auth::user();
-        $client = $request->client['contact_person'];
         $items = $invoice->items()->get();
 
         // Send email to client.
-        Mail::to($request->client['email'])->send(new InvoiceSent($user, $client, $invoice, $items));
+        Mail::to($request->client['email'])->send(new InvoiceSent($user, $invoice->clients, $invoice, $items));
     }
 
     /**

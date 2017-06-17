@@ -37,7 +37,7 @@
                                 <th>Status</th>
                                 <th class="text-center">Client</th>
                                 <th class="text-center">Amount</th>
-                                <th class="text-center">Actions</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -45,7 +45,7 @@
                                 <td><span class="label label" :class="invoiceStatus(invoice.status)">{{ invoice.status }}</span></td>
                                 <td class="text-center">{{ invoice.clients.company }}</td>
                                 <td class="text-center">{{ invoice.amount | currency }},-</td>
-                                <td class="text-center">
+                                <td class="text-right">
 
                                     <!-- Preview Button -->
                                     <button data-toggle="tooltip" data-placement="top" title="Preview invoice" @click.prevent="preview(invoice)" class="btn btn-primary-outline">

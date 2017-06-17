@@ -9,10 +9,17 @@ I've updated the invoice.
     @foreach($items as $item)
         | {{ $item['quantity'] }} | {{ $item['description'] }} | {{ $item['price'] }} |
     @endforeach
+    | | __Total:__ | ${{ $invoice->amount }},- |
 @endcomponent
 
+@if($invoice->notes)
+@component('mail::panel')
+    {{ ucfirst($invoice->notes) }}
+@endcomponent
+@endif
+
 @component('mail::button', ['url' => url('invoices/'. $invoice->reference_key .'/pay')])
-    Pay the invoice online before {{ $invoice->due_date }}
+    Pay the invoice online before {{ $invoice->due_date->format('m-d-Y') }}
 @endcomponent
 
 Best regards,<br>

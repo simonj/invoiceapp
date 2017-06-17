@@ -1,6 +1,6 @@
 @component('mail::message')
-# Hello, {{ $client->contact_person }}
 
+# Hello, {{ $client['contact_person'] ?: $client['company'] }}
 Your invoice as been deleted.
 
 Best regards,<br>

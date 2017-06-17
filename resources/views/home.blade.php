@@ -11,7 +11,7 @@
                     <div class="panel-heading">All time</div>
 
                     <div class="panel-body">
-                        <h1>${{ $all_time }}</h1>
+                        <h1>${{ money_format('%i', $all_time) }},-</h1>
                     </div><!-- panel-body -->
                 </div><!-- panel -->
             </div><!-- /.col-md-3 -->
@@ -21,7 +21,7 @@
                     <div class="panel-heading">This week</div>
 
                     <div class="panel-body">
-                        <h1>${{ $this_week }}</h1>
+                        <h1>${{ money_format('%i', $this_week) }},-</h1>
                     </div><!-- panel-body -->
                 </div><!-- panel -->
             </div><!-- /.col-md-3 -->
@@ -32,7 +32,7 @@
                     <div class="panel-heading">Today</div>
 
                     <div class="panel-body">
-                        <h1>${{ $today }}</h1>
+                        <h1>${{ money_format('%i', $today) }},-</h1>
                     </div><!-- panel-body -->
                 </div><!-- panel -->
             </div><!-- /.col-md-3 -->

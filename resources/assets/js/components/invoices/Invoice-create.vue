@@ -102,8 +102,7 @@
                                 <table class="table">
                                     <tr class="text-right">
                                         <dl>
-                                            <dt>
-                                            <h3>Total price</h3></dt>
+                                            <dt><h3>Total price</h3></dt>
                                             <dd><h1>{{ total | currency }}</h1></dd>
                                         </dl>
                                     </tr>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ClientInvoice extends Model
 {
-    protected $table = 'client_invoices';
+    protected $table    = 'client_invoices';
     protected $fillable = ['reference_key', 'client_id', 'user_id', 'due_date', 'status', 'notes', 'amount', 'paid'];
 
     public function user()

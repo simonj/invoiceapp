@@ -86,7 +86,10 @@
 
         <div slot="footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button @click.prevent="update" type="button" class="btn btn-primary">Update</button>
+            <button v-if="spinner" style="font-size: 0.4em;" type="button" class="btn btn-primary">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            </button>
+            <button v-else @click.prevent="update" type="button" class="btn btn-primary">Update</button>
         </div><!-- footer -->
     </modal>
 </template>
@@ -118,6 +121,8 @@
                     items : [],
                     amount: null
                 }),
+
+                spinner: false,
 
                 // Data for datepicker
                 date: {
@@ -175,6 +180,9 @@
             update() {
                 let event = Bus
 
+                // Start the spinner effect on button.
+                this.spinner = true
+
                 // Set the total amount.
                 this.form.amount = this.total
 
@@ -185,6 +193,9 @@
 
                         // Hide modal popup.
                         $('#modal').modal('hide');
+
+                        // Stop the spinner effect on button.
+                        this.spinner = false
 
                         // Load the updated invoices.
                         event.$emit('getInvoices')

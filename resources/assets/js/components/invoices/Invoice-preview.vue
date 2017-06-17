@@ -66,7 +66,7 @@
                         <td></td>
                         <td></td>
                         <td>
-                            Total: {{ item.amount | currency }}
+                            Total: {{ item.amount | currency }},-
                         </td>
                     </tr>
                     </tbody>

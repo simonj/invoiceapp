@@ -103,7 +103,7 @@
                                     <tr class="text-right">
                                         <dl>
                                             <dt><h3>Total price</h3></dt>
-                                            <dd><h1>{{ total | currency }}</h1></dd>
+                                            <dd><h1>{{ total | currency }},-</h1></dd>
                                         </dl>
                                     </tr>
                                 </table>

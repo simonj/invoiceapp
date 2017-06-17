@@ -38,6 +38,6 @@ class InvoiceUpdated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.invoiceUpdated')->subject('Invoice from ' . $this->user->name . ' is Updated');
+        return $this->markdown('emails.invoiceUpdated')->subject('Invoice from ' . ucfirst($this->user->name) . ' is Updated');
     }
 }

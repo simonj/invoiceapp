@@ -32,6 +32,6 @@ class InvoiceCancelled extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.invoiceCancelled')->subject('Invoice from ' . $this->user->name .' is cancelled');
+        return $this->markdown('emails.invoiceCancelled')->subject('Invoice from ' . ucfirst($this->user->name) .' is cancelled');
     }
 }

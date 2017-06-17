@@ -1,13 +1,13 @@
 @component('mail::message')
 
-# Hello, {{ $client['contact_person'] ?: $client['company'] }}
+# Hello, {{ ucfirst($client['contact_person']) ?: ucfirst($client['company']) }}
 I've updated the invoice.
 
 @component('mail::table')
     | Quantity | Description  | Price  |
     | ------------- |:-------------:| --------:|
     @foreach($items as $item)
-        | {{ $item['quantity'] }} | {{ $item['description'] }} | {{ $item['price'] }} |
+        | {{ $item['quantity'] }} | {{ ucfirst($item['description']) }} | {{ $item['price'] }} |
     @endforeach
     | | __Total:__ | ${{ $invoice->amount }},- |
 @endcomponent
@@ -23,6 +23,6 @@ I've updated the invoice.
 @endcomponent
 
 Best regards,<br>
-{{ $user->name }}
+{{ ucfirst($user->name) }}
 
 @endcomponent

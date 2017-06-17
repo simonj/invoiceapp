@@ -109,6 +109,8 @@
                                 </table>
 
                                 <button @click.prevent="create" type="submit" class="btn btn-primary pull-right">Preview invoice</button>
+                                <br/><br/>
+                                <small class="help-block text-right">NB: Client will get a notification a week before due date if invoice is not paid.</small>
 
                             </div><!-- /.col-md-12 -->
                         </form>

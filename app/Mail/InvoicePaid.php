@@ -35,6 +35,6 @@ class InvoicePaid extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.invoicePaid')->subject('Invoice from ' . $this->user->name .' is paid');
+        return $this->markdown('emails.invoicePaid')->subject('Invoice from ' . ucfirst($this->user->name) .' is paid');
     }
 }

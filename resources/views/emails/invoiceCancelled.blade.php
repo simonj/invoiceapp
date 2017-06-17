@@ -1,10 +1,10 @@
 @component('mail::message')
 
-# Hello, {{ $client['contact_person'] ?: $client['company'] }}
+# Hello, {{ ucfirst($client['contact_person']) ?: ucfirst($client['company']) }}
 Your invoice as been deleted.
 
 Best regards,<br>
-{{ $user->name }}
+{{ ucfirst($user->name) }}
 @endcomponent
 
 

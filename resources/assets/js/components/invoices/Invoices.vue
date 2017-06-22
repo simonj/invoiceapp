@@ -223,16 +223,14 @@
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText : "Yes, delete it!",
                     closeOnConfirm    : false,
-                    html              : false
+                    html              : false,
+                    showLoaderOnConfirm: true,
                 }, function() {
-
-                    // Remove item from DOM.
-                    that.invoices.splice(invoice, 1);
-
-
                     // Remove item from database.
                     axios.delete('invoices/' + invoice.id).then(response => {
                         swal("Deleted!", "Your invoice has been deleted.", "success");
+
+                        that.getInvoices();
                     })
                         .catch(error => {
                             console.log('error');

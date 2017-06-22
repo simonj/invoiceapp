@@ -17,7 +17,15 @@ class InvoiceTest extends TestCase
     use DatabaseTransactions;
 
     /**
-     * A basic test example.
+     * Test user can see invoice.
+     */
+    public function test_user_can_see_invoice()
+    {
+
+    }
+
+    /**
+     * Test user can create invoice.
      *
      * @return void
      */

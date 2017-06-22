@@ -22,7 +22,7 @@ class CreateClientInvoicesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->dateTime('due_date');
             $table->text('status');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->integer('amount');
             $table->boolean('paid');
             $table->boolean('has_seen_email')->default(0);

@@ -16,13 +16,13 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->string('company');
             $table->string('email');
-            $table->string('address1');
-            $table->string('address2')->nullable();;
-            $table->string('city');
-            $table->string('state')->nullable();;
-            $table->string('zipcode');
-            $table->string('country');
-            $table->string('contact_person');
+            $table->string('address1')->nullable();
+            $table->string('address2')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('country')->nullable();
+            $table->string('contact_person')->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')->on('users')

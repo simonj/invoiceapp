@@ -133,8 +133,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
+
         // Delete invoice and invoice items.
-        $invoice = auth()->user()->ClientInvoice->find($id);
+        $invoice = auth()->user()->clientInvoices()->find($id);
         if ($invoice) {
             $invoice->items()->delete();
             $invoice->delete();
@@ -143,7 +144,6 @@ class ClientController extends Controller
         // Find client and delete client.
         $client = Client::find($id);
         $client->delete();
-
 
         return response()->json(['success' => true]);
     }

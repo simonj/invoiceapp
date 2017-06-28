@@ -16,19 +16,21 @@ class InvoiceTest extends TestCase
     use DatabaseMigrations;
     use DatabaseTransactions;
 
-    /**
-     * Test user can see invoice.
-     */
     public function test_user_can_see_invoice()
     {
+        $client = factory(Client::class)->create();
 
+        $invoice = factory(ClientInvoice::class)->create([
+            'client_id' => $client->id
+        ]);
+
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->get('/invoices');
+
+        $response->assertStatus(200);
     }
 
-    /**
-     * Test user can create invoice.
-     *
-     * @return void
-     */
     public function test_user_can_create_invoice()
     {
         $user = factory(User::class)->create();
@@ -50,12 +52,44 @@ class InvoiceTest extends TestCase
             'invoice' => $invoice,
             'client'  => $client,
             'items'   => $invoiceItems,
-            'date' => Carbon::now(),
-            'amount' => '100'
+            'date'    => Carbon::now(),
+            'amount'  => '100'
         ];
 
         $response = $this->actingAs($user)
             ->call('POST', '/invoices', $params);
+
+        $response->assertStatus(200);
+    }
+
+    public function user_can_edit_invoice()
+    {
+        $this->markTestSkipped('will not run');
+        $user = factory(User::class)->create();
+
+        $invoice = factory(ClientInvoice::class)->create();
+
+        $params = [
+            'notes' => 'Updated notes',
+        ];
+
+        $response = $this->actingAs($user)
+            ->call('PUT', 'invoices/'. $invoice->id, $params);
+
+        $response->assertStatus(200);
+    }
+
+    public function test_user_can_delete_invoice()
+    {
+        $user = factory(User::class)->create();
+
+        $client = factory(Client::class)->create();
+
+        $invoice = factory(ClientInvoice::class)->create([
+            'client_id' => $client->id
+        ]);
+
+        $response = $this->actingAs($user)->delete("invoices/{$invoice->id}");
 
         $response->assertStatus(200);
     }

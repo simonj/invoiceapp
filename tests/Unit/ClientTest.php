@@ -44,6 +44,7 @@ class ClientTest extends TestCase
 
         $response = $this->actingAs($user)
             ->call('PUT', 'clients/'. $client->id, $params);
+
         $response->assertStatus(200);
     }
 

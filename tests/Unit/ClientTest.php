@@ -15,6 +15,17 @@ class ClientTest extends TestCase
     use DatabaseMigrations;
     use WithoutMiddleware;
 
+    public function test_user_can_see_client()
+    {
+        $client = factory(Client::class)->create();
+
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->get('/clients');
+
+        $response->assertStatus(200);
+    }
+
     public function test_user_can_create_client()
     {
         $user = factory(User::class)->create();

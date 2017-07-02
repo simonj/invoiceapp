@@ -86,7 +86,7 @@
     import InvoiceCreate from './invoice-create.vue'
     import InvoicePreview from './invoice-preview.vue'
     import InvoiceEdit from './invoice-edit.vue'
-    import Modal from './../Modal.vue'
+    import Modal from './../modal.vue'
 
     export default {
 

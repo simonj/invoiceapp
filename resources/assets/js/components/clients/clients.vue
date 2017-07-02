@@ -63,9 +63,9 @@
 <script>
 
     import axios from 'axios'
-    import ClientCreate from './Client-create.vue'
-    import ClientEdit from './Client-edit.vue'
-    import Modal from './../Modal.vue'
+    import ClientCreate from './client-create.vue'
+    import ClientEdit from './client-edit.vue'
+    import Modal from './../modal.vue'
 
     export default {
 

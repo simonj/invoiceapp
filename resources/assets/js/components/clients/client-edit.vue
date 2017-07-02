@@ -91,7 +91,7 @@
 </template>
 
 <script>
-    import Modal from './../Modal.vue'
+    import Modal from './../modal.vue'
 
     // Start of the default export
     export default {

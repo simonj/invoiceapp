@@ -105,21 +105,6 @@
                                     </div><!-- form-group -->
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                             <button type="submit" class="btn btn-primary pull-right" @click.prevent="create" :disabled="form.busy">
                                 Create client
                             </button>

@@ -95,7 +95,7 @@
 </template>
 
 <script>
-    import Modal from './../Modal.vue'
+    import Modal from './../modal.vue'
     import myDatepicker from 'vue-datepicker2'
 
     // Start of the default export

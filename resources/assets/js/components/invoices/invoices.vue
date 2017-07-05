@@ -22,10 +22,10 @@
 
 
                         <div class="text-center" v-if="! user.stripe_connect_token">
-                            <span>
-                                <p>You need to connect to stripe before creating invoices</p>
-                                <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7ub2G1IqhsJ57jqISLdOrGWiC6gNXhzw&scope=read_only" class="stripe-connect light-blue"><span>Connect with Stripe</span></a>
-                            </span>
+                            <p>
+                                You need to connect to stripe before creating invoices. <br/>
+                                Do that by clicking on the dropdown at the top.
+                            </p>
                         </div><!-- /.text-center -->
                         <div class="text-center" v-else-if="invoices == 0">
                             <p>There is no invoice created yet</p>

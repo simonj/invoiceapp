@@ -22,7 +22,7 @@
         <ul role="menu" class="dropdown-menu">
             <li class="dropdown-header">Actions</li>
             <li>
-                <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7ub2G1IqhsJ57jqISLdOrGWiC6gNXhzw&scope=read_only">
+                <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ env('STRIPE_CLIENT_ID') }}&scope=read_only">
                     <i class="fa fa-fw fa-btn fa fa-plug"></i> Connect stripe
                 </a>
             </li>

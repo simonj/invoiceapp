@@ -5,6 +5,9 @@
         <!-- Application Dashboard -->
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+
+                <img style="margin-bottom: 3rem; width: 200px;" class="img-responsive center-block" src="/img/logo.svg" alt="">
+
                 <div class="panel panel-default">
                     <div class="panel-heading">Terms Of Service</div>
 

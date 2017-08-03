@@ -1,9 +1,17 @@
 body {
+  -webkit-font-smoothing: antialiased;
+  font-size: 12px;
   background: white;
+  font-family: 'Lato', sans-serif;
+}
+
+h2 {
+  font-size: 2.667em;
+  font-weight: bold;
 }
 
 .border-thick {
-  border-top: 8px solid #A2A9AF;
+  border-top: 6px solid #2C3E50;
 }
 
 .nav {
@@ -20,10 +28,16 @@ body {
   }
 }
 
+#header {
+  height: 843px;
+  border-bottom: 1px solid rgba(44, 62, 80, 0.19);
+}
+
 .jumbo {
   margin: 0 auto;
   max-width: 70rem;
   padding: 25px;
+  color: white;
 }
 
 p, ul {
@@ -40,4 +54,80 @@ h1 {
   li {
     margin-bottom: 0.5rem;
   }
+}
+
+// features
+
+.feature-wrapper {
+  padding: 50px 0;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+}
+
+.icon-feature {
+  width: 70px;
+  height: 70px;
+  float: left;
+}
+
+.description {
+  margin-bottom: 35px;
+
+  h3 {
+    font-weight: bold;
+    font-size: 1.417em;
+    margin-top: 0;
+  }
+
+  p {
+    color: #6B6E74;
+    font-size: 1.417em;
+  }
+
+  float: left;
+  height: auto;
+  width: 250px;
+  margin-left: 30px;
+}
+
+// Icons
+
+$primary-color: #2ECC71;
+$outline-color: adjust-color($primary-color, $saturation: -75%, $lightness: -26%);
+$fill-color: adjust-color($primary-color, $saturation: -82%, $lightness: 50%);
+
+.heroicon- {
+  &outline {
+    fill: $outline-color;
+  }
+
+  &component- {
+    &fill {
+      fill: $fill-color;
+    }
+    &accent {
+      fill: $primary-color;
+    }
+  }
+
+  &shadows {
+    fill: $outline-color;
+    opacity: .4;
+  }
+}
+
+// Buttons
+.btn-action {
+  width: 239px;
+  height: 52px;
+  color: white;
+  font-size: 1.417em;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: none;
+  background: #7F8C8D;
+  border-radius: 8px;
 }

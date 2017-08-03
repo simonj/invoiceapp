@@ -1,3 +1,8 @@
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   font-size: 12px;
@@ -67,6 +72,10 @@ h1 {
   }
 }
 
+.feature-soft-bg {
+  background: #FDFDFD;
+}
+
 .icon-feature {
   width: 70px;
   height: 70px;
@@ -75,22 +84,8 @@ h1 {
 
 .description {
   margin-bottom: 35px;
-
-  h3 {
-    font-weight: bold;
-    font-size: 1.417em;
-    margin-top: 0;
-  }
-
-  p {
-    color: #6B6E74;
-    font-size: 1.417em;
-  }
-
   float: left;
   height: auto;
-  width: 250px;
-  margin-left: 30px;
 }
 
 // Icons
@@ -119,6 +114,21 @@ $fill-color: adjust-color($primary-color, $saturation: -82%, $lightness: 50%);
   }
 }
 
+.text-headline {
+  font-weight: bold;
+  font-size: 1.417em;
+  margin-top: 0;
+}
+
+.text-description {
+  color: #6B6E74;
+  font-size: 1.417em;
+}
+
+.text-lg {
+  font-size: 1.833em
+}
+
 // Buttons
 .btn-action {
   width: 239px;
@@ -130,4 +140,13 @@ $fill-color: adjust-color($primary-color, $saturation: -82%, $lightness: 50%);
   text-transform: none;
   background: #7F8C8D;
   border-radius: 8px;
+}
+
+.footer {
+  height: 95px;
+  background: #BDC3C7;
+  color: #465152;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

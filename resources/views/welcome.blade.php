@@ -44,7 +44,7 @@
 <div class="row">
     <div class="feature-wrapper container">
         <h2 class="text-center text-uppercase">All of the features</h2>
-        <div class="col-md-4 col-md-offset-1">
+        <div class="col-md-4">
             <div class="icon-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-photos heroicon heroicon-sm">
                     <path class="heroicon-photos-edge heroicon-component-accent heroicon-component-fill" d="M9 16h50v36H9V16zm4 4v28h42V20H13zm38-4h-4v-4H5v28h4v4H1V8h50v8z"></path>
@@ -59,12 +59,12 @@
                 </svg>
             </div><!-- icon-feature -->
             <div class="description">
-                <h3>Intuitive design</h3>
-                <p>Invoiceapp has a simple and intuitive design that is really easy to get started with and get started with creating beautiful invoices.</p>
+                <h3 class="text-headline">Intuitive design</h3>
+                <p class="text-description">Invoiceapp has a simple and intuitive design that is really easy to get started with and get started with creating beautiful invoices.</p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
 
-        <div class="col-md-4 col-md-offset-1">
+        <div class="col-md-4 col-md-offset-3">
             <div class="icon-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-bell heroicon heroicon-sm">
                     <path class="heroicon-bell-bowl heroicon-component-fill" d="M50.7 48c-.34-.3-.66-.64-.95-1l-.68-1A7.96 7.96 0 0 1 48 42V24a18 18 0 0 0-36 0V42.01A7.98 7.98 0 0 1 9.3 48h41.4z"></path>
@@ -77,12 +77,12 @@
                 </svg>
             </div><!-- icon-feature -->
             <div class="description">
-                <h3>Notifications</h3>
-                <p>Get notifications when your customer is missing a due date or when the customer has paid your invoices with our notification system.</p>
+                <h3 class="text-headline">Notifications</h3>
+                <p class="text-description">Get notifications when your customer is missing a due date or when the customer has paid your invoices with our notification system.</p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
 
-        <div class="col-md-4 col-md-offset-1">
+        <div class="col-md-4">
             <div class="icon-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-clock heroicon heroicon-sm">
                     <path class="heroicon-clock-edge heroicon-component-accent heroicon-component-fill" d="M30 59a29 29 0 1 1 0-58 29 29 0 0 1 0 58zm0-5a24 24 0 1 0 0-48 24 24 0 0 0 0 48z"></path>
@@ -93,12 +93,12 @@
                 </svg>
             </div><!-- icon-feature -->
             <div class="description">
-                <h3>Past Due Notices</h3>
-                <p>The customer and you will both get a notification then an invoice is past due date.</p>
+                <h3 class="text-headline">Past Due Notices</h3>
+                <p class="text-description">The customer and you will both get a notification then an invoice is past due date.</p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
 
-        <div class="col-md-4 col-md-offset-1">
+        <div class="col-md-4 col-md-offset-3">
             <div class="icon-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-envelope-open heroicon heroicon-sm">
                     <path class="heroicon-envelope-open-body heroicon-component-fill" d="M28.44 1.25a2.61 2.61 0 0 1 3.12 0L60 24v34a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V24L28.44 1.25z"></path>
@@ -110,12 +110,12 @@
                 </svg>
             </div><!-- icon-feature -->
             <div class="description">
-                <h3>Send Invoices by email</h3>
-                <p>We automatic send invoices to your customer's email address when you create a new invoice.</p>
+                <h3 class="text-headline">Send Invoices by email</h3>
+                <p class="text-description">We automatic send invoices to your customer's email address when you create a new invoice.</p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
 
-        <div class="col-md-4 col-md-offset-1">
+        <div class="col-md-4">
             <div class="icon-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-currency heroicon heroicon-sm">
                     <rect class="heroicon-currency-background heroicon-component-fill" width="58" height="37" x="1" y="12"></rect>
@@ -127,12 +127,12 @@
                 </svg>
             </div><!-- icon-feature -->
             <div class="description">
-                <h3>No Fees</h3>
-                <p>There are no hidden feeds (besides Stripe’s standard fees), we take a fast price every 3 months and it’s only $5,- </p>
+                <h3 class="text-headline">No Fees</h3>
+                <p class="text-description">There are no hidden feeds (besides Stripe’s standard fees), we take a fast price every 3 months and it’s only $5,- </p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
 
-        <div class="col-md-4 col-md-offset-1">
+        <div class="col-md-4 col-md-offset-3">
             <div class="icon-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-heart heroicon heroicon-sm">
                     <path class="heroicon-heart-outer heroicon-component-accent heroicon-component-fill" d="M31.41 9.97L30 11.37l-1.4-1.41-1.28-1.27A16 16 0 0 0 4.7 31.3L30.13 56.5 55.31 31.3A16 16 0 0 0 32.7 8.7L31.4 9.97z"></path>
@@ -142,24 +142,25 @@
                 </svg>
             </div><!-- icon-feature -->
             <div class="description">
-                <h3>Secure Online Payments</h3>
-                <p>With Invoiceapp your customers will alway be secure when they pay your invoices.</p>
+                <h3 class="text-headline">Secure Online Payments</h3>
+                <p class="text-description">With Invoiceapp your customers will alway be secure when they pay your invoices.</p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
     </div><!-- /.feature-wrapper -->
 </div><!-- /.row -->
 
-<div class="row">
+<div class="row feature-soft-bg">
     <div class="feature-wrapper container">
 
         <h2 class="text-center text-uppercase">Start your free trial</h2>
 
         <div class="col-md-6">
-                <h3>Simple chart overview</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia, urna in varius imperdiet, ex tellus
+                <h3 class="text-headline text-lg">Simple chart overview</h3>
+                <p class="text-description" class="text-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia, urna in varius imperdiet, ex tellus
                     lacinia mauris, sit amet consequat imperdiet
                     sem magna tincidunt lectus imperdiet,
                     Suspendisse elit eros, tristique.</p>
+                <br/>
                 <button class="btn btn-action">Start your free trial</button>
         </div><!-- /.col-md-6 -->
 
@@ -186,8 +187,15 @@
                 </g>
             </svg>
         </div><!-- /.col-md-6 -->
-
     </div><!-- /.feature-wrapper -->
+</div><!-- /.row -->
+
+<div class="row footer">
+    <footer class="container">
+        <div class="col-md-12">
+            <p class="text-center">© 2017 Invoiceapp.io all rights reserved.</p>
+        </div><!-- /.col-md-12 -->
+    </footer>
 </div><!-- /.row -->
 
 </body>

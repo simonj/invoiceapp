@@ -34,8 +34,12 @@ h2 {
 }
 
 #header {
-  height: 843px;
-  border-bottom: 1px solid rgba(44, 62, 80, 0.19);
+  background: url('../../img/banner.png') no-repeat;
+}
+
+#webUI {
+  position: relative;
+  bottom: -5px;
 }
 
 .jumbo {
@@ -114,6 +118,12 @@ $fill-color: adjust-color($primary-color, $saturation: -82%, $lightness: 50%);
   }
 }
 
+.hero-text {
+  color: #727282;
+  font-style: italic;
+  font-weight: 500;
+}
+
 .text-headline {
   font-weight: bold;
   font-size: 1.417em;
@@ -149,4 +159,9 @@ $fill-color: adjust-color($primary-color, $saturation: -82%, $lightness: 50%);
   display: flex;
   align-items: center;
   justify-content: center;
+
+  p {
+    font-size: 1.417em;
+    margin: 0;
+  }
 }

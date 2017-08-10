@@ -28,7 +28,7 @@ h2 {
 
     &:hover {
       color: white;
-      background: #A2A9AF;
+      background: #7F8C8D;
     }
   }
 }
@@ -88,8 +88,7 @@ h1 {
 
 .description {
   margin-bottom: 35px;
-  float: left;
-  height: auto;
+  padding-left: 80px;
 }
 
 // Icons
@@ -128,6 +127,15 @@ $fill-color: adjust-color($primary-color, $saturation: -82%, $lightness: 50%);
   font-weight: bold;
   font-size: 1.417em;
   margin-top: 0;
+
+  span {
+    padding-left: 80px;
+    line-height: 26px;
+  }
+
+  svg {
+    position: absolute;
+  }
 }
 
 .text-description {
@@ -150,6 +158,11 @@ $fill-color: adjust-color($primary-color, $saturation: -82%, $lightness: 50%);
   text-transform: none;
   background: #7F8C8D;
   border-radius: 8px;
+
+  &:hover {
+    color: white;
+    background: lighten(#7F8C8D, 10%);
+  }
 }
 
 .footer {

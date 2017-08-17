@@ -5,13 +5,21 @@ nav {
 }
 
 .navbar-inverse .navbar-nav {
-  li a {
-    color: $text-light-muted;
-    &:hover {
-      color: $text-light-faint;
-
+  li {
+    svg {
+      margin-right: 10px;
     }
-    border-color: #dedede;
+    a {
+      color: $text-light-faint;
+      border-color: #dedede;
+    }
+    &:hover {
+      color: lighten($text-light-faint, 20%);
+
+      svg .icon {
+        fill: lighten($text-light-faint, 20%);
+      }
+    }
   }
 }
 

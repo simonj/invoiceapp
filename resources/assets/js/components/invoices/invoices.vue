@@ -34,42 +34,57 @@
                         <table class="table table-hover" v-else>
                             <thead>
                             <tr>
+                                <th>Client</th>
+                                <th>Amount</th>
                                 <th>Status</th>
-                                <th class="text-center">Client</th>
-                                <th class="text-center">Amount</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr v-for="invoice in invoices">
+                                <td>{{ invoice.clients.company }}</td>
+                                <td>{{ invoice.amount | currency }},-</td>
                                 <td><span class="label label" :class="invoiceStatus(invoice.status)">{{ invoice.status }}</span></td>
-                                <td class="text-center">{{ invoice.clients.company }}</td>
-                                <td class="text-center">{{ invoice.amount | currency }},-</td>
                                 <td class="text-right">
 
-                                    <!-- Preview Button -->
-                                    <button data-toggle="tooltip" data-placement="top" title="Preview invoice" @click.prevent="preview(invoice)" class="btn btn-primary-outline">
-                                        <i class="fa fa-eye"></i>
-                                    </button>
 
-                                    <!-- Edit Button -->
-                                    <span data-toggle="modal" data-target="#modal">
-                                        <button data-toggle="tooltip" data-placement="top" title="Edit invoice" class="btn btn-warning-outline" @click="edit(invoice)">
-                                            <i class="fa fa-pencil"></i>
+                                    <!-- Single button -->
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <svg width="13px" height="3px" viewBox="0 0 13 3" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="web-UI" transform="translate(-819.000000, -259.000000)" fill="#95A5A6">
+                                                        <g id="table">
+                                                            <g transform="translate(103.000000, 160.000000)">
+                                                                <g id="client" transform="translate(20.000000, 85.000000)">
+                                                                    <g id="Group-3" transform="translate(0.000000, 7.000000)">
+                                                                        <g id="options" transform="translate(696.000000, 7.000000)">
+                                                                            <g id="Group-4">
+                                                                                <circle id="Oval-7" cx="1.5" cy="1.5" r="1.5"></circle>
+                                                                                <circle id="Oval-7" cx="6.5" cy="1.5" r="1.5"></circle>
+                                                                                <circle id="Oval-7" cx="11.5" cy="1.5" r="1.5"></circle>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
                                         </button>
-                                    </span>
-
-                                    <!-- See invoice page -->
-                                        <a target="_blank" :href.literal="`/invoices/${invoice.reference_key}/pay`">
-                                            <button data-toggle="tooltip" data-placement="top" title="Open invoice in new window" class="btn btn-success-outline">
-                                                <i class="fa fa-external-link"></i>
-                                            </button>
-                                        </a>
-
-                                    <!-- Delete Button -->
-                                    <button data-toggle="tooltip" data-placement="top" title="Delete invoice" @click.prevent="remove(invoice)" class="btn btn-danger-outline">
-                                        <i class="fa fa-times"></i>
-                                    </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a @click.prevent="preview(invoice)" href="#">Preview invoice</a></li>
+                                            <li><a @click="edit(invoice)" data-toggle="modal" data-target="#modal" href="#">Edit invoice</a></li>
+                                            <li>
+                                                <a target="_blank" :href.literal="`/invoices/${invoice.reference_key}/pay`">
+                                                    Open invoice in new window
+                                                </a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a @click.prevent="remove(invoice)" href="#">Delete invoice</a></li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                             </tbody>

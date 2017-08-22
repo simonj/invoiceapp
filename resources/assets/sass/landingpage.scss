@@ -142,6 +142,34 @@ $fill-color: adjust-color($primary-color, $saturation: -82%, $lightness: 50%);
   font-size: 1.833em
 }
 
+.plan-price .dollar {
+  font-size: 28px;
+  color: #c7c7c7;
+  position: relative;
+  bottom: 32px;
+  left: 10px;
+}
+
+.plan-type {
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  :after {
+    content: "";
+    border-radius: 20px;
+    display: block;
+    height: 5px;
+    width: 35px;
+    margin: 12px auto 10px;
+    background: #c7c7c7;
+  }
+}
+
+.plan-price {
+  font-size: 65px;
+  font-weight: normal;
+}
+
 // Buttons
 .btn-action {
   width: 239px;

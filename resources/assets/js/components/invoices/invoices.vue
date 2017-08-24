@@ -81,7 +81,7 @@
                                             <li role="separator" class="divider"></li>
                                             <li><a @click.prevent="remove(invoice)" href="#">Delete invoice</a></li>
                                         </ul>
-                                    </div>
+                                    </div><!-- btn-group -->
                                 </td>
                             </tr>
                             </tbody>

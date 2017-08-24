@@ -36,19 +36,37 @@
                                 <td>{{ client.company }}</td>
                                 <td>{{ client.email }}</td>
                                 <td>{{ client.contact_person }}</td>
-
-                                <!-- Edit Button -->
-                                <td>
-                                    <span data-toggle="modal" data-target="#modal">
-                                        <button data-toggle="tooltip" data-placement="top" title="Edit client" class="btn btn-primary-outline" @click="edit(client)">
-                                            <i class="fa fa-pencil"></i>
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <svg width="13px" height="3px" viewBox="0 0 13 3" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="web-UI" transform="translate(-819.000000, -259.000000)" fill="#95A5A6">
+                                                        <g id="table">
+                                                            <g transform="translate(103.000000, 160.000000)">
+                                                                <g id="client" transform="translate(20.000000, 85.000000)">
+                                                                    <g id="Group-3" transform="translate(0.000000, 7.000000)">
+                                                                        <g id="options" transform="translate(696.000000, 7.000000)">
+                                                                            <g id="Group-4">
+                                                                                <circle id="Oval-7" cx="1.5" cy="1.5" r="1.5"></circle>
+                                                                                <circle id="Oval-7" cx="6.5" cy="1.5" r="1.5"></circle>
+                                                                                <circle id="Oval-7" cx="11.5" cy="1.5" r="1.5"></circle>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
                                         </button>
-                                    </span>
-
-                                    <!-- Delete Button -->
-                                    <button data-toggle="tooltip" data-placement="top" title="Delete client" class="btn btn-danger-outline" @click="remove(client)">
-                                        <i class="fa fa-times"></i>
-                                    </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a @click="edit(client)" data-toggle="modal" data-target="#modal" href="#">Edit client</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a @click.prevent="remove(client)" href="#">Delete client</a></li>
+                                        </ul>
+                                    </div><!-- btn-group -->
                                 </td>
                             </tr>
                             </tbody>

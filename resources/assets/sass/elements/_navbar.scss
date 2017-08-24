@@ -13,7 +13,7 @@ nav {
       color: $text-light-faint;
       border-color: #dedede;
     }
-    &:hover {
+    a:hover {
       color: lighten($text-light-faint, 20%);
 
       svg .icon {

@@ -1,5 +1,15 @@
 // Buttons.
 
+.btn-default {
+  background: transparent;
+  color: inherit;
+  border: none;
+  &:hover, &:focus, &:active {
+    background: transparent;
+  }
+}
+
+
 .btn-primary {
   background-color: $color-primary;
   &:hover {

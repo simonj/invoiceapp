@@ -156,8 +156,10 @@
         <div class="col-md-6">
             <h3 class="text-headline text-lg">Cheap Pricing</h3>
             <p class="text-description">
-                At Invoiceapp you can get started with sneding invoices to your customers with our 14 days free trial
-                and after that you can sign up to our pro plan for a cheap price.
+                At Invoiceapp you can get started with sending invoices to your customers with our <b>30 days free trial</b>
+                and after that you can sign up to our basic plan for a cheap price. <br/><br/>
+                We will be very happy with feedback via our support link found under your profile, so we
+                can continue improve Invoiceapp.
             </p>
             <br/>
             <a href="/register">

@@ -54,6 +54,7 @@ class SparkServiceProvider extends ServiceProvider
 
         Spark::plan('Basic', 'basic')
             ->price(3)
+            ->trialDays(30)
             ->features([
                 'This is the basic plan that gives access to all features.'
             ]);

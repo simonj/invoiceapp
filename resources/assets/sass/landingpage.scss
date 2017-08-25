@@ -68,7 +68,19 @@ h1 {
   h2 {
     margin-top: 0;
     margin-bottom: 50px;
+
+    &:after {
+      content: "";
+      border-radius: 20px;
+      display: block;
+      height: 5px;
+      width: 150px;
+      margin: 12px auto 10px;
+      background: #c7c7c7;
+    }
   }
+
+
 }
 
 .feature-soft-bg {

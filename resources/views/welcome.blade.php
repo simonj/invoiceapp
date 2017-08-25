@@ -18,8 +18,8 @@
 </head>
 <body class="border-thick">
 
-<div class="row">
-    <div class="container-fluid">
+<div class="container-fluid">
+    <div class="row">
         <div id="header" class="col-md-12">
             <ul class="nav nav-pills pull-right">
                 @if(Auth::user())
@@ -34,33 +34,33 @@
                 <h1 class="hero-text">Impress clients with <br/> beautiful invoices</h1>
             </div><!-- /.jumbo -->
 
-                <img class="img-responsive center-block" src="/img/webUI.png" alt="">
+            <img class="img-responsive center-block" src="/img/webUI.png" alt="">
         </div><!-- /.col-md-12 -->
-    </div><!-- /.container-fluid -->
-</div><!-- /.row -->
+    </div><!-- /.row -->
+</div><!-- /.container-fluid -->
 
-<div class="row">
-    <div class="feature-wrapper container">
+<div class="feature-wrapper container">
+    <div class="row">
         <h2 class="text-center text-uppercase">Some of the features</h2>
 
         <div class="col-md-5">
             <div class="icon-feature">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-photos heroicon heroicon-sm">
-                        <path class="heroicon-photos-edge heroicon-component-accent heroicon-component-fill" d="M9 16h50v36H9V16zm4 4v28h42V20H13zm38-4h-4v-4H5v28h4v4H1V8h50v8z"></path>
-                        <path class="heroicon-photos-back-background heroicon-component-fill" d="M7 12H5v28h4V16h38v-4H7z"></path>
-                        <polygon class="heroicon-photos-front-ground heroicon-component-fill" points="14 41 14 47 54 47 54 41 41 41 40.586 41"></polygon>
-                        <polygon class="heroicon-photos-front-sky heroicon-component-fill" points="54 21 14 21 14 39 26.293 26.707 27 26 27.707 26.707 36 35 42.293 28.707 43 28 43.707 28.707 54 39"></polygon>
-                        <path class="heroicon-photos-front-sun heroicon-component-fill" d="M38 27a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"></path>
-                        <path class="heroicon-photos-front-mountains heroicon-component-fill" d="M41 40l-4.3-4.3 6.3-6.29L53.59 40H41zm-26.59 0L27 27.41 39.59 40H14.4z"></path>
-                        <path class="heroicon-shadows" d="M8 14H7v31h2V16h42v-2H8z"></path>
-                        <path class="heroicon-outline"
-                              d="M8 45H0V7h52v8h8v38H8v-8zM2 9v34h6v-2H4V11h44v4h2V9H2zm6 30V15h38v-2H6v26h2zm2-22v34h48V17H10zm4 2h42v30H12V19h2zm40 2H14v18l12.3-12.3.7-.7.7.7L36 35l6.3-6.3.7-.7.7.7L54 39V21zm-18 9a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm2-3a2 2 0 1 0-4 0 2 2 0 0 0 4 0zM14 41v6h40v-6H14zm27-1h12.59L43 29.41l-6.3 6.3L41 40zm-26.59 0H39.6L27 27.41 14.41 40zM49 42v1H33v-1h16z"></path>
-                    </svg>
-                </div>
-                <div class="description">
-                    <h3 class="text-headline">Intuitive design</h3>
-                    <p class="text-description">Invoiceapp has a simple and intuitive design that is really easy to get started with and get started with creating beautiful invoices.</p>
-                </div><!-- /.description -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-photos heroicon heroicon-sm">
+                    <path class="heroicon-photos-edge heroicon-component-accent heroicon-component-fill" d="M9 16h50v36H9V16zm4 4v28h42V20H13zm38-4h-4v-4H5v28h4v4H1V8h50v8z"></path>
+                    <path class="heroicon-photos-back-background heroicon-component-fill" d="M7 12H5v28h4V16h38v-4H7z"></path>
+                    <polygon class="heroicon-photos-front-ground heroicon-component-fill" points="14 41 14 47 54 47 54 41 41 41 40.586 41"></polygon>
+                    <polygon class="heroicon-photos-front-sky heroicon-component-fill" points="54 21 14 21 14 39 26.293 26.707 27 26 27.707 26.707 36 35 42.293 28.707 43 28 43.707 28.707 54 39"></polygon>
+                    <path class="heroicon-photos-front-sun heroicon-component-fill" d="M38 27a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"></path>
+                    <path class="heroicon-photos-front-mountains heroicon-component-fill" d="M41 40l-4.3-4.3 6.3-6.29L53.59 40H41zm-26.59 0L27 27.41 39.59 40H14.4z"></path>
+                    <path class="heroicon-shadows" d="M8 14H7v31h2V16h42v-2H8z"></path>
+                    <path class="heroicon-outline"
+                          d="M8 45H0V7h52v8h8v38H8v-8zM2 9v34h6v-2H4V11h44v4h2V9H2zm6 30V15h38v-2H6v26h2zm2-22v34h48V17H10zm4 2h42v30H12V19h2zm40 2H14v18l12.3-12.3.7-.7.7.7L36 35l6.3-6.3.7-.7.7.7L54 39V21zm-18 9a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm2-3a2 2 0 1 0-4 0 2 2 0 0 0 4 0zM14 41v6h40v-6H14zm27-1h12.59L43 29.41l-6.3 6.3L41 40zm-26.59 0H39.6L27 27.41 14.41 40zM49 42v1H33v-1h16z"></path>
+                </svg>
+            </div>
+            <div class="description">
+                <h3 class="text-headline">Intuitive design</h3>
+                <p class="text-description">Invoiceapp has a simple and intuitive design that is really easy to get started with and get started with creating beautiful invoices.</p>
+            </div><!-- /.description -->
         </div><!-- col-md-4 -->
 
         <div class="col-md-5 col-md-offset-2">
@@ -145,11 +145,11 @@
                 <p class="text-description">With Invoiceapp your customers will alway be secure when they pay your invoices.</p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
-    </div><!-- /.feature-wrapper -->
-</div><!-- /.row -->
+    </div><!-- /.row -->
+</div><!-- /.feature-wrapper -->
 
-<div class="row feature-soft-bg">
-    <div class="feature-wrapper container">
+<div class="feature-wrapper container feature-soft-bg">
+    <div class="row">
 
         <h2 class="text-center text-uppercase">Start your free trial</h2>
 
@@ -182,16 +182,16 @@
                 </div><!-- panel-body -->
             </div><!-- plan -->
         </div><!-- /.col-md-6 -->
-    </div><!-- /.feature-wrapper -->
-</div><!-- /.row -->
+    </div><!-- /.row -->
+</div><!-- /.feature-wrapper -->
 
-<div class="row footer">
-    <footer class="container">
+<footer class="container-fluid footer">
+    <div class="row">
         <div class="col-md-12">
             <p class="text-center">© 2017 Invoiceapp.io all rights reserved.</p>
         </div><!-- /.col-md-12 -->
-    </footer>
-</div><!-- /.row -->
+    </div><!-- /.row -->
+</footer>
 
 </body>
 </html>

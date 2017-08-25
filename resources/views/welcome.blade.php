@@ -174,7 +174,7 @@
 
                     <div class="plan-price">
                         <span class="dollar">$</span>
-                        <span>9</span>
+                        <span>3</span>
                     </div><!-- plan-price -->
                     <small>A monthly plan that can be canceled in ten seconds.</small>
                 </div><!-- panel-body -->

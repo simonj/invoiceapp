@@ -25,6 +25,11 @@ class InvoiceController extends Controller
     const PAID      = 'paid';     // label-success
     const UPDATED   = 'updated';  // label-info
 
+    function __construct()
+    {
+        $this->middleware('subscribed', ['only' => ['store']]);
+    }
+
     /**
      * Get invoices.
      */

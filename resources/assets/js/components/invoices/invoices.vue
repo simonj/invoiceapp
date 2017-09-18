@@ -20,8 +20,6 @@
                         <a class="pull-right" href="/settings#/subscription">Add billing plan</a>
                     </div><!-- panel-heading -->
                     <div class="panel-body">
-
-
                         <div class="text-center" v-if="! user.stripe_connect_token">
                             <p>
                                 You need to connect to stripe before creating invoices. <br/>

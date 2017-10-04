@@ -38,19 +38,19 @@ Route::group(['middleware' => 'auth', 'subscribed'], function () {
 
     Route::get('stripe/connect', function (Illuminate\Http\Request $request) {
 
-        env('STRIPE_CLIENT_ID', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
-        env('STRIPE_KEY', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
+        define('STRIPE_SECRET', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
+        define('STRIPE_KEY', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
 
-        env('TOKEN_URI', 'https://connect.stripe.com/oauth/token');
-        env('AUTHORIZE_URI', 'https://connect.stripe.com/oauth/authorize');
+        define('TOKEN_URI', 'https://connect.stripe.com/oauth/token');
+        define('AUTHORIZE_URI', 'https://connect.stripe.com/oauth/authorize');
 
         if (isset($_GET['code'])) { // Redirect w/ code
             $code = $_GET['code'];
 
             $token_request_body = [
-                'client_secret' => API_KEY,
+                'client_secret' => STRIPE_KEY,
                 'grant_type'    => 'authorization_code',
-                'client_id'     => CLIENT_ID,
+                'client_id'     => STRIPE_SECRET,
                 'code'          => $code,
             ];
 

@@ -38,11 +38,11 @@ Route::group(['middleware' => 'auth', 'subscribed'], function () {
 
     Route::get('stripe/connect', function (Illuminate\Http\Request $request) {
 
-        define('CLIENT_ID', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
-        define('API_KEY', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
+        env('STRIPE_CLIENT_ID', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
+        env('STRIPE_KEY', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
 
-        define('TOKEN_URI', 'https://connect.stripe.com/oauth/token');
-        define('AUTHORIZE_URI', 'https://connect.stripe.com/oauth/authorize');
+        env('TOKEN_URI', 'https://connect.stripe.com/oauth/token');
+        env('AUTHORIZE_URI', 'https://connect.stripe.com/oauth/authorize');
 
         if (isset($_GET['code'])) { // Redirect w/ code
             $code = $_GET['code'];

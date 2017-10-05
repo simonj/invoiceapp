@@ -16,8 +16,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Invoice overview
-                        <a class="pull-right" v-if="user.stripe_connect_token && user.trial_ends_at === true || user.current_billing_plan === true" href="#" @click.prevent="invoiceCreate = true">Create new invoice</a>
-                        <a class="pull-right" href="/settings#/subscription">Add billing plan</a>
+                        <a class="pull-right" v-if="user.stripe_connect_token" href="#" @click.prevent="invoiceCreate = true">Create new invoice</a>
+                        <!--<a class="pull-right" href="/settings#/subscription">Add billing plan</a>-->
                     </div><!-- panel-heading -->
                     <div class="panel-body">
                         <div class="text-center" v-if="! user.stripe_connect_token">

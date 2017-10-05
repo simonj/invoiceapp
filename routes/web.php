@@ -48,9 +48,9 @@ Route::group(['middleware' => 'auth', 'subscribed'], function () {
             $code = $_GET['code'];
 
             $token_request_body = [
-                'client_secret' => STRIPE_KEY,
+                'client_secret' => STRIPE_SECRET,
                 'grant_type'    => 'authorization_code',
-                'client_id'     => STRIPE_SECRET,
+                'client_id'     => STRIPE_KEY,
                 'code'          => $code,
             ];
 

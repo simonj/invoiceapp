@@ -38,8 +38,8 @@ Route::group(['middleware' => 'auth', 'subscribed'], function () {
 
     Route::get('stripe/connect', function (Illuminate\Http\Request $request) {
 
-        define('STRIPE_SECRET', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
-        define('STRIPE_KEY', 'sk_test_BXSPQ4kmTwwBazTOTuPi8NM1');
+        define('STRIPE_SECRET', env('STRIPE_SECRET'));
+        define('STRIPE_KEY', env('STRIPE_KEY'));
 
         define('TOKEN_URI', 'https://connect.stripe.com/oauth/token');
         define('AUTHORIZE_URI', 'https://connect.stripe.com/oauth/authorize');

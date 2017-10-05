@@ -249,7 +249,7 @@ class InvoiceController extends Controller
 
         // Set your secret key: remember to change this to your live secret key in production
         // See your keys here: https://dashboard.stripe.com/account/apikeys
-        \Stripe\Stripe::setApiKey("sk_test_BXSPQ4kmTwwBazTOTuPi8NM1");
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
         // Token is created using Stripe.js or Checkout!
         // Get the payment token submitted by the form:

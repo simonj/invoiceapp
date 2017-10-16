@@ -9,12 +9,14 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
 class InvoiceTest extends TestCase
 {
     use DatabaseMigrations;
     use DatabaseTransactions;
+    use WithoutMiddleware;
 
     public function test_user_can_see_invoice()
     {

@@ -50,9 +50,14 @@
 </div><!-- /.container-fluid -->
 
 <div class="feature-wrapper container">
-    <div class="row">
-        <h2 class="text-center text-uppercase">Some of the features</h2>
 
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center text-uppercase">Some of the features</h2>
+        </div><!-- /.col-md-12 -->
+    </div><!-- row -->
+
+    <div class="row">
         <div class="col-md-5">
             <div class="icon-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-photos heroicon heroicon-sm">
@@ -90,7 +95,9 @@
                 <p class="text-description">Get notifications when your customer is missing a due date or when the customer has paid your invoices with our notification system.</p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
+    </div><!-- /.row -->
 
+    <div class="row">
         <div class="col-md-5">
             <div class="icon-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-clock heroicon heroicon-sm">
@@ -123,7 +130,9 @@
                 <p class="text-description">We automatic send invoices to your customer's email address when you create a new invoice.</p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
+    </div><!-- /.row -->
 
+    <div class="row">
         <div class="col-md-5">
             <div class="icon-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-currency heroicon heroicon-sm">
@@ -156,13 +165,16 @@
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
     </div><!-- /.row -->
-</div><!-- /.feature-wrapper -->
+</div><!-- /.feature-wrapper container -->
 
 <div class="feature-wrapper container feature-soft-bg">
     <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center text-uppercase">Start your free trial</h2>
+        </div><!-- /.col-md-12 -->
+    </div><!-- row -->
 
-        <h2 class="text-center text-uppercase">Start your free trial</h2>
-
+    <div class="row">
         <div class="col-md-6">
             <h3 class="text-headline text-lg">Cheap Pricing</h3>
             <p class="text-description">

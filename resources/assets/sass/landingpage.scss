@@ -155,6 +155,12 @@ $fill-color: adjust-color($primary-color, $saturation: -82%, $lightness: 50%);
   font-size: 1.833em
 }
 
+@media screen and (max-width: 991px) and (min-width: 0px) {
+  .plan {
+    margin-top: 50px;
+  }
+}
+
 .plan-price .dollar {
   font-size: 28px;
   color: #c7c7c7;

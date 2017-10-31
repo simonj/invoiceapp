@@ -167,44 +167,46 @@
     </div><!-- /.row -->
 </div><!-- /.feature-wrapper container -->
 
-<div class="feature-wrapper container feature-soft-bg">
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="text-center text-uppercase">Start your free trial</h2>
-        </div><!-- /.col-md-12 -->
-    </div><!-- row -->
+<div class="feature-wrapper container-fluid feature-soft-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center text-uppercase">Start your free trial</h2>
+            </div><!-- /.col-md-12 -->
+        </div><!-- row -->
 
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="text-headline text-lg">Cheap Pricing</h3>
-            <p class="text-description">
-                At Invoiceapp you can get started with sending invoices to your customers with our <b>30 days free trial</b>
-                and after that you can sign up to our basic plan for a cheap price. <br/><br/>
-                We will be very happy with feedback via our support link found under your profile, so we
-                can continue improve Invoiceapp.
-            </p>
-            <br/>
-            <a href="/register">
-                <button class="btn btn-action">Start your free trial</button>
-            </a>
-        </div><!-- /.col-md-6 -->
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="text-headline text-lg">Cheap Pricing</h3>
+                <p class="text-description">
+                    At Invoiceapp you can get started with sending invoices to your customers with our <b>30 days free trial</b>
+                    and after that you can sign up to our basic plan for a cheap price. <br/><br/>
+                    We will be very happy with feedback via our support link found under your profile, so we
+                    can continue improve Invoiceapp.
+                </p>
+                <br/>
+                <a href="/register">
+                    <button class="btn btn-action">Start your free trial</button>
+                </a>
+            </div><!-- /.col-md-6 -->
 
-        <div class="col-md-4 col-md-offset-2">
-            <div id="plan" class="panel panel-default">
-                <div class="panel-body text-center">
-                    <div class="plan-type text-uppercase">
-                        <span>Monthly</span>
-                    </div><!-- plan-type -->
+            <div class="plan col-md-4 col-md-offset-2">
+                <div id="plan" class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <div class="plan-type text-uppercase">
+                            <span>Monthly</span>
+                        </div><!-- plan-type -->
 
-                    <div class="plan-price">
-                        <span class="dollar">$</span>
-                        <span>3</span>
-                    </div><!-- plan-price -->
-                    <small>A monthly plan that can be canceled in ten seconds.</small>
-                </div><!-- panel-body -->
-            </div><!-- plan -->
-        </div><!-- /.col-md-6 -->
-    </div><!-- /.row -->
+                        <div class="plan-price">
+                            <span class="dollar">$</span>
+                            <span>3</span>
+                        </div><!-- plan-price -->
+                        <small>A monthly plan that can be canceled in ten seconds.</small>
+                    </div><!-- panel-body -->
+                </div><!-- plan -->
+            </div><!-- /.col-md-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
 </div><!-- /.feature-wrapper -->
 
 <footer class="container-fluid footer">

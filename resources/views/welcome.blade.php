@@ -146,7 +146,7 @@
             </div><!-- icon-feature -->
             <div class="description">
                 <h3 class="text-headline">No Fees</h3>
-                <p class="text-description">There are no hidden feeds (besides Stripe’s standard fees), we take a fast price every 3 months and it’s only $5,- </p>
+                <p class="text-description">There are no hidden feeds (besides Stripe’s standard fees), we take a fixed price every 3 months and it’s only $3,- </p>
             </div><!-- /.description -->
         </div><!-- col-md-4 -->
 
